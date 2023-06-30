@@ -11,7 +11,7 @@ const MobileMenu = () => {
   };
 
   return (
-    <div className="block relative md:hidden">
+    <div className="block relative md:hidden z-50">
       {/* Menu Icon */}
       <div
         className="relative mt-4 right-3 cursor-pointer"
