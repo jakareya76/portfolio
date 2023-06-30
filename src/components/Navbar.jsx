@@ -14,7 +14,7 @@ const Navbar = () => {
           className="object-cover"
         />
       </div>
-      <div className="hidden md:flex items-center justify-center gap-5">
+      <div className="hidden md:flex items-center justify-center gap-8">
         <div className="flex flex-col items-center justify-center">
           <Link href="/" className="text-[24px] uppercase font-[300]">
             Home
