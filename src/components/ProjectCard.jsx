@@ -9,6 +9,7 @@ const ProjectCard = ({ id, title, description, image, category }) => {
         width={600}
         height={600}
         className="w-[400px] h-auto object-cover cursor-pointer duration-200 hover:scale-105 xl:w-[500px]"
+        alt="img"
       />
       <div className="flex flex-col text-white items-start gap-5">
         <h3 className="uppercase text-xs">{title}</h3>
@@ -18,7 +19,7 @@ const ProjectCard = ({ id, title, description, image, category }) => {
         <span className="font-[200]">{category}</span>
         <Link
           href={`/work/${id}`}
-          className="border px-5 py-1 rounded-full font-thin hover:bg-white hover:text-black hover:font-[400]"
+          className="border px-5 py-1 rounded-full font-thin duration-200 hover:scale-95"
         >
           View Work
         </Link>

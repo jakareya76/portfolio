@@ -8,13 +8,53 @@ export const myWork = [
     image: "/real-state.png",
   },
   {
-    id: 0,
+    id: 1,
     title: "Plant identification app",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
     category: "Mobile App",
     image: "/plant.png",
   },
+  {
+    id: 2,
+    title: "Smart Home App",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
+    category: "Mobile App",
+    image: "/smart.png",
+  },
+];
+
+export const mySkills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "React Js",
+  "React Native",
+  "Next Js",
+  "Node Js",
+  "Express Js",
+  "MongoDB",
+  "Mongoose JS",
+  "Tailwind CSS",
+  "SQL",
+  "Redux Toolkit",
+  "Firebase",
+  "GraphQL",
+  "Prisma ORM",
+  "Figma",
+  "Expo",
+  "API",
+  "Docker",
+  "JSON",
+  "Superbase",
+  "SCSS",
+  "AJAX",
+  "MySQL",
+  "Git",
+  "Auth0",
+  "NextAuth",
 ];
 
 export const particleOption = {

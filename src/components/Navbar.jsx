@@ -13,6 +13,7 @@ const Navbar = () => {
             width={66}
             height={66}
             className="object-cover"
+            alt="logo"
           />
         </Link>
       </div>
