@@ -17,7 +17,7 @@ const ParticlesBackground = () => {
         id="tsparticles"
         init={particlesInit}
         options={particleOption}
-        className="w-full h-[650px] absolute top-0"
+        className="w-full h-[600px] absolute top-0"
       />
     </div>
   );

@@ -1,3 +1,22 @@
+export const myWork = [
+  {
+    id: 0,
+    title: "Real Estate Project",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
+    category: "Web Application",
+    image: "/real-state.png",
+  },
+  {
+    id: 0,
+    title: "Plant identification app",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
+    category: "Mobile App",
+    image: "/plant.png",
+  },
+];
+
 export const particleOption = {
   fullScreen: {
     enable: false,
@@ -54,7 +73,7 @@ export const particleOption = {
     },
     move: {
       enable: true,
-      speed: 1,
+      speed: 0.5,
       direction: "none",
       random: true,
       straight: false,
