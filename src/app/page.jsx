@@ -1,28 +1,36 @@
+"use client";
+
 import ProjectCard from "@/components/ProjectCard";
 import LeftSide from "@/components/LeftSide";
 import RightSide from "@/components/RightSide";
 import Hero from "@/components/Hero";
+
+import { motion } from "framer-motion";
 
 import { myWork } from "@/constants";
 
 const HomePage = () => {
   return (
     <>
+      {/* LeftSide Icon */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="hidden w-32 h-full xl:inline-flex fixed xl:-left-8 2xl:left-0 bottom-0"
+      >
+        <LeftSide />
+      </motion.div>
+
       {/* Hero Section */}
-      <section className="w-full h-[88vh] flex flex-col items-center justify-between gap-20 xl:flex-row">
-        <div className="hidden w-32 h-full xl:inline-flex fixed xl:-left-8 2xl:left-0 bottom-0">
-          <LeftSide />
-        </div>
-        <div className="">
+      <section className="w-full h-full flex flex-col items-center justify-between gap-20 xl:flex-row">
+        <div className="w-full h-full mx-auto p-4">
           <Hero />
-        </div>
-        <div className="hidden w-32 h-full xl:inline-flex fixed right-0 bottom-0">
-          <RightSide />
         </div>
       </section>
 
       {/* Work Section */}
-      <section className="w-full h-full px-8 py-36 ">
+      <section id="projects" className="w-full h-full px-8 py-36 ">
         <h2 className="text-white text-3xl text-center md:text-left md:text-5xl ">
           <span className="font-[100]">My Recent </span>
           <span className="font-semibold">Works</span>
@@ -68,6 +76,16 @@ const HomePage = () => {
           <div className="w-full md:w-1/2"></div>
         </div>
       </section>
+
+      {/* RightSide Email */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="hidden w-32 h-full xl:inline-flex fixed right-0 bottom-0"
+      >
+        <RightSide />
+      </motion.div>
     </>
   );
 };

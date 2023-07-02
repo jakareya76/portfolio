@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { TbBrandGithub } from "react-icons/tb";
 
 import { socialIcons } from "@/constants";
 
@@ -11,7 +10,7 @@ const LeftSide = () => {
           return (
             <span
               key={icon.id}
-              className="w-10 h-10 bg-zinc-900 flex items-center justify-center text-gray-400 text-xl rounded-full cursor-pointer hover:text-white"
+              className="w-10 h-10 bg-zinc-900 flex items-center justify-center text-gray-400 text-xl rounded-full cursor-pointer duration-200 hover:text-white hover:-translate-y-2"
             >
               <Link
                 href={icon.url}
