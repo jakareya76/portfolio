@@ -1,3 +1,6 @@
+import { TbBrandGithub, TbBrandFiverr } from "react-icons/tb";
+import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
+
 export const myWork = [
   {
     id: 0,
@@ -25,145 +28,25 @@ export const myWork = [
   },
 ];
 
-export const mySkills = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "TypeScript",
-  "React Js",
-  "React Native",
-  "Next Js",
-  "Node Js",
-  "Express Js",
-  "MongoDB",
-  "Mongoose JS",
-  "Tailwind CSS",
-  "SQL",
-  "Redux Toolkit",
-  "Firebase",
-  "GraphQL",
-  "Prisma ORM",
-  "Figma",
-  "Expo",
-  "API",
-  "Docker",
-  "JSON",
-  "Superbase",
-  "SCSS",
-  "AJAX",
-  "MySQL",
-  "Git",
-  "Auth0",
-  "NextAuth",
+export const socialIcons = [
+  {
+    id: 0,
+    url: "https://github.com/jakareya76",
+    icon: <TbBrandGithub />,
+  },
+  {
+    id: 1,
+    url: "https://www.linkedin.com/in/md-jakareya-ahmed-43a5251b1/",
+    icon: <FaLinkedinIn />,
+  },
+  {
+    id: 2,
+    url: "https://www.fiverr.com/jakareya608",
+    icon: <TbBrandFiverr />,
+  },
+  {
+    id: 3,
+    url: "https://twitter.com/Jakareya608",
+    icon: <FaTwitter />,
+  },
 ];
-
-export const particleOption = {
-  fullScreen: {
-    enable: false,
-    zIndex: -5,
-  },
-  fpsLimit: 120,
-  particles: {
-    number: {
-      value: 160,
-      density: {
-        enable: true,
-        value_area: 800,
-      },
-    },
-    color: {
-      value: "#fff",
-    },
-    shape: {
-      type: "circle",
-      stroke: {
-        width: 0,
-        color: "#000000",
-      },
-      polygon: {
-        nb_sides: 5,
-      },
-    },
-    opacity: {
-      value: 1,
-      random: true,
-      anim: {
-        enable: true,
-        speed: 1,
-        opacity_min: 0,
-        sync: false,
-      },
-    },
-    size: {
-      value: 1,
-      random: true,
-      anim: {
-        enable: false,
-        speed: 4,
-        size_min: 0.5,
-        sync: false,
-      },
-    },
-    line_linked: {
-      enable: false,
-      distance: 150,
-      color: "#ffffff",
-      opacity: 0.4,
-      width: 1,
-    },
-    move: {
-      enable: true,
-      speed: 0.5,
-      direction: "none",
-      random: true,
-      straight: false,
-      out_mode: "out",
-      bounce: false,
-      attract: {
-        enable: false,
-        rotateX: 600,
-        rotateY: 600,
-      },
-    },
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: {
-        enable: false,
-        mode: "bubble",
-      },
-      onclick: {
-        enable: false,
-        mode: "repulse",
-      },
-      resize: true,
-    },
-    modes: {
-      grab: {
-        distance: 400,
-        line_linked: {
-          opacity: 1,
-        },
-      },
-      bubble: {
-        distance: 250,
-        size: 0,
-        duration: 2,
-        opacity: 0,
-        speed: 3,
-      },
-      repulse: {
-        distance: 400,
-        duration: 0.4,
-      },
-      push: {
-        particles_nb: 4,
-      },
-      remove: {
-        particles_nb: 2,
-      },
-    },
-  },
-  retina_detect: true,
-};

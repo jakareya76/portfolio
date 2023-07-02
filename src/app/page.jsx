@@ -1,27 +1,23 @@
-import Link from "next/link";
-
-import ParticlesBackground from "@/components/ParticlesBackground";
 import ProjectCard from "@/components/ProjectCard";
-import MySkills from "@/components/MySkills";
+import LeftSide from "@/components/LeftSide";
+import RightSide from "@/components/RightSide";
+import Hero from "@/components/Hero";
 
 import { myWork } from "@/constants";
 
 const HomePage = () => {
   return (
     <>
-      <ParticlesBackground />
-
       {/* Hero Section */}
-      <section className="w-full h-full py-36 px-5 lg:py-44 relative">
-        <div className="flex items-center justify-center">
-          <h1 className="hero_heading text-focus-in">
-            <span className="font-[100]">I’m a developer specialize in </span>
-            <span className="font-semibold">JavaScript </span>
-            <span className="font-[100]">and I develop for The </span>
-            <span className="font-semibold tracking-in-expand">
-              Web & Mobile
-            </span>
-          </h1>
+      <section className="w-full h-[88vh] flex flex-col items-center justify-between gap-20 xl:flex-row">
+        <div className="hidden w-32 h-full xl:inline-flex fixed xl:-left-8 2xl:left-0 bottom-0">
+          <LeftSide />
+        </div>
+        <div className="">
+          <Hero />
+        </div>
+        <div className="hidden w-32 h-full xl:inline-flex fixed right-0 bottom-0">
+          <RightSide />
         </div>
       </section>
 
@@ -69,9 +65,7 @@ const HomePage = () => {
               to ensure that my clients are satisfied with the work I deliver.
             </p>
           </div>
-          <div className="w-full h-[500px] md:w-1/2">
-            <MySkills />
-          </div>
+          <div className="w-full md:w-1/2"></div>
         </div>
       </section>
     </>

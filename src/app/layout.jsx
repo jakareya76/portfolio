@@ -16,7 +16,7 @@ const workSans = Work_Sans({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`bg-[#010208] ${workSans.className}`}>
+      <body className={`bg-[#07080e] ${workSans.className}`}>
         <main className="container mx-auto">
           <Navbar />
           {children}

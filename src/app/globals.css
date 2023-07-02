@@ -7,77 +7,24 @@
     @apply text-white text-[24px] text-center leading-10 sm:text-[32px] md:text-[40px] md:leading-[45px] lg:text-[52px] lg:leading-[66px] xl:text-6xl xl:max-w-6xl xl:leading-[82px];
   }
 
-  .text-focus-in {
-    -webkit-animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-      both;
-    animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-  }
-
-  @-webkit-keyframes text-focus-in {
-    0% {
-      -webkit-filter: blur(12px);
-      filter: blur(12px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-filter: blur(0);
-      filter: blur(0);
-      opacity: 1;
-    }
-  }
-  @keyframes text-focus-in {
-    0% {
-      -webkit-filter: blur(12px);
-      filter: blur(12px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-filter: blur(0);
-      filter: blur(0);
-      opacity: 1;
-    }
-  }
-
-  .tracking-in-expand {
-    -webkit-animation: tracking-in-expand 2s cubic-bezier(0.215, 0.61, 0.355, 1)
-      2s both;
-    animation: tracking-in-expand 2s cubic-bezier(0.215, 0.61, 0.355, 1) 2s both;
-  }
-
-  .tracking-in-expand_instant {
-    -webkit-animation: tracking-in-expand 3s cubic-bezier(0.215, 0.61, 0.355, 1)
-      0s both;
-    animation: tracking-in-expand 3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s both;
-  }
-
-  @-webkit-keyframes tracking-in-expand {
-    0% {
-      letter-spacing: -0.5em;
-      opacity: 0;
-    }
-    40% {
-      opacity: 0.6;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes tracking-in-expand {
-    0% {
-      letter-spacing: -0.5em;
-      opacity: 0;
-    }
-    40% {
-      opacity: 0.6;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
   @media (min-width: 1024px) {
     .portfolio__container:nth-child(2n + 1) {
       flex-direction: row-reverse;
     }
   }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #23282b;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(17, 17, 19, 0.979);
+}
+
+.scrollbar-track {
+  background: #1d2122 !important;
 }
