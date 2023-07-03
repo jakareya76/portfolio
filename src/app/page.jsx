@@ -30,7 +30,7 @@ const HomePage = () => {
       </section>
 
       {/* Work Section */}
-      <section id="projects" className="w-full h-full px-8 py-36 ">
+      <section id="projects" className="w-full h-full py-36 px-4 md:px-8">
         <h2 className="text-white text-3xl text-center md:text-left md:text-5xl ">
           <span className="font-[100]">My Recent </span>
           <span className="font-semibold">Works</span>
@@ -45,23 +45,22 @@ const HomePage = () => {
       </section>
 
       {/* About Section */}
-      <section className="w-full h-full px-8">
+      <section className="w-full h-full p-4 md:px-8">
         <h2 className="text-white uppercase text-2xl text-center underline underline-offset-8">
           a bit about me
         </h2>
 
         <div className="flex flex-col items-center justify-around gap-8 py-12 md:py-28 lg:flex-row">
           <div className="flex flex-col">
-            <h3 className="text-white max-w-2xl text-center md:text-left md:text-4xl md:leading-[46px] ">
+            <h3 className="text-white text-xl max-w-2xl text-left md:text-left md:text-4xl md:leading-[46px] ">
               <span className="font-thin">
                 I am a Full Stack Developer <br /> who is passionate about
                 creating{" "}
               </span>
               beautiful and interactive{" "}
               <span className="font-thin">web application </span> and Mobile App
-              with <span className="font-thin">React Native</span>
             </h3>
-            <p className="text-white text-xs font-[300] max-w-xl py-8 text-center md:text-left">
+            <p className="text-white text-sm font-[300] max-w-xl py-8 text-justify md:text-left">
               As a professional web developer, I am skilled in creating
               beautiful, interactive, and user-friendly websites using the
               latest technologies and best practices. With a strong background
@@ -73,7 +72,7 @@ const HomePage = () => {
               to ensure that my clients are satisfied with the work I deliver.
             </p>
           </div>
-          <div className="w-full md:w-1/2"></div>
+          <div className="w-full md:w-1/3 z-50"></div>
         </div>
       </section>
 

@@ -15,7 +15,7 @@ const Hero = () => {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="text-[34px] leading-10 text-blue-50 font-semibold flex flex-col lg:text-6xl"
+        className="text-[34px] leading-10 text-blue-50 font-semibold flex flex-col lg:text-6xl 2xl:text-[76px]"
       >
         Jakareya Ahmed
         <span className="text-gray-500 mt-2 lg:mt-4">
