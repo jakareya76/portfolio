@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import TagCanvas from "@/lib/TagCanvas";
 import { skills } from "@/constants";
@@ -5,13 +7,16 @@ import { skills } from "@/constants";
 const MySkills = () => {
   useEffect(() => {
     TagCanvas.Start("myCanva", "tagList", {
-      initial: [0.4, -0.3],
+      initial: [0.3, -0.2],
       noSelect: true,
       textColour: "#fff",
+      maxSpeed: 0.06,
+      dragControl: true,
     });
   }, []);
+
   return (
-    <div className="xl:w-[500px] xl:h-[500px] flex items-center justify-center">
+    <div className="flex items-center justify-center xl:w-[500px] xl:h-[500px] z-20">
       <div id="canvaContainer">
         <canvas
           id="myCanva"
@@ -23,9 +28,7 @@ const MySkills = () => {
             {skills.map((curElem, idx) => {
               return (
                 <li key={idx}>
-                  <a href="https://google.com" className="text-sm">
-                    {curElem}
-                  </a>
+                  <a href="#">{curElem}</a>
                 </li>
               );
             })}

@@ -1,27 +1,15 @@
-"use client";
-
 import ProjectCard from "@/components/ProjectCard";
 import LeftSide from "@/components/LeftSide";
 import RightSide from "@/components/RightSide";
 import Hero from "@/components/Hero";
 import MySkills from "@/components/MySkills";
 
-import { motion } from "framer-motion";
-
 import { myWork } from "@/constants";
 
 const HomePage = () => {
   return (
     <>
-      {/* LeftSide Icon */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="hidden w-32 h-full xl:inline-flex fixed xl:-left-8 2xl:left-0 bottom-0"
-      >
-        <LeftSide />
-      </motion.div>
+      <LeftSide />
 
       {/* Hero Section */}
       <section className="w-full h-full flex flex-col items-center justify-between gap-20 xl:flex-row">
@@ -46,7 +34,7 @@ const HomePage = () => {
       </section>
 
       {/* About Section */}
-      <section className="w-full h-full p-4 md:px-8">
+      <section className="w-full h-full p-4 md:px-12">
         <h2 className="text-white uppercase text-2xl text-center underline underline-offset-8">
           a bit about me
         </h2>
@@ -73,21 +61,13 @@ const HomePage = () => {
               to ensure that my clients are satisfied with the work I deliver.
             </p>
           </div>
-          <div className="w-full md:w-1/3">
+          <div className="w-full flex items-center justify-center md:w-1/2">
             <MySkills />
           </div>
         </div>
       </section>
 
-      {/* RightSide Email */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="hidden w-32 h-full xl:inline-flex fixed right-0 bottom-0"
-      >
-        <RightSide />
-      </motion.div>
+      <RightSide />
     </>
   );
 };
