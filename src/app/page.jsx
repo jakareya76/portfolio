@@ -4,6 +4,7 @@ import ProjectCard from "@/components/ProjectCard";
 import LeftSide from "@/components/LeftSide";
 import RightSide from "@/components/RightSide";
 import Hero from "@/components/Hero";
+import MySkills from "@/components/MySkills";
 
 import { motion } from "framer-motion";
 
@@ -72,7 +73,9 @@ const HomePage = () => {
               to ensure that my clients are satisfied with the work I deliver.
             </p>
           </div>
-          <div className="w-full md:w-1/3 z-50"></div>
+          <div className="w-full md:w-1/3">
+            <MySkills />
+          </div>
         </div>
       </section>
 
