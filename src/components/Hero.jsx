@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div className="max-w-[1140px] mx-auto py-10 flex flex-col gap-4 md:py-24 md:px-8 lg:gap-6 xl:px-4">
+    <div className="max-w-[1140px] mx-auto flex flex-col gap-4">
       <motion.h3
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

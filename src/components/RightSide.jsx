@@ -11,7 +11,7 @@ const RightSide = () => {
       transition={{ delay: 1.5 }}
       className="fixed bottom-0 right-0 hidden w-32 h-full xl:inline-flex"
     >
-      <div className="flex flex-col items-center justify-end h-full  gap-28">
+      <div className="flex flex-col items-center justify-end h-full gap-28">
         <Link href="mailto:jakareya1306@gmail.com">
           <p className="text-sm tracking-widest text-gray-400 rotate-90">
             Jakareya1306@gmail.com

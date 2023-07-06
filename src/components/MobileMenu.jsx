@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 const MobileMenu = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -34,27 +33,34 @@ const MobileMenu = () => {
       {/* Menu */}
       {toggleMenu && (
         <div className="absolute right-0 flex flex-col gap-2 px-5 py-5 rounded top-12 bg-zinc-900">
-          <Link
-            href="/"
+          <a
+            href="#hero"
             className="text-[18px] uppercase font-[300]"
             onClick={handleToggleMenu}
           >
             Home
-          </Link>
-          <Link
-            href="/work"
+          </a>
+          <a
+            href="#projects"
             className="text-[18px] uppercase font-[300]"
             onClick={handleToggleMenu}
           >
             Work
-          </Link>
-          <Link
-            href="/about"
+          </a>
+          <a
+            href="#about"
             className="text-[18px] uppercase font-[300]"
             onClick={handleToggleMenu}
           >
             About
-          </Link>
+          </a>
+          <a
+            href="#contact"
+            className="text-[18px] uppercase font-[300]"
+            onClick={handleToggleMenu}
+          >
+            Contact
+          </a>
         </div>
       )}
     </div>

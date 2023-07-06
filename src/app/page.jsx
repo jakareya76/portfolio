@@ -13,7 +13,10 @@ const HomePage = () => {
       <LeftSide />
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-between w-full h-full gap-20 xl:flex-row">
+      <section
+        id="hero"
+        className="flex flex-col items-center justify-between w-full h-full gap-20 py-10 xl:flex-row md:py-28 md:px-8 lg:gap-6 xl:px-4"
+      >
         <div className="w-full h-full p-4 mx-auto">
           <Hero />
         </div>
@@ -35,7 +38,7 @@ const HomePage = () => {
       </section>
 
       {/* About Section */}
-      <section className="w-full h-full p-4 md:px-12">
+      <section id="about" className="w-full h-full p-4 md:px-12">
         <h2 className="text-2xl text-center text-white underline uppercase underline-offset-8">
           a bit about me
         </h2>
@@ -68,7 +71,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="px-8 py-28">
+      {/* Contact Section */}
+      <section id="contact" className="px-8 py-28">
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-4xl font-thin text-white md:text-6xl">
             Get <span className="font-bold">in Touch.</span>
