@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import MySkills from "@/components/MySkills";
 
 import { myWork } from "@/constants";
+import Link from "next/link";
 
 const HomePage = () => {
   return (
@@ -64,6 +65,23 @@ const HomePage = () => {
           <div className="flex items-center justify-center w-full md:w-1/2">
             <MySkills />
           </div>
+        </div>
+      </section>
+
+      <section className="px-8 py-28">
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="text-4xl font-thin text-white md:text-6xl">
+            Get <span className="font-bold">in Touch.</span>
+          </h1>
+          <span className="py-3 text-xl font-thin text-white md:py-5">
+            So that we can talk more about...
+          </span>
+          <Link
+            href="mailto:jakareya1306@gmail.com"
+            className="px-8 py-4 text-2xl text-gray-400 bg-transparent border border-gray-600 rounded hover:bg-zinc-900 hover:border-zinc-900"
+          >
+            Say Hello
+          </Link>
         </div>
       </section>
 
