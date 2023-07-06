@@ -20,7 +20,7 @@ const Hero = () => {
         className="text-[34px] leading-10 text-blue-50 font-semibold flex flex-col lg:text-6xl 2xl:text-[76px]"
       >
         Jakareya Ahmed
-        <span className="text-gray-500 mt-2 lg:mt-4">
+        <span className="mt-2 text-gray-500 lg:mt-4">
           I Build things for the Web
         </span>
       </motion.h1>
@@ -40,7 +40,7 @@ const Hero = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.9 }}
         href="#projects"
-        className="w-64 h-14 flex items-center justify-center bg-transparent border border-zinc-600 text-zinc-500 rounded-md outline-none hover:bg-zinc-900 hover:border-zinc-900 hover:text-zinc-400"
+        className="flex items-center justify-center w-64 duration-200 bg-transparent border rounded-md outline-none h-14 border-zinc-600 text-zinc-500 hover:bg-zinc-900 hover:border-zinc-900 hover:text-zinc-500"
       >
         Check out my projects!
       </motion.a>

@@ -11,10 +11,10 @@ const MobileMenu = () => {
   };
 
   return (
-    <div className="block relative md:hidden z-50">
+    <div className="relative z-50 block md:hidden">
       {/* Menu Icon */}
       <div
-        className="relative mt-4 right-3 cursor-pointer"
+        className="relative mt-4 cursor-pointer right-3"
         onClick={handleToggleMenu}
       >
         {toggleMenu ? (
@@ -33,7 +33,7 @@ const MobileMenu = () => {
 
       {/* Menu */}
       {toggleMenu && (
-        <div className="flex flex-col absolute top-12 right-0 bg-zinc-900 px-5 py-5 gap-2 rounded">
+        <div className="absolute right-0 flex flex-col gap-2 px-5 py-5 rounded top-12 bg-zinc-900">
           <Link
             href="/"
             className="text-[18px] uppercase font-[300]"

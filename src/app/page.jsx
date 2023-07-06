@@ -12,20 +12,20 @@ const HomePage = () => {
       <LeftSide />
 
       {/* Hero Section */}
-      <section className="w-full h-full flex flex-col items-center justify-between gap-20 xl:flex-row">
-        <div className="w-full h-full mx-auto p-4">
+      <section className="flex flex-col items-center justify-between w-full h-full gap-20 xl:flex-row">
+        <div className="w-full h-full p-4 mx-auto">
           <Hero />
         </div>
       </section>
 
       {/* Work Section */}
-      <section id="projects" className="w-full h-full py-36 px-4 md:px-8">
-        <h2 className="text-white text-3xl text-center md:text-left md:text-5xl ">
+      <section id="projects" className="w-full h-full px-4 py-36 md:px-8">
+        <h2 className="text-3xl text-center text-white md:text-left md:text-5xl ">
           <span className="font-[100]">My Recent </span>
           <span className="font-semibold">Works</span>
         </h2>
         <div className="flex items-center justify-center">
-          <div className="py-24 space-y-28 w-full">
+          <div className="w-full py-24 space-y-28">
             {myWork.map((work) => {
               return <ProjectCard key={work.id} {...work} />;
             })}
@@ -35,7 +35,7 @@ const HomePage = () => {
 
       {/* About Section */}
       <section className="w-full h-full p-4 md:px-12">
-        <h2 className="text-white uppercase text-2xl text-center underline underline-offset-8">
+        <h2 className="text-2xl text-center text-white underline uppercase underline-offset-8">
           a bit about me
         </h2>
 
@@ -61,7 +61,7 @@ const HomePage = () => {
               to ensure that my clients are satisfied with the work I deliver.
             </p>
           </div>
-          <div className="w-full flex items-center justify-center md:w-1/2">
+          <div className="flex items-center justify-center w-full md:w-1/2">
             <MySkills />
           </div>
         </div>

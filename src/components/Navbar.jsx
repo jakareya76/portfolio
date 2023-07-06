@@ -9,7 +9,7 @@ import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between py-4 px-5 text-white xl:px-0">
+    <nav className="flex items-center justify-between px-5 py-4 text-white xl:px-0">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -26,7 +26,7 @@ const Navbar = () => {
           />
         </Link>
       </motion.div>
-      <div className="hidden md:flex items-center justify-center gap-8">
+      <div className="items-center justify-center hidden gap-8 md:flex">
         <Link href="/" className="text-[18px] uppercase font-[300]">
           <motion.div
             initial={{ y: -10, opacity: 0 }}
