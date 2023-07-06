@@ -15,7 +15,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <section
         id="hero"
-        className="flex flex-col items-center justify-between w-full h-full gap-20 py-10 xl:flex-row md:py-28 md:px-8 lg:gap-6 xl:px-4"
+        className="flex flex-col items-center justify-between w-full h-full gap-20 py-16 xl:flex-row md:py-28 md:px-8 lg:gap-6 xl:px-4"
       >
         <div className="w-full h-full p-4 mx-auto">
           <Hero />
