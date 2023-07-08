@@ -6,9 +6,10 @@ export const myWork = [
     id: 0,
     title: "Real Estate Project",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
+      "Elevate your perspective with our captivating drone landing page. Explore limitless possibilities!",
     category: "Web Application",
-    image: "/real-state.png",
+    image: "/project_one.png",
+    link: "https://drone-landing-page.vercel.app",
   },
   {
     id: 1,
@@ -17,6 +18,7 @@ export const myWork = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
     category: "Mobile App",
     image: "/plant.png",
+    link: "#",
   },
   {
     id: 2,
@@ -25,6 +27,7 @@ export const myWork = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
     category: "Mobile App",
     image: "/smart.png",
+    link: "#",
   },
 ];
 
@@ -62,7 +65,7 @@ export const skills = [
   "Node JS",
   "Express JS",
   "MongoDB",
-  "Mongoose JS",
+  "PostgreSQL",
   "Framer Motion",
   "Prisma",
   "HTML",
@@ -79,4 +82,5 @@ export const skills = [
   "React-Icons",
   "SQL",
   "Formik",
+  "Mongoose",
 ];

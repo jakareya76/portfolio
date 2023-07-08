@@ -82,13 +82,12 @@ const HomePage = () => {
           </span>
           <Link
             href="mailto:jakareya1306@gmail.com"
-            className="px-8 py-4 text-2xl text-gray-400 bg-transparent border border-gray-600 rounded hover:bg-zinc-900 hover:border-zinc-900"
+            className="px-8 py-4 text-2xl text-gray-400 duration-200 bg-transparent border border-gray-600 rounded hover:bg-zinc-900 hover:border-zinc-900"
           >
             Say Hello
           </Link>
         </div>
       </section>
-
       <RightSide />
     </>
   );
