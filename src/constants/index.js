@@ -4,7 +4,7 @@ import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
 export const myWork = [
   {
     id: 0,
-    title: "Real Estate Project",
+    title: "Drone Store Project",
     description:
       "Elevate your perspective with our captivating drone landing page. Explore limitless possibilities!",
     category: "Web Application",
