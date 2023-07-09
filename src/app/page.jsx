@@ -1,11 +1,11 @@
+import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import LeftSide from "@/components/LeftSide";
 import RightSide from "@/components/RightSide";
-import Hero from "@/components/Hero";
 import MySkills from "@/components/MySkills";
+import Hero from "@/components/Hero";
 
 import { myWork } from "@/constants";
-import Link from "next/link";
 
 const HomePage = () => {
   return (
