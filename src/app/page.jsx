@@ -23,7 +23,7 @@ const HomePage = () => {
       </section>
 
       {/* Work Section */}
-      <section id="projects" className="w-full h-full px-4 py-36 md:px-8">
+      <section id="projects" className="w-full h-full px-4 py-40 md:px-8">
         <h2 className="text-3xl text-center text-white md:text-left md:text-5xl ">
           <span className="font-[100]">My Recent </span>
           <span className="font-semibold">Works</span>
