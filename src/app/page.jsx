@@ -13,11 +13,8 @@ const HomePage = () => {
       <LeftSide />
 
       {/* Hero Section */}
-      <section
-        id="hero"
-        className="flex flex-col items-center justify-between w-full h-full gap-20 py-16 xl:flex-row md:py-24 2xl:py-32 md:px-8 lg:gap-6 xl:px-4"
-      >
-        <div className="w-full h-full p-4 mx-auto">
+      <section id="hero" className="py-16 f md:py-24 2xl:py-32 md:px-8 xl:px-4">
+        <div className="p-4">
           <Hero />
         </div>
       </section>
