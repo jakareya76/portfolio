@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const ProjectCard = ({ id, title, description, image, category, link }) => {
+const ProjectCard = ({ title, description, image, category, link }) => {
   return (
     <div className="flex flex-col-reverse items-center justify-between gap-8 portfolio__container lg:flex-row">
       <Image
