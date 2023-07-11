@@ -28,7 +28,7 @@ const Hero = () => {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className="text-base md:max-w-[600px] text-zinc-600"
+        className="text-base md:max-w-[577px] text-zinc-600"
       >
         I am a web developer with 4+ years of experience in React. I have a
         strong foundation in front-end & back-end development and am skilled in
