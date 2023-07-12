@@ -30,7 +30,7 @@ const Hero = () => {
         transition={{ duration: 0.5, delay: 0.8 }}
         className="text-base md:max-w-[577px] text-zinc-600"
       >
-        I am a web developer with 4+ years of experience in React. I have a
+        I am a web developer with 3+ years of experience in React. I have a
         strong foundation in front-end & back-end development and am skilled in
         creating user-friendly and responsive web applications using React and
         its ecosystem.

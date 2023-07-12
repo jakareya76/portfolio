@@ -56,7 +56,7 @@ const HomePage = () => {
               latest technologies and best practices. With a strong background
               in HTML, CSS, JavaScript, I am able to develop websites that are
               responsive, optimized for search engines, and easy to maintain. I
-              am proficient in frameworks such as React and have experience
+              am proficient in frameworks such as React Js and have experience
               working with APIs and other back-end technologies. I am a reliable
               and efficient developer who is always willing to go the extra mile
               to ensure that my clients are satisfied with the work I deliver.
