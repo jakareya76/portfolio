@@ -30,7 +30,7 @@ const Hero = () => {
         transition={{ duration: 0.5, delay: 0.8 }}
         className="text-base md:max-w-[577px] text-zinc-600"
       >
-        I'm a skilled web developer with 5 years' experience, specializing in
+        I'm a skilled web developer with 5 year's experience, specializing in
         WordPress, Wix, Webflow, and Shopify. I create stunning, user-friendly
         websites that exceed expectations and deliver modern, functional, and
         tailored solutions.
