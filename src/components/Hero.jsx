@@ -30,10 +30,10 @@ const Hero = () => {
         transition={{ duration: 0.5, delay: 0.8 }}
         className="text-base md:max-w-[577px] text-zinc-600"
       >
-        I am a web developer with 3+ years of experience in React. I have a
-        strong foundation in front-end & back-end development and am skilled in
-        creating user-friendly and responsive web applications using React and
-        its ecosystem.
+        I'm a skilled web developer with 5 years' experience, specializing in
+        WordPress, Wix, Webflow, and Shopify. I create stunning, user-friendly
+        websites that exceed expectations and deliver modern, functional, and
+        tailored solutions.
       </motion.p>
       <motion.a
         initial={{ y: 10, opacity: 0 }}
