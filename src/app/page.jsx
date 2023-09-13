@@ -53,15 +53,15 @@ const HomePage = () => {
               <span className="font-thin">using cutting-edge </span>technologies
             </h3>
             <p className="text-white text-sm font-[300] max-w-xl py-8 text-justify md:text-left">
-              As a skilled web developer, I create visually stunning and
-              user-friendly websites using cutting-edge technologies. My
-              expertise lies in crafting functional sites on popular platforms
-              like WordPress, Wix, Webflow, and Shopify. With 5 years of
-              experience in the industry, I consistently deliver top-notch
-              results that exceed client expectations. Whether you seek a
-              captivating WordPress blog, a customizable Wix website, a sleek
-              Webflow design, or a high-converting Shopify store, I've got you
-              covered.
+              As a professional web developer, I am skilled in creating
+              beautiful, interactive, and user-friendly websites using the
+              latest technologies and best practices. With a strong background
+              in HTML, CSS, JavaScript, I am able to develop websites that are
+              responsive, optimized for search engines, and easy to maintain. I
+              am proficient in frameworks such as React Js and have experience
+              working with APIs and other back-end technologies. I am a reliable
+              and efficient developer who is always willing to go the extra mile
+              to ensure that my clients are satisfied with the work I deliver.
             </p>
           </div>
           <div className="flex items-center justify-center w-full md:w-1/2">

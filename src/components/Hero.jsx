@@ -28,12 +28,12 @@ const Hero = () => {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className="text-base md:max-w-[577px] text-zinc-600"
+        className="text-base md:max-w-[550px] text-zinc-600"
       >
-        I'm a skilled web developer with 5 year's experience, specializing in
-        WordPress, Wix, Webflow, and Shopify. I create stunning, user-friendly
-        websites that exceed expectations and deliver modern, functional, and
-        tailored solutions.
+        I am a web developer with 3+ years of experience in Front-End
+        development. I have a strong foundation in Html Css JavaScript and I'm
+        skilled in creating user-friendly and responsive websites using React
+        and its ecosystem.
       </motion.p>
       <motion.a
         initial={{ y: 10, opacity: 0 }}
