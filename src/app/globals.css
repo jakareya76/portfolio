@@ -1,12 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
-  .hero_heading {
-    @apply text-white text-[24px] text-center leading-10 sm:text-[32px] md:text-[40px] md:leading-[45px] lg:text-[52px] lg:leading-[66px] xl:text-6xl xl:max-w-6xl xl:leading-[82px];
-  }
-
   @media (min-width: 1024px) {
     .portfolio__container:nth-child(2n + 1) {
       flex-direction: row-reverse;

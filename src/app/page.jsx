@@ -53,15 +53,20 @@ const HomePage = () => {
               <span className="font-thin">using cutting-edge </span>technologies
             </h3>
             <p className="text-white text-sm font-[300] max-w-xl py-8 text-justify md:text-left">
-              As a professional web developer, I am skilled in creating
-              beautiful, interactive, and user-friendly websites using the
-              latest technologies and best practices. With a strong background
-              in HTML, CSS, JavaScript, I am able to develop websites that are
-              responsive, optimized for search engines, and easy to maintain. I
-              am proficient in frameworks such as React Js and have experience
-              working with APIs and other back-end technologies. I am a reliable
-              and efficient developer who is always willing to go the extra mile
-              to ensure that my clients are satisfied with the work I deliver.
+              Hi, I'm Jakareya, A Web Developer working on the Front End with
+              React JS or nextJS to make those nice looking and easy to use
+              websites! Frontend stuff is my thing but I also know some backend
+              as well such as Node JS, Express JS and MongoDB. This helps me to
+              ensure I make sure my websites are not only pretty but also
+              perform. But I focused on React JS and it's ecosystem. I Used Next
+              JS based on my React expertise to develop responsive and
+              user-friendly user interfaces.
+              <br />
+              <br />
+              I'm always keen to learn new things and use the latest tools to
+              make better websites. I'm excited to join teams that are
+              passionate about crafting great web experiences. Let’s connect and
+              discuss how I can contribute to your projects!
             </p>
           </div>
           <div className="flex items-center justify-center w-full md:w-1/2">

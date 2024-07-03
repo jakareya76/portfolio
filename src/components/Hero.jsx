@@ -4,46 +4,58 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div className="max-w-[1140px] mx-auto flex flex-col gap-4 h-[60vh] justify-center">
+    <div className="max-w-[1140px] mx-auto items-center flex flex-col gap-4  justify-center">
+      <motion.img
+        initial={{ y: 10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        src="/jakareya.png"
+        alt="jakareya"
+        className="max-w-[100px] h-[100px] rounded-full"
+      />
       <motion.h3
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
         className="text-lg tracking-widest text-gray-400"
       >
-        Hi, my name is
+        Hi, I'm Jakareya
       </motion.h3>
-      <motion.h1
+      <motion.h2
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="text-[34px] leading-10 text-blue-50 font-semibold flex flex-col lg:text-6xl 2xl:text-[76px]"
+        className="text-[34px] font-inter text-center leading-loose text-blue-50 font-bold flex flex-col lg:text-6xl 2xl:text-[76px]"
       >
-        Jakareya Ahmed
-        <span className="mt-2 text-gray-500 lg:mt-4">
-          I Build things for the Web
-        </span>
-      </motion.h1>
+        Experienced Web Developer Specializing in React Js
+      </motion.h2>
       <motion.p
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className="text-base md:max-w-[550px] text-zinc-600"
+        className="text-base text-center md:max-w-[550px] text-zinc-600"
       >
-        I am a web developer with 3+ years of experience in Front-End
-        development. I have a strong foundation in Html Css JavaScript and I'm
-        skilled in creating user-friendly and responsive websites using React
-        and its ecosystem.
+        I have a strong foundation in HTML, CSS, and JavaScript, and I am
+        skilled in creating interactive and visually appealing website
       </motion.p>
-      <motion.a
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.9 }}
-        href="#projects"
-        className="flex items-center justify-center w-64 duration-200 bg-transparent border rounded-md outline-none h-14 border-zinc-600 text-zinc-500 hover:bg-zinc-900 hover:border-zinc-900 hover:text-zinc-500"
-      >
-        Check out my projects!
-      </motion.a>
+      <div className="flex items-center justify-center gap-5">
+        <motion.button
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
+          className="flex items-center justify-center px-8 py-3 text-lg font-semibold text-white duration-200 bg-blue-500 rounded font-inter "
+        >
+          Contact Me
+        </motion.button>
+        <motion.button
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
+          className="flex items-center justify-center px-8 py-3 text-lg font-semibold text-white duration-200 bg-blue-500 rounded font-inter "
+        >
+          Download CV
+        </motion.button>
+      </div>
     </div>
   );
 };
