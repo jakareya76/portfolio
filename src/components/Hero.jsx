@@ -26,7 +26,7 @@ const Hero = () => {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="text-[34px] font-inter text-center leading-loose text-blue-50 font-bold flex flex-col lg:text-6xl 2xl:text-[76px]"
+        className="text-[30px] font-inter text-center  text-blue-50 font-bold flex flex-col md:text-5xl sm:text-4xl lg:text-6xl 2xl:text-[76px]"
       >
         Experienced Web Developer Specializing in React Js
       </motion.h2>
@@ -39,7 +39,7 @@ const Hero = () => {
         I have a strong foundation in HTML, CSS, and JavaScript, and I am
         skilled in creating interactive and visually appealing website
       </motion.p>
-      <div className="flex items-center justify-center gap-5">
+      <div className="flex flex-wrap items-center justify-center gap-5">
         <motion.a
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

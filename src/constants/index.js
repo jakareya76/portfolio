@@ -39,7 +39,7 @@ export const socialIcons = [
   },
   {
     id: 1,
-    url: "https://www.linkedin.com/in/md-jakareya-ahmed-43a5251b1/",
+    url: "https://www.linkedin.com/in/jakareya-ahmed",
     icon: <FaLinkedinIn />,
   },
   {
