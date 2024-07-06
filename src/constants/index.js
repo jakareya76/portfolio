@@ -9,7 +9,7 @@ export const myWork = [
       "Elevate your perspective with our captivating drone landing page. Explore limitless possibilities!",
     category: "Web Application",
     image: "/project_one.png",
-    link: "https://drone-landing-page.vercel.app",
+    link: "https://dine-ease-5606f.web.app",
   },
   {
     id: 1,
@@ -18,7 +18,7 @@ export const myWork = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
     category: "Mobile App",
     image: "/plant.png",
-    link: "#",
+    link: "https://headline-hub-762d6.web.app",
   },
   {
     id: 2,
@@ -27,7 +27,16 @@ export const myWork = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
     category: "Mobile App",
     image: "/smart.png",
-    link: "#",
+    link: "https://other-options.web.app",
+  },
+  {
+    id: 3,
+    title: "Smart Home App",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
+    category: "Mobile App",
+    image: "/smart.png",
+    link: "https://genius-cars-1c8ed.web.app",
   },
 ];
 

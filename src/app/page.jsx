@@ -13,7 +13,7 @@ const HomePage = () => {
       <LeftSide />
 
       {/* Hero Section */}
-      <section id="hero" className="py-16 f md:py-24 2xl:py-32 md:px-8 xl:px-4">
+      <section id="hero" className="py-24">
         <div className="p-4">
           <Hero />
         </div>
