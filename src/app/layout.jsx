@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata = {
-  title: "Jakareya || Front-End Web Developer",
+  title: "Jakareya Portfolio || Front-End Web Developer",
   description:
     "Welcome to the portfolio website of Jakareya, a talented web developer.",
 };

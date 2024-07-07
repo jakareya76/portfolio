@@ -26,7 +26,7 @@ const Hero = () => {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="text-[30px] font-inter text-center leading-none text-blue-50 font-bold  md:text-5xl sm:text-4xl lg:text-6xl 2xl:text-[76px]"
+        className="text-[25px] font-inter text-center leading-7 text-blue-50 font-bold  md:text-5xl sm:text-4xl lg:text-6xl 2xl:text-[76px]"
       >
         Experienced Web Developer Specializing in{" "}
         <span className="inline-block text-transparent bg-gradient-to-r from-orange-600 via-orange-400 to-orange-200 bg-clip-text">

@@ -4,38 +4,38 @@ import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
 export const myWork = [
   {
     id: 0,
-    title: "Drone Store Project",
+    title: "Dine Ease",
     description:
       "Elevate your perspective with our captivating drone landing page. Explore limitless possibilities!",
     category: "Web Application",
-    image: "/project_one.png",
+    image: "/1.png",
     link: "https://dine-ease-5606f.web.app",
   },
   {
     id: 1,
-    title: "Plant identification app",
+    title: "headline Hub",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
-    category: "Mobile App",
-    image: "/plant.png",
+      "Headline Hub is a dynamic web platform that brings you the latest news and articles from various publishers.",
+    category: "Web Application",
+    image: "/4.png",
     link: "https://headline-hub-762d6.web.app",
   },
   {
     id: 2,
-    title: "Smart Home App",
+    title: "Other Options",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
-    category: "Mobile App",
-    image: "/smart.png",
+      "This project has been a great learning experience, and I'm proud of how it turned out. If you’re looking for alternatives to your usual products, check out Others Options",
+    category: "Web Application",
+    image: "/3.png",
     link: "https://other-options.web.app",
   },
   {
     id: 3,
-    title: "Smart Home App",
+    title: "Genius Cars",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices lorem non feugiat egestas amet.",
-    category: "Mobile App",
-    image: "/smart.png",
+    category: "Web Application",
+    image: "/2.png",
     link: "https://genius-cars-1c8ed.web.app",
   },
 ];
