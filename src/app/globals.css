@@ -25,3 +25,9 @@
 .scrollbar-track {
   background: #1d2122 !important;
 }
+
+@media (max-width: 348px) {
+  .hero_button_container {
+    flex-direction: column;
+  }
+}

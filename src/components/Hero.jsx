@@ -43,13 +43,13 @@ const Hero = () => {
         skilled in creating interactive and visually appealing website
       </motion.p>
       <div className="flex flex-wrap items-center justify-center gap-5">
-        <div className="flex items-center justify-center gap-5">
+        <div className="flex flex-row items-center justify-center gap-5 hero_button_container">
           <motion.a
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.9 }}
             href="#contact"
-            className="flex items-center justify-center px-8 py-3 text-lg font-semibold text-white duration-200 bg-blue-500 rounded font-inter "
+            className="flex items-center justify-center px-8 py-3 font-semibold text-white duration-200 bg-blue-500 rounded md:text-lg font-inter "
           >
             Contact Me
           </motion.a>
@@ -59,7 +59,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.9 }}
             href="/cv.pdf"
             download
-            className="flex items-center justify-center px-8 py-3 text-lg font-semibold duration-200 bg-white rounded text-zinc-900 font-inter "
+            className="flex items-center justify-center px-8 py-3 font-semibold duration-200 bg-white rounded md:text-lg text-zinc-900 font-inter "
           >
             Download CV
           </motion.a>
