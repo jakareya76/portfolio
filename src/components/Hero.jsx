@@ -37,7 +37,7 @@ const Hero = () => {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className="text-base text-center md:max-w-[550px] text-zinc-600"
+        className="md:text-base text-sm text-center md:max-w-[550px] text-zinc-600"
       >
         I have a strong foundation in HTML, CSS, and JavaScript, and I am
         skilled in creating interactive and visually appealing website
@@ -49,7 +49,7 @@ const Hero = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.9 }}
             href="#contact"
-            className="flex items-center justify-center px-8 py-3 font-semibold text-white duration-200 bg-blue-500 rounded md:text-lg font-inter "
+            className="flex items-center justify-center px-8 py-3 text-sm font-semibold text-white duration-200 bg-blue-500 rounded md:text-lg font-inter "
           >
             Contact Me
           </motion.a>
@@ -59,7 +59,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.9 }}
             href="/cv.pdf"
             download
-            className="flex items-center justify-center px-8 py-3 font-semibold duration-200 bg-white rounded md:text-lg text-zinc-900 font-inter "
+            className="flex items-center justify-center px-8 py-3 text-sm font-semibold duration-200 bg-white rounded md:text-lg text-zinc-900 font-inter "
           >
             Download CV
           </motion.a>

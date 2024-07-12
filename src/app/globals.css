@@ -26,7 +26,7 @@
   background: #1d2122 !important;
 }
 
-@media (max-width: 348px) {
+@media (max-width: 335px) {
   .hero_button_container {
     flex-direction: column;
   }
