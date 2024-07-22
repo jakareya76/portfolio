@@ -31,7 +31,7 @@ const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.2 }}
             href="#hero"
-            className="text-[18px] uppercase font-[300]"
+            className=""
           >
             Home
           </motion.a>
@@ -40,16 +40,16 @@ const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4 }}
             href="#projects"
-            className="text-[18px] uppercase font-[300]"
+            className=""
           >
-            Work
+            Projects
           </motion.a>
           <motion.a
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
             href="#about"
-            className="text-[18px] uppercase font-[300]"
+            className=""
           >
             About
           </motion.a>
@@ -58,7 +58,7 @@ const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             href="#contact"
-            className="text-[18px] uppercase font-[300]"
+            className=""
           >
             Contact
           </motion.a>

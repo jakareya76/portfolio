@@ -1,7 +1,6 @@
-import { Work_Sans } from "next/font/google";
+import { Work_Sans, Inter } from "next/font/google";
 
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 import "./globals.css";
 
@@ -10,6 +9,8 @@ export const metadata = {
   description:
     "Welcome to the portfolio website of Jakareya, a talented web developer.",
 };
+
+// const inter = Inter({ subsets: ["latin"] });
 
 const workSans = Work_Sans({ subsets: ["latin"] });
 
@@ -20,7 +21,6 @@ export default function RootLayout({ children }) {
         <main className="container mx-auto">
           <Navbar />
           {children}
-          <Footer />
         </main>
       </body>
     </html>

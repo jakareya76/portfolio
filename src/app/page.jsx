@@ -21,12 +21,12 @@ const HomePage = () => {
 
       {/* Work Section */}
       <section id="projects" className="w-full h-full px-4 py-40 md:px-8">
-        <h2 className="text-3xl text-center text-white md:text-left md:text-5xl ">
+        <h2 className="text-3xl text-center text-white xl:text-left md:text-5xl ">
           <span className="font-[100]">My Recent </span>
           <span className="font-semibold">Works</span>
         </h2>
         <div className="flex items-center justify-center">
-          <div className="w-full py-24 space-y-28">
+          <div className="grid grid-cols-1 gap-8 mt-10 md:grid-cols-2 xl:grid-cols-3">
             {myWork.map((work) => {
               return <ProjectCard key={work.id} {...work} />;
             })}
@@ -42,7 +42,7 @@ const HomePage = () => {
 
         <div className="flex flex-col items-center justify-around gap-8 py-12 md:py-28 lg:flex-row">
           <div className="flex flex-col">
-            <h3 className="text-white text-xl max-w-2xl text-left md:text-left md:text-4xl md:leading-[46px] ">
+            <h3 className="text-white text-xl max-w-2xl text-left md:text-4xl md:leading-[46px]">
               <span className="font-thin">
                 I am a skilled{" "}
                 <span className="font-normal">web developer</span> <br /> who is
@@ -52,12 +52,12 @@ const HomePage = () => {
               <span className="font-thin">Websites </span>
               <span className="font-thin">using cutting-edge </span>technologies
             </h3>
-            <p className="text-white text-sm font-[300] max-w-xl py-8 text-justify md:text-left">
-              Hi, I'm Jakareya, A Web Developer working on the Front End with
-              React JS or nextJS to make those nice looking and easy to use
-              websites! Frontend stuff is my thing but I also know some backend
-              as well such as Node JS, Express JS and MongoDB. This helps me to
-              ensure I make sure my websites are not only pretty but also
+            <p className="max-w-xl py-8 text-white font-[300] md:text-lg text-xs">
+              Hello, I'm Jakareya, A Web Developer working on the Front-End with
+              React JS & Next JS to make nice looking and easy to use websites!
+              Although I'm A Front-end Developer But I know some backend
+              technologies as well such as Node JS, Express JS and MongoDB. This
+              helps me to ensure that my websites are not only pretty but also
               perform. But I focused on React JS and it's ecosystem. I Used Next
               JS based on my React expertise to develop responsive and
               user-friendly user interfaces.
@@ -81,7 +81,7 @@ const HomePage = () => {
           <h1 className="text-4xl font-thin text-white md:text-6xl">
             Get <span className="font-bold">in Touch.</span>
           </h1>
-          <span className="py-3 text-xl font-thin text-white md:py-5">
+          <span className="py-3 text-xl font-thin text-center text-white md:py-5">
             So that we can talk more about...
           </span>
           <Link

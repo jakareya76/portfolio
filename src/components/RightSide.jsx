@@ -9,7 +9,7 @@ const RightSide = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.5 }}
-      className="fixed bottom-0 right-0 hidden w-32 h-full xl:inline-flex"
+      className="fixed bottom-0 right-0 hidden w-32 h-full lg:inline-flex"
     >
       <div className="flex flex-col items-center justify-end h-full gap-28">
         <Link href="mailto:jakareya1306@gmail.com">

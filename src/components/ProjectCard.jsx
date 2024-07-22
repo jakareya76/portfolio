@@ -1,32 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const ProjectCard = ({ title, description, image, category, link }) => {
+const ProjectCard = ({ title, image, link }) => {
   return (
-    <div className="flex flex-col-reverse items-center justify-between gap-8 portfolio__container lg:flex-row">
-      <Link href={link} target="_blank">
-        <Image
-          src={image}
-          width={600}
-          height={600}
-          className="w-[400px] h-auto object-cover cursor-pointer duration-200 rounded-3xl hover:scale-105 xl:w-[500px] 2xl:w-[600px]"
-          alt="img"
-        />
-      </Link>
-      <div className="flex flex-col items-start gap-5 text-white">
-        <h3 className="text-xs uppercase">{title}</h3>
-        <p className="max-w-3xl font-[300] sm:text-xl md:text-2xl xl:text-3xl 2xl:text-4xl">
-          {description}
-        </p>
-        <span className="font-[200]">{category}</span>
-        <Link
-          href={link}
-          target="_blank"
-          className="px-5 py-1 font-thin duration-200 border rounded-full hover:scale-95"
-        >
-          Live Demo
-        </Link>
+    <div className="relative flex flex-col overflow-hidden rounded-xl group">
+      <div className="absolute z-50 group-hover:top-0 top-96 duration-300 rounded-xl left-0 w-full h-full bg-[#000000b0]">
+        <div className="flex flex-col items-center justify-center w-full h-full gap-3">
+          <h3 className="text-xl text-white uppercase">{title}</h3>
+          <Link
+            href={link}
+            target="_blank"
+            className="px-5 py-1 text-white duration-200 border rounded-full hover:bg-green-700 hover:border-green-700 hover:scale-95"
+          >
+            Project Link
+          </Link>
+        </div>
       </div>
+      <Image
+        src={image}
+        width={600}
+        height={600}
+        className="w-[320px] h-[200px] xl:w-[500px] xl:h-[300px] object-cover cursor-pointer rounded-xl"
+        alt="img"
+      />
     </div>
   );
 };

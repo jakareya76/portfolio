@@ -11,7 +11,7 @@ const LeftSide = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.5 }}
-      className="fixed bottom-0 hidden w-32 h-full xl:inline-flex xl:-left-8 2xl:left-0"
+      className="fixed bottom-0 hidden w-32 h-full lg:inline-flex lg:-left-8 xl:-left-8 2xl:left-0"
     >
       <div className="flex flex-col items-center justify-end w-full h-full gap-4">
         <div className="flex flex-col gap-4">
