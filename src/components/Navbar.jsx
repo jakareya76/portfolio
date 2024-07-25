@@ -31,7 +31,6 @@ const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.2 }}
             href="#hero"
-            className=""
           >
             Home
           </motion.a>
@@ -40,7 +39,6 @@ const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4 }}
             href="#projects"
-            className=""
           >
             Projects
           </motion.a>
@@ -49,7 +47,6 @@ const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
             href="#about"
-            className=""
           >
             About
           </motion.a>
@@ -58,7 +55,6 @@ const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             href="#contact"
-            className=""
           >
             Contact
           </motion.a>
