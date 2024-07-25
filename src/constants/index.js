@@ -7,24 +7,28 @@ export const myWork = [
     title: "Dine Ease",
     image: "/1.png",
     link: "https://dine-ease-5606f.web.app",
+    gitLink: "https://github.com/jakareya76/dine-ease-frontend",
   },
   {
     id: 1,
     title: "headline Hub",
     image: "/4.png",
     link: "https://headline-hub-762d6.web.app",
+    gitLink: "https://github.com/jakareya76/headline-hub-frontend",
   },
   {
     id: 2,
     title: "Other Options",
     image: "/3.png",
     link: "https://other-options.web.app",
+    gitLink: "",
   },
   {
     id: 3,
     title: "Genius Cars",
     image: "/2.png",
     link: "https://genius-cars-1c8ed.web.app",
+    gitLink: "https://github.com/jakareya76/genius-cars-frontend",
   },
 ];
 
