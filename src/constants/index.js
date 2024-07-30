@@ -1,4 +1,4 @@
-import { TbBrandGithub, TbBrandFiverr } from "react-icons/tb";
+import { TbBrandGithub } from "react-icons/tb";
 import { FaLinkedinIn, FaTwitter, FaFacebook } from "react-icons/fa";
 
 export const myWork = [
@@ -21,7 +21,7 @@ export const myWork = [
     title: "Other Options",
     image: "/3.png",
     link: "https://other-options.web.app",
-    gitLink: "",
+    gitLink: "https://github.com/jakareya76/other-options-frontend",
   },
   {
     id: 3,
