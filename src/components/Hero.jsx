@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <HeroHighlight>
       <Navbar />
-      <div className="absolute pointer-events-none h-screen inset-0 flex items-center justify-center bg-[#07080e] [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)] w-full"></div>
+      <div className="absolute pointer-events-none h-screen inset-0 z-30 flex items-center justify-center bg-[#07080e] [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)] w-full"></div>
       <div className="max-w-[1140px] mx-auto items-center flex flex-col gap-4 justify-center h-full w-full">
         <div>
           <Spotlight
