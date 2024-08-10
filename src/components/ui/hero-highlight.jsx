@@ -21,7 +21,7 @@ export const HeroHighlight = ({ children, className, containerClassName }) => {
       onMouseMove={handleMouseMove}
     >
       {/* Dot pattern background */}
-      <div className="absolute inset-0 bg-dot-thick-neutral-300 dark:bg-dot-thick-neutral-800 pointer-events-none" />
+      <div className="absolute z-10 inset-0 bg-dot-thick-neutral-300 dark:bg-dot-thick-neutral-800 pointer-events-none" />
 
       {/* Gradient overlay for fading effect */}
       <div className="absolute inset-0 pointer-events-none">

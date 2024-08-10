@@ -39,7 +39,7 @@ const Hero = () => {
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="[mask-image:radial-gradient(ellipse_at_right,transparent_1%,black)] text-[25px] font-bold text-center leading-7 pb-2 text-blue-50 md:text-5xl sm:text-4xl lg:text-6xl 2xl:text-[76px]"
+          className="[mask-image:radial-gradient(ellipse_at_right,transparent_1%,black)] z-40 text-[25px] font-bold text-center leading-7 pb-3 text-blue-50 md:text-5xl sm:text-4xl lg:text-6xl 2xl:text-[76px]"
         >
           Experienced Web Developer Specializing in{" "}
           <span className="inline-block text-transparent md:mt-2 bg-gradient-to-r from-orange-600 via-orange-400 to-orange-200 bg-clip-text">
@@ -50,7 +50,7 @@ const Hero = () => {
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="md:text-base sm:text-sm text-xs text-center md:max-w-[550px] text-zinc-400"
+          className="md:text-base sm:text-sm text-xs text-center md:max-w-[550px] z-50 text-zinc-400"
         >
           I have a strong foundation in HTML, CSS, and JavaScript, and I am
           skilled in creating interactive and visually appealing websites.
