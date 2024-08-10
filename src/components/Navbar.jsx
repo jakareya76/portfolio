@@ -7,7 +7,7 @@ import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0 bg-[#07080e] z-50">
+    <header className="sticky top-0 bg-[#07080ebe] px-8 rounded-xl z-50">
       <nav className="flex items-center justify-between px-5 py-2 mt-2 text-white xl:px-0">
         <motion.div
           initial={{ opacity: 0 }}
