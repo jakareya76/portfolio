@@ -84,7 +84,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.9 }}
               href="https://www.linkedin.com/in/jakareya-ahmed"
               target="_blank"
-              className="flex items-center justify-center px-4  py-[14px] text-lg font-semibold duration-200 bg-white rounded text-zinc-900 "
+              className="flex items-center z-50 justify-center px-4  py-[14px] text-lg font-semibold duration-200 bg-white rounded text-zinc-900 "
             >
               <FaLinkedin size={22} />
             </motion.a>
@@ -94,7 +94,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.9 }}
               href="https://github.com/jakareya76"
               target="_blank"
-              className="flex items-center justify-center px-4  py-[14px] text-lg font-semibold duration-200 bg-white rounded text-zinc-900 "
+              className="flex items-center z-50 justify-center px-4  py-[14px] text-lg font-semibold duration-200 bg-white rounded text-zinc-900 "
             >
               <FaGithub size={22} />
             </motion.a>
