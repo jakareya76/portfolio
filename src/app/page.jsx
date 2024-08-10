@@ -45,8 +45,8 @@ const HomePage = () => {
             <h3 className="text-white text-xl max-w-2xl text-left md:text-4xl md:leading-[46px]">
               <span className="font-thin">
                 I am a skilled{" "}
-                <span className="font-normal">web developer</span> <br /> who is
-                passionate about creating{" "}
+                <span className="font-normal">web developer</span> <br /> who is{" "}
+                <span className="font-normal">passionate </span> about creating{" "}
               </span>
               <span>beautiful and interactive </span>
               <span className="font-thin">Websites </span>

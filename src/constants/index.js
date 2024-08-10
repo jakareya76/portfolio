@@ -45,7 +45,7 @@ export const socialIcons = [
   },
   {
     id: 2,
-    url: "-",
+    url: "https://www.facebook.com/profile.php?id=100077470063570",
     icon: <FaFacebook />,
   },
   {
@@ -78,5 +78,4 @@ export const skills = [
   "Docker",
   "Auth0",
   "Next Auth",
-  "MySQL",
 ];
