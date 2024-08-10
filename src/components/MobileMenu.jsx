@@ -32,7 +32,7 @@ const MobileMenu = () => {
 
       {/* Menu */}
       {toggleMenu && (
-        <div className="absolute right-0 flex flex-col gap-2 px-5 py-5 rounded top-12 bg-zinc-900">
+        <div className="absolute -right-9 w-screen h-[50vh] flex flex-col justify-around items-center z-[999]  gap-2 py-5 rounded top-12 bg-[#000000f3]">
           <a
             href="#hero"
             className="text-[18px] uppercase font-[300]"

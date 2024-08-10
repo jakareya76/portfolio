@@ -17,10 +17,7 @@ export const HeroHighlight = ({ children, className, containerClassName }) => {
 
   return (
     <div
-      className={cn(
-        "relative flex items-center justify-center group h-screen w-full", // Full screen height and width
-        containerClassName
-      )}
+      className={cn("relative group h-screen w-full", containerClassName)}
       onMouseMove={handleMouseMove}
     >
       {/* Dot pattern background */}

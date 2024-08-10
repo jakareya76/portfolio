@@ -10,7 +10,7 @@ const MySkills = () => {
       initial: [0.3, -0.2],
       noSelect: true,
       textColour: "#fff",
-      maxSpeed: 0.06,
+      maxSpeed: 0.03,
       dragControl: true,
     });
   }, []);

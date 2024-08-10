@@ -3,16 +3,18 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Spotlight } from "./ui/Spotlight";
-import { HeroHighlight, Highlight } from "./ui/hero-highlight";
+import { HeroHighlight } from "./ui/hero-highlight";
+import Navbar from "./Navbar";
 
 const Hero = () => {
   return (
     <HeroHighlight>
-      {/* <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-[#07080e] [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)] h-full w-full"></div> */}
+      <Navbar />
+      <div className="absolute pointer-events-none h-screen inset-0 flex items-center justify-center bg-[#07080e] [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)] w-full"></div>
       <div className="max-w-[1140px] mx-auto items-center flex flex-col gap-4 justify-center h-full w-full">
         <div>
           <Spotlight
-            className="-top-40 -left-10 md:-left-16 md:-top-80 h-screen"
+            className="-top-40 -left-10 md:-left-16 md:-top-60 h-screen"
             fill="gray"
           />
         </div>
@@ -23,7 +25,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           src="/profile.png"
           alt="jakareya"
-          className="w-[120px] h-[120px] object-cover rounded-full z-50"
+          className="w-[120px] h-[120px] object-cover rounded-full mt-20 z-40"
         />
         <motion.h3
           initial={{ y: 10, opacity: 0 }}
@@ -37,7 +39,7 @@ const Hero = () => {
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="[mask-image:radial-gradient(ellipse_at_right,transparent_0%,black)] text-[25px] font-bold text-center leading-7 text-blue-50 md:text-5xl sm:text-4xl lg:text-6xl 2xl:text-[76px]"
+          className="[mask-image:radial-gradient(ellipse_at_right,transparent_1%,black)] text-[25px] font-bold text-center leading-7 text-blue-50 md:text-5xl sm:text-4xl lg:text-6xl 2xl:text-[76px]"
         >
           Experienced Web Developer Specializing in{" "}
           <span className="inline-block text-transparent md:mt-2 bg-gradient-to-r from-orange-600 via-orange-400 to-orange-200 bg-clip-text">
@@ -54,7 +56,7 @@ const Hero = () => {
           skilled in creating interactive and visually appealing websites.
         </motion.p>
         <div className="flex flex-wrap items-center justify-center gap-5">
-          <div className="flex  flex-row items-center justify-center gap-5 hero_button_container">
+          <div className="flex z-50 flex-row items-center justify-center gap-5 hero_button_container">
             <motion.a
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
