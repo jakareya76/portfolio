@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="max-w-[1140px] mx-auto items-center flex flex-col gap-4 justify-center h-full w-full">
         <div>
           <Spotlight
-            className="-top-40 -left-10 md:-left-16 md:-top-60 h-screen"
+            className="-top-40 z-50 -left-10 md:-left-16 md:-top-40 h-screen"
             fill="gray"
           />
         </div>
