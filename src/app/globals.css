@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
     .portfolio__container:nth-child(2n + 1) {
       flex-direction: row-reverse;
     }

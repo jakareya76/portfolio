@@ -21,7 +21,7 @@ const HomePage = () => {
 
       {/* Work Section */}
       <section id="projects" className="w-full h-full px-4 py-40 md:px-8">
-        <h2 className="text-3xl text-center mb-10 text-white xl:text-left md:text-5xl ">
+        <h2 className="text-3xl text-center mb-20 text-white xl:text-left md:text-5xl ">
           <span className="font-[100]">My Recent </span>
           <span className="font-semibold">Works</span>
         </h2>
@@ -40,11 +40,11 @@ const HomePage = () => {
 
         <div className="flex flex-col items-center justify-around gap-8 py-12 md:py-28 lg:flex-row">
           <div className="flex flex-col">
-            <h3 className="text-white text-xl max-w-2xl text-left md:text-4xl md:leading-[46px]">
+            <h3 className="text-white font-medium text-xl max-w-2xl text-left md:text-4xl md:leading-[46px]">
               <span className="font-thin">
                 I am a skilled{" "}
-                <span className="font-normal">web developer</span> <br /> who is{" "}
-                <span className="font-normal">passionate </span> about creating{" "}
+                <span className="font-medium">web developer</span> <br /> who is{" "}
+                <span className="font-medium">passionate </span> about creating{" "}
               </span>
               <span>beautiful and interactive </span>
               <span className="font-thin">Websites </span>
