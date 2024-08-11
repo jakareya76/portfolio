@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
-import AnimatedCursor from "react-animated-cursor";
 
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata = {
   title: "Jakareya Portfolio || Front-End Web Developer",
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <body className={`bg-[#07080e] ${inter.className}`}>
         <main className="container mx-auto">
           {children}
-          <AnimatedCursor />
+          <CustomCursor />
         </main>
       </body>
     </html>

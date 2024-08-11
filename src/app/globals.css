@@ -10,6 +10,40 @@
   }
 }
 
+body {
+  cursor: none; /* Hide the default cursor */
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background-color: #00ffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #00ffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.15s ease-out;
+}
+
+/* Scale the circle on hover */
+.cursor-circle:hover {
+  transform: scale(1.5);
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
