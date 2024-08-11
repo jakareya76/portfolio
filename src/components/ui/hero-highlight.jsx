@@ -21,12 +21,12 @@ export const HeroHighlight = ({ children, className, containerClassName }) => {
       onMouseMove={handleMouseMove}
     >
       {/* Dot pattern background */}
-      <div className="absolute z-10 inset-0 bg-dot-thick-neutral-300 dark:bg-dot-thick-neutral-800 pointer-events-none" />
+      <div className="absolute z-0  inset-0 bg-dot-thick-neutral-800 pointer-events-none" />
 
       {/* Gradient overlay for fading effect */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none ">
         <div
-          className="absolute inset-0 bg-[#07080e] z-10"
+          className="absolute inset-0 bg-[#07080e] z-20"
           style={{
             maskImage: `radial-gradient(circle, transparent 10%, rgba(0, 0, 0, 1) 100%)`,
             WebkitMaskImage: `radial-gradient(circle, transparent 70%, rgba(0, 0, 0, 1) 100%)`,
@@ -36,7 +36,7 @@ export const HeroHighlight = ({ children, className, containerClassName }) => {
 
       {/* Interactive dot pattern with mouse movement */}
       <motion.div
-        className="pointer-events-none bg-dot-thick-indigo-500 dark:bg-dot-thick-indigo-500 absolute inset-0 transition duration-300 group-hover:opacity-100 z-20"
+        className="pointer-events-none bg-dot-thick-indigo-500 absolute inset-0 transition duration-300 group-hover:opacity-100 z-20"
         style={{
           WebkitMaskImage: useMotionTemplate`
             radial-gradient(
