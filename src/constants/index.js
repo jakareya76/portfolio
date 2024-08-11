@@ -8,6 +8,7 @@ export const myWork = [
     image: "/1.png",
     link: "https://dine-ease-5606f.web.app",
     gitLink: "https://github.com/jakareya76/dine-ease-frontend",
+    description: "",
   },
   {
     id: 1,
@@ -15,6 +16,7 @@ export const myWork = [
     image: "/4.png",
     link: "https://headline-hub-762d6.web.app",
     gitLink: "https://github.com/jakareya76/headline-hub-frontend",
+    description: "",
   },
   {
     id: 2,
@@ -22,6 +24,7 @@ export const myWork = [
     image: "/3.png",
     link: "https://other-options.web.app",
     gitLink: "https://github.com/jakareya76/other-options-frontend",
+    description: "",
   },
   {
     id: 3,
@@ -29,6 +32,7 @@ export const myWork = [
     image: "/2.png",
     link: "https://genius-cars-1c8ed.web.app",
     gitLink: "https://github.com/jakareya76/genius-cars-frontend",
+    description: "",
   },
 ];
 

@@ -3,35 +3,35 @@ import Link from "next/link";
 
 const ProjectCard = ({ title, image, link, gitLink }) => {
   return (
-    <div className="relative flex flex-col overflow-hidden rounded-xl group">
-      <div className="absolute z-50 group-hover:top-0 top-96 duration-300 rounded-xl left-0 w-full h-full bg-[#000000b0]">
-        <div className="flex flex-col items-center justify-center w-full h-full gap-3">
-          <h3 className="text-xl text-white uppercase">{title}</h3>
-          <div className="flex items-center justify-center gap-3">
-            <Link
-              href={link}
-              target="_blank"
-              className="px-5 py-1 text-white duration-200 border rounded-full hover:bg-green-700 hover:border-green-700 hover:scale-95"
-            >
-              Project Link
-            </Link>
-            <Link
-              href={gitLink}
-              target="_blank"
-              className="px-5 py-1 text-white duration-200 border rounded-full hover:bg-green-700 hover:border-green-700 hover:scale-95"
-            >
-              Github Link
-            </Link>
-          </div>
-        </div>
-      </div>
+    <div className="flex flex-col-reverse items-center w-full justify-between gap-8 portfolio__container lg:flex-row">
       <Image
         src={image}
-        width={400}
-        height={300}
-        className="w-[320px] h-[200px] xl:w-[600px] xl:h-[280px] cursor-pointer rounded-xl"
-        alt="img"
+        width={600}
+        height={600}
+        className="w-[400px] h-auto object-cover rounded cursor-pointer duration-200 hover:scale-105 xl:w-[700px]"
       />
+      <div className="flex flex-col text-white items-start gap-5">
+        <h3 className="uppercase text-2xl">{title}</h3>
+        <p className="max-w-xl text-sm md:text-lg">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat
+          architecto ipsum optio aperiam consectetur.
+        </p>
+
+        <div className="flex items-center justify-center gap-5">
+          <Link
+            href={link}
+            className="border px-5 py-1 font-semibold rounded-full hover:bg-white hover:text-black duration-300"
+          >
+            View Project
+          </Link>
+          <Link
+            href={gitLink}
+            className="border px-5 py-1 rounded-full bg-white text-black font-semibold"
+          >
+            View Github
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

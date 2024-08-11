@@ -21,16 +21,14 @@ const HomePage = () => {
 
       {/* Work Section */}
       <section id="projects" className="w-full h-full px-4 py-40 md:px-8">
-        <h2 className="text-3xl text-center text-white xl:text-left md:text-5xl ">
+        <h2 className="text-3xl text-center mb-10 text-white xl:text-left md:text-5xl ">
           <span className="font-[100]">My Recent </span>
           <span className="font-semibold">Works</span>
         </h2>
-        <div className="flex items-center justify-center">
-          <div className="grid grid-cols-1 gap-8 mt-10 md:grid-cols-2 xl:grid-cols-3">
-            {myWork.map((work) => {
-              return <ProjectCard key={work.id} {...work} />;
-            })}
-          </div>
+        <div className="flex flex-col items-start  gap-20">
+          {myWork.map((work) => {
+            return <ProjectCard key={work.id} {...work} />;
+          })}
         </div>
       </section>
 
