@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const ProjectCard = ({ title, image, link, gitLink }) => {
+const ProjectCard = ({ title, image, link, gitLink, description }) => {
   return (
     <div className="flex flex-col-reverse items-center w-full justify-between gap-8 portfolio__container xl:flex-row">
       <Image
@@ -12,12 +12,7 @@ const ProjectCard = ({ title, image, link, gitLink }) => {
       />
       <div className="flex flex-col text-white items-start gap-5">
         <h3 className="uppercase text-3xl md:text-4xl">{title}</h3>
-        <p className="max-w-xl text-sm md:text-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum optio
-          autem omnis exercitationem eveniet aspernatur sint labore est quis
-          commodi eaque, nostrum blanditiis, quod, sed eum amet iure minus
-          eligendi.
-        </p>
+        <p className="max-w-xl text-sm md:text-lg">{description}</p>
 
         <div className="flex items-center justify-center gap-5">
           <Link
