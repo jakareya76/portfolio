@@ -28,7 +28,7 @@ const MySkills = () => {
             {skills.map((curElem, idx) => {
               return (
                 <li key={idx}>
-                  <a href="#">{curElem}</a>
+                  <a>{curElem}</a>
                 </li>
               );
             })}
