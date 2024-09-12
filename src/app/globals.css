@@ -63,3 +63,24 @@ body {
     flex-direction: column;
   }
 }
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+/* Image scroll animation */
+.image-wrapper img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0; /* Start at the top of the image */
+  transition: top 11s; /* Smooth scrolling effect */
+}
+
+.image-wrapper:hover img {
+  top: -860px;
+  transition: all 11s;
+}

@@ -1,11 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import ProjectCard from "@/components/ProjectCard";
 import LeftSide from "@/components/LeftSide";
 import RightSide from "@/components/RightSide";
 import MySkills from "@/components/MySkills";
 import Hero from "@/components/Hero";
-
-import { myWork } from "@/constants";
+import Projects from "@/components/Projects/Projects";
 
 const HomePage = () => {
   return (
@@ -20,17 +20,7 @@ const HomePage = () => {
       </section>
 
       {/* Work Section */}
-      <section id="projects" className="w-full h-full px-4 py-40 md:px-8">
-        <h2 className="text-3xl text-center mb-20 text-white xl:text-left md:text-5xl ">
-          <span className="font-[100]">My Recent </span>
-          <span className="font-semibold">Works</span>
-        </h2>
-        <div className="flex flex-col items-start  gap-20">
-          {myWork.map((work) => {
-            return <ProjectCard key={work.id} {...work} />;
-          })}
-        </div>
-      </section>
+      <Projects />
 
       {/* About Section */}
       <section id="about" className="w-full h-full p-4 md:px-12">
@@ -94,4 +84,5 @@ const HomePage = () => {
     </>
   );
 };
+
 export default HomePage;
