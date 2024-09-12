@@ -14,7 +14,7 @@ export const myWork = [
   {
     id: 1,
     title: "headline Hub",
-    image: "/4.png",
+    image: "/2.png",
     link: "https://headline-hub-762d6.web.app",
     gitLink: "https://github.com/jakareya76/headline-hub-frontend",
     description:
@@ -32,7 +32,7 @@ export const myWork = [
   {
     id: 3,
     title: "Genius Cars",
-    image: "/2.png",
+    image: "/4.png",
     link: "https://genius-cars-1c8ed.web.app",
     gitLink: "https://github.com/jakareya76/genius-cars-frontend",
     description:

@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
+import CustomCursor from "@/components/CustomCursor/CustomCursor";
 
 export const metadata = {
   title: "Jakareya Portfolio || Front-End Web Developer",

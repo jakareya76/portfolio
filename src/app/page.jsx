@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import LeftSide from "@/components/LeftSide";
-import RightSide from "@/components/RightSide";
-import MySkills from "@/components/MySkills";
-import Hero from "@/components/Hero";
+import LeftSide from "@/components/Sidebars/LeftSide";
+import RightSide from "@/components/Sidebars/RightSide";
+import MySkills from "@/components/Skills/MySkills";
+import Hero from "@/components/Banner/Hero";
 import Projects from "@/components/Projects/Projects";
 
 const HomePage = () => {

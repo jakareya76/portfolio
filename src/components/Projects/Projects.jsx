@@ -6,12 +6,13 @@ import { EffectCoverflow, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { myWork } from "@/constants";
+import Link from "next/link";
 
 const Projects = () => {
   return (
-    <div id="project" className="px-10 my-32">
+    <div id="projects" className="px-10 my-32">
       <h1 className="text-2xl lg:text-4xl font-medium text-white text-center md:text-start mt-48 mb-10">
-        RECENT PROJECT
+        <span className="font-thin">My Recent</span> Projects
       </h1>
       <Swiper
         effect={"coverflow"}
@@ -51,14 +52,16 @@ const Projects = () => {
                 whileHover={{ y: -20 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  width={600}
-                  height={400}
-                  layout="responsive"
-                  className="rounded-xl cursor-pointer"
-                />
+                <Link href={project.link} target="_blank">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    width={600}
+                    height={400}
+                    layout="responsive"
+                    className="rounded-xl cursor-pointer"
+                  />
+                </Link>
               </motion.div>
             </div>
           </SwiperSlide>

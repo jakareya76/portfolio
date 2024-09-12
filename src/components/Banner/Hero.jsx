@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { Spotlight } from "./ui/Spotlight";
-import { HeroHighlight } from "./ui/hero-highlight";
-import Navbar from "./Navbar";
+import { Spotlight } from "../ui/Spotlight";
+import { HeroHighlight } from "../ui/hero-highlight";
+import Navbar from "../Navbar/Navbar";
 
 const Hero = () => {
   return (
