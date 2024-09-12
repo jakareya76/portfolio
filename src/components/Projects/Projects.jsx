@@ -11,7 +11,7 @@ import Link from "next/link";
 const Projects = () => {
   return (
     <div id="projects" className="px-10 my-32">
-      <h1 className="text-2xl lg:text-4xl font-medium text-white text-center md:text-start mt-48 mb-10">
+      <h1 className="text-2xl lg:text-4xl font-medium text-white text-center md:text-start mt-40 mb-10">
         <span className="font-thin">My Recent</span> Projects
       </h1>
       <Swiper
