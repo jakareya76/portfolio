@@ -18,7 +18,7 @@ const words = [
 
 export const TapeSection = () => {
   return (
-    <div className="py-16">
+    <section className="py-16">
       <div className="bg-gradient-to-r from-emerald-300 to-sky-400 overflow-hidden -rotate-3 flex items-center justify-center">
         <Marquee gradient={false} speed={50} pauseOnHover>
           {words.map((word, index) => (
@@ -46,6 +46,6 @@ export const TapeSection = () => {
           ))}
         </Marquee>
       </div>
-    </div>
+    </section>
   );
 };

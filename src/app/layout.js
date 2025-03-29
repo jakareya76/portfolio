@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import UnderDevelopment from "@/components/UnderDevelopment";
 
 export const metadata = {
   title: "Jakareya | Portfolio",
@@ -31,7 +32,8 @@ export default function RootLayout({ children }) {
           `bg-gray-900 text-white antialiased font-sans`
         )}
       >
-        <Header />
+        <UnderDevelopment />
+        {/* <Header /> */}
         {children}
         <Footer />
       </body>
