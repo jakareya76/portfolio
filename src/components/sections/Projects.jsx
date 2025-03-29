@@ -2,24 +2,19 @@ import Image from "next/image";
 
 import { portfolioProjects } from "@/constants";
 import grainImage from "@/assets/images/grain.jpg";
+import SectionHeader from "../shared/SectionHeader";
 
 export const ProjectsSection = () => {
   return (
     <section className="pb-16 lg:py-24 px-2">
       <div className="container mx-auto max-w-5xl">
-        <div className="flex justify-center">
-          <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center">
-            Showcasing Impactful Work
-          </p>
-        </div>
-        <h2 className="font-serif text-3xl text-center mt-6 tracking-wider md:text-4xl lg:text-5xl">
-          Highlighted Projects
-        </h2>
-        <p className="text-center text-white/60 max-w-[60ch] mx-auto mt-5 md:text-lg">
-          Explore how I bring innovative ideas to life, transforming them into
-          powerful and engaging digital solutions that drive results and elevate
-          user experiences.
-        </p>
+        <SectionHeader
+          eyeBrow="Showcasing Impactful Work"
+          title="Highlighted Projects"
+          description="Explore how I bring innovative ideas to life, transforming them into
+        powerful and engaging digital solutions that drive results and elevate
+        user experiences."
+        />
 
         <div className="flex flex-col gap-20 mt-10 md:mt-20">
           {portfolioProjects.map((project, index) => (
