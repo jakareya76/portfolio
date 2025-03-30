@@ -18,7 +18,7 @@ export const AboutSection = () => {
           description="A passionate Frontend Developer dedicated to crafting high-performance, user-friendly applications with modern technologies."
         />
 
-        <div className="mt-20">
+        <div className="mt-20 flex flex-col gap-8">
           <Card className="h-[320px]">
             <CardHeader
               title="My Reads"
@@ -29,26 +29,42 @@ export const AboutSection = () => {
               <Image src={bookImage} alt="book" />
             </div>
           </Card>
-          <Card>
+          <Card className="h-[320px] p-0">
             <CardHeader
+              className="px-6 pt-6"
               title="My Toolbox"
               description="Explore the technologies and tools I use to craft exceptional digital experiences."
             />
 
-            <ToolboxItems toolboxItem={toolboxItem} />
+            <ToolboxItems toolboxItem={toolboxItem} className="mt-6" />
+            <ToolboxItems
+              toolboxItem={toolboxItem}
+              className="mt-6"
+              itemsWrapperClassName="-translate-x-1/2"
+            />
           </Card>
 
-          <Card>
+          <Card className="h-[320px] p-0 flex flex-col">
             <CardHeader
+              className="px-6 py-6"
               title="Beyond the Code"
               description="Explore my interests and hobbies that fuel my creativity and passion for technology."
             />
 
-            <div>
+            <div className="relative flex-1">
               {hobbies.map((hobby, idx) => {
                 return (
-                  <div key={idx}>
-                    <span>{hobby.title}</span>
+                  <div
+                    key={idx}
+                    className="absolute inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5"
+                    style={{
+                      top: hobby.top,
+                      left: hobby.left,
+                    }}
+                  >
+                    <span className="font-medium text-gray-950">
+                      {hobby.title}
+                    </span>
                     <span>{hobby.emoji}</span>
                   </div>
                 );
