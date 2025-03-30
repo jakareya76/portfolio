@@ -2,7 +2,7 @@ import { twMerge } from "tailwind-merge";
 
 export const CardHeader = ({ title, description, className }) => {
   return (
-    <div className={twMerge("flex flex-col", className)}>
+    <div className={twMerge("flex flex-col p-6 md:py-8 md:px-10", className)}>
       <div className="inline-flex items-center gap-2">
         <svg
           width="24"
@@ -19,7 +19,9 @@ export const CardHeader = ({ title, description, className }) => {
         </svg>
         <h2 className="font-serif text-3xl">{title}</h2>
       </div>
-      <p className="text-sm text-white/60 mt-2">{description} </p>
+      <p className="text-sm text-white/60 mt-2 max-w-xs lg:text-base">
+        {description}{" "}
+      </p>
     </div>
   );
 };
