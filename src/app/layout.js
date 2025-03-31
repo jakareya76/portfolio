@@ -32,8 +32,8 @@ export default function RootLayout({ children }) {
           `bg-gray-900 text-white antialiased font-sans`
         )}
       >
-        <UnderDevelopment />
-        {/* <Header /> */}
+        {/* <UnderDevelopment /> */}
+        <Header />
         {children}
         <Footer />
       </body>
