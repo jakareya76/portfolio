@@ -36,7 +36,7 @@ export const ProjectsSection = () => {
                     <span>{project.year}</span>
                   </div>
 
-                  <h3 className="font-serif text-2xl md:text-3xl lg:text-4xl xl:text-5xl md:mt-5 mt-2 tracking-wide">
+                  <h3 className="font-serif text-2xl md:text-3xl md:mt-5 mt-2 tracking-wide">
                     {project.title}
                   </h3>
                   <hr className="border-2 border-white/5 mt-4 md:mt-5" />
