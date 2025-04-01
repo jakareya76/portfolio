@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@theme {
+  --animate-move-left: move-left 1s ease-in-out infinite;
+  --animate-move-right: move-right 1s ease-in-out infinite;
+
+  @keyframes move-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes move-right {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(50%);
+    }
+  }
+}
