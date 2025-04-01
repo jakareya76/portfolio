@@ -4,7 +4,7 @@ import HeroEffect from "../HeroEffect";
 
 export const HeroSection = () => {
   return (
-    <section className="py-32 xl:py-48 relative z-0 overflow-x-clip">
+    <section id="home" className="py-32 xl:py-48 relative z-0 overflow-x-clip">
       <HeroEffect />
       <div className="container mx-auto">
         <div className="flex flex-col items-center gap-2">
@@ -37,7 +37,10 @@ export const HeroSection = () => {
           </p>
         </div>
         <div className="flex flex-col items-center gap-4 mt-8 md:flex-row md:justify-center md:gap-8">
-          <button className="cursor-pointer inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
+          <a
+            href="#projects"
+            className="cursor-pointer inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl z-50"
+          >
             <span className="font-semibold">Explore My Work</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,11 +56,14 @@ export const HeroSection = () => {
                 d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
               />
             </svg>
-          </button>
-          <button className="cursor-pointer inline-flex items-center gap-2 border border-white bg-white text-gray-950 px-6 h-12 rounded-xl">
+          </a>
+          <a
+            href="#contact"
+            className="cursor-pointer z-50 inline-flex items-center gap-2 border border-white bg-white text-gray-950 px-6 h-12 rounded-xl"
+          >
             <span>🖐</span>
             <span className="font-semibold">Let's Connect</span>
-          </button>
+          </a>
         </div>
       </div>
     </section>

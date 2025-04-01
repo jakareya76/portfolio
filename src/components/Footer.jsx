@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="relative -z-10 overflow-x-clip">
+    <footer className="relative overflow-x-clip">
       <div
         className="absolute h-[400px] w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-emerald-300/30 -z-10"
         style={{
@@ -36,7 +36,11 @@ const Footer = () => {
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
             </a>
-            <a href="#" className="inline-flex items-center gap-1.5">
+            <a
+              href="https://github.com/jakareya76"
+              target="_blank"
+              className="inline-flex items-center gap-1.5"
+            >
               <span className="font-semibold">Github</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +58,11 @@ const Footer = () => {
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
             </a>
-            <a href="#" className="inline-flex items-center gap-1.5">
+            <a
+              href="https://www.linkedin.com/in/jakareya-ahmed"
+              target="_blank"
+              className="inline-flex items-center gap-1.5"
+            >
               <span className="font-semibold">Linkedin</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

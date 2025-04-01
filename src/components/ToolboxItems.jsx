@@ -1,6 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { TechIcon } from "./TechIcon";
 import { Fragment } from "react";
+import Image from "next/image";
 
 export const ToolboxItems = ({
   toolboxItem,
@@ -28,10 +29,15 @@ export const ToolboxItems = ({
             {toolboxItem.map((item, index) => (
               <div
                 key={index}
-                className="inline-flex items-center gap-4 py-2 px-3 outline-2 outline-white/10 rounded-lg"
+                className="inline-flex items-center gap-4 p-1 outline-2 outline-white/10 rounded-lg"
               >
-                <TechIcon component={item.icon} />
-                <span className="font-semibold">{item.title}</span>
+                <Image
+                  src={item.icon}
+                  alt={item.title}
+                  width={100}
+                  height={20}
+                  className="w-[120px] h-[40px] object-fill rounded"
+                />
               </div>
             ))}
           </Fragment>

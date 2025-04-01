@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme {
   --animate-move-left: move-left 1s ease-in-out infinite;
   --animate-move-right: move-right 1s ease-in-out infinite;

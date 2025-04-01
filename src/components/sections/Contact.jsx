@@ -2,7 +2,7 @@ import grainImage from "@/assets/images/grain.jpg";
 
 export const ContactSection = () => {
   return (
-    <section className="py-16 lg:py-24">
+    <section id="contact" className="py-16 lg:py-24">
       <div className="container mx-auto">
         <div className="bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-900 py-8 px-10 rounded-3xl overflow-hidden z-0 text-center relative">
           <div

@@ -2,7 +2,7 @@ import Image from "next/image";
 import SectionHeader from "../shared/SectionHeader";
 import Card from "../shared/Card";
 import bookImage from "@/assets/images/book-cover.png";
-import { toolboxItem } from "@/constants";
+import { toolboxItem, toolboxItemTwo } from "@/constants";
 import mapImage from "@/assets/images/map.png";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import { CardHeader } from "../shared/CardHeader";
@@ -11,7 +11,7 @@ import HobbiCard from "../HobbiCard";
 
 export const AboutSection = () => {
   return (
-    <section className="py-20 lg:py-28">
+    <section id="about" className="py-20 lg:py-28">
       <div className="container mx-auto">
         <SectionHeader
           eyeBrow="About Me"
@@ -43,7 +43,7 @@ export const AboutSection = () => {
                 itemsWrapperClassName="animate-move-left [animation-duration:30s]"
               />
               <ToolboxItems
-                toolboxItem={toolboxItem}
+                toolboxItem={toolboxItemTwo}
                 className="mt-6"
                 itemsWrapperClassName="-translate-x-1/2 animate-move-right [animation-duration:20s]"
               />

@@ -6,7 +6,7 @@ import SectionHeader from "../shared/SectionHeader";
 
 export const ProjectsSection = () => {
   return (
-    <section className="pb-16 lg:py-24 px-2">
+    <section id="projects" className="pb-16 lg:py-24 px-2">
       <div className="container mx-auto max-w-5xl">
         <SectionHeader
           eyeBrow="Showcasing Impactful Work"
@@ -68,8 +68,12 @@ export const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href={project.link} className="z-50 cursor-pointer">
-                    <button className="bg-white flex items-center justify-center gap-2 text-gray-950 h-12 w-full md:w-auto px-8 mt-8 rounded-lg font-semibold tracking-wider ">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    className="z-50 cursor-pointer"
+                  >
+                    <button className="bg-white flex items-center justify-center cursor-pointer gap-2 text-gray-950 h-12 w-full md:w-auto px-8 mt-8 rounded-lg font-semibold tracking-wider ">
                       <span>View Live Site</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
