@@ -22,55 +22,12 @@ const HeroEffect = () => {
       <div className="absolute inset-0 size-[1100px] border-2 rounded-full top-1/2 left-1/2 -translate-1/2 -translate-y-1/2 border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"></div>
       <div className="absolute inset-0 size-[1350px] border-2 rounded-full top-1/2 left-1/2 -translate-1/2 -translate-y-1/2 border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"></div>
 
-      <HeroOrbit size={800} rotation={-72}>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="size-28 text-emerald-400"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 1C12 1 12 8 10 10C8 12 1 12 1 12C1 12 8 12 10 14C12 16 12 23 12 23C12 23 12 16 14 14C16 12 23 12 23 12C23 12 16 12 14 10C12 8 12 1 12 1Z"
-            fill="currentColor"
-          />
-        </svg>
-      </HeroOrbit>
-
-      <HeroOrbit size={550} rotation={20}>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="size-12 text-emerald-400"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 1C12 1 12 8 10 10C8 12 1 12 1 12C1 12 8 12 10 14C12 16 12 23 12 23C12 23 12 16 14 14C16 12 23 12 23 12C23 12 16 12 14 10C12 8 12 1 12 1Z"
-            fill="currentColor"
-          />
-        </svg>
-      </HeroOrbit>
-
-      <HeroOrbit size={590} rotation={98}>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="size-8 text-emerald-400"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 1C12 1 12 8 10 10C8 12 1 12 1 12C1 12 8 12 10 14C12 16 12 23 12 23C12 23 12 16 14 14C16 12 23 12 23 12C23 12 16 12 14 10C12 8 12 1 12 1Z"
-            fill="currentColor"
-          />
-        </svg>
-      </HeroOrbit>
-
-      <HeroOrbit size={430} rotation={-14}>
+      <HeroOrbit
+        size={430}
+        rotation={-14}
+        orbitDuration="30s"
+        shouldOrbit={true}
+      >
         <svg
           width="24"
           height="24"
@@ -86,7 +43,12 @@ const HeroEffect = () => {
         </svg>
       </HeroOrbit>
 
-      <HeroOrbit size={440} rotation={79}>
+      <HeroOrbit
+        size={440}
+        rotation={79}
+        orbitDuration="32s"
+        shouldOrbit={true}
+      >
         <svg
           width="24"
           height="24"
@@ -101,7 +63,22 @@ const HeroEffect = () => {
           />
         </svg>
       </HeroOrbit>
-      <HeroOrbit size={530} rotation={180}>
+
+      <HeroOrbit
+        size={520}
+        rotation={-41}
+        orbitDuration="34s"
+        shouldOrbit={true}
+      >
+        <div className="size-2 bg-emerald-300/20 rounded-full"></div>
+      </HeroOrbit>
+
+      <HeroOrbit
+        size={530}
+        rotation={180}
+        orbitDuration="36s"
+        shouldOrbit={true}
+      >
         <svg
           width="24"
           height="24"
@@ -116,7 +93,64 @@ const HeroEffect = () => {
           />
         </svg>
       </HeroOrbit>
-      <HeroOrbit size={710} rotation={145}>
+
+      <HeroOrbit
+        size={550}
+        rotation={20}
+        orbitDuration="38s"
+        shouldOrbit={true}
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="size-12 text-emerald-400"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 1C12 1 12 8 10 10C8 12 1 12 1 12C1 12 8 12 10 14C12 16 12 23 12 23C12 23 12 16 14 14C16 12 23 12 23 12C23 12 16 12 14 10C12 8 12 1 12 1Z"
+            fill="currentColor"
+          />
+        </svg>
+      </HeroOrbit>
+
+      <HeroOrbit
+        size={590}
+        rotation={98}
+        orbitDuration="40s"
+        shouldOrbit={true}
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="size-8 text-emerald-400"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 1C12 1 12 8 10 10C8 12 1 12 1 12C1 12 8 12 10 14C12 16 12 23 12 23C12 23 12 16 14 14C16 12 23 12 23 12C23 12 16 12 14 10C12 8 12 1 12 1Z"
+            fill="currentColor"
+          />
+        </svg>
+      </HeroOrbit>
+
+      <HeroOrbit
+        size={650}
+        rotation={-5}
+        orbitDuration="42s"
+        shouldOrbit={true}
+      >
+        <div className="size-2 bg-emerald-300/20 rounded-full"></div>
+      </HeroOrbit>
+
+      <HeroOrbit
+        size={710}
+        rotation={145}
+        orbitDuration="44s"
+        shouldOrbit={true}
+      >
         <svg
           width="24"
           height="24"
@@ -131,7 +165,12 @@ const HeroEffect = () => {
           />
         </svg>
       </HeroOrbit>
-      <HeroOrbit size={710} rotation={145}>
+      <HeroOrbit
+        size={710}
+        rotation={145}
+        orbitDuration="46s"
+        shouldOrbit={true}
+      >
         <svg
           width="24"
           height="24"
@@ -146,14 +185,35 @@ const HeroEffect = () => {
           />
         </svg>
       </HeroOrbit>
-      <HeroOrbit size={720} rotation={85}>
+
+      <HeroOrbit
+        size={720}
+        rotation={85}
+        orbitDuration="48s"
+        shouldOrbit={true}
+      >
         <div className="size-3 bg-emerald-300/20 rounded-full"></div>
       </HeroOrbit>
-      <HeroOrbit size={520} rotation={-41}>
-        <div className="size-2 bg-emerald-300/20 rounded-full"></div>
-      </HeroOrbit>
-      <HeroOrbit size={650} rotation={-5}>
-        <div className="size-2 bg-emerald-300/20 rounded-full"></div>
+
+      <HeroOrbit
+        size={800}
+        rotation={-72}
+        orbitDuration="50s"
+        shouldOrbit={true}
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="size-28 text-emerald-400"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 1C12 1 12 8 10 10C8 12 1 12 1 12C1 12 8 12 10 14C12 16 12 23 12 23C12 23 12 16 14 14C16 12 23 12 23 12C23 12 16 12 14 10C12 8 12 1 12 1Z"
+            fill="currentColor"
+          />
+        </svg>
       </HeroOrbit>
     </div>
   );
