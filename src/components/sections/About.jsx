@@ -51,7 +51,7 @@ export const AboutSection = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 lg:grid-cols-3">
-            <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
+            <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2 overflow-hidden">
               <CardHeader
                 title="Beyond the Code"
                 description="Explore my interests and hobbies that fuel my creativity and passion for technology."
