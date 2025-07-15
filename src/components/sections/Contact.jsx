@@ -1,17 +1,21 @@
 import grainImage from "@/assets/images/grain.jpg";
+import { forwardRef } from "react";
 
-export const ContactSection = () => {
+export const ContactSection = forwardRef((props, ref) => {
   return (
-    <section id="contact" className="py-16 lg:py-24">
+    <section ref={ref} id="contact" className="py-16 lg:py-60 relative ">
+      {/* Add a sentinel element for IntersectionObserver */}
+      <div className="absolute top-0 h-[50vh] w-full pointer-events-none"></div>
+
       <div className="container mx-auto">
-        <div className="bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-900 py-8 px-10 rounded-3xl overflow-hidden z-0 text-center relative">
+        <div className="bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-900 py-8 px-10 rounded-3xl overflow-hidden z-0 text-center relative min-h-[300px] md:min-h-[250px] flex items-center">
           <div
             className="absolute inset-0 opacity-10 -z-10"
             style={{
               backgroundImage: `url(${grainImage.src})`,
             }}
           ></div>
-          <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center justify-between md:text-left">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center justify-between md:text-left w-full">
             <div>
               <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl">
                 Open to Frontend Opportunities
@@ -51,4 +55,4 @@ export const ContactSection = () => {
       </div>
     </section>
   );
-};
+});

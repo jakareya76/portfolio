@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         )}
       >
         {/* <UnderDevelopment /> */}
-        <Header />
+
         {children}
         <Footer />
       </body>

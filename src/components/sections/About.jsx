@@ -8,10 +8,11 @@ import smileMemoji from "@/assets/images/memoji-smile.png";
 import { CardHeader } from "../shared/CardHeader";
 import { ToolboxItems } from "../ToolboxItems";
 import HobbiCard from "../HobbiCard";
+import { forwardRef } from "react";
 
-export const AboutSection = () => {
+export const AboutSection = forwardRef((props, ref) => {
   return (
-    <section id="about" className="py-20 lg:py-28">
+    <section ref={ref} id="about" className="py-20 lg:py-28">
       <div className="container mx-auto">
         <SectionHeader
           eyeBrow="About Me"
@@ -77,4 +78,4 @@ export const AboutSection = () => {
       </div>
     </section>
   );
-};
+});

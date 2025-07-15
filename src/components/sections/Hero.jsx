@@ -1,10 +1,15 @@
 import Image from "next/image";
 import memojiImage from "@/assets/images/memoji-computer.png";
 import HeroEffect from "../HeroEffect";
+import { forwardRef } from "react";
 
-export const HeroSection = () => {
+export const HeroSection = forwardRef((props, ref) => {
   return (
-    <section id="home" className="py-32 xl:py-48 relative z-0 overflow-x-clip">
+    <section
+      ref={ref}
+      id="home"
+      className="py-32 xl:py-48 2xl:py-60 relative z-0 overflow-x-clip"
+    >
       <HeroEffect />
       <div className="container mx-auto">
         <div className="flex flex-col items-center gap-2">
@@ -15,7 +20,7 @@ export const HeroSection = () => {
             alt="emoji person"
             className="w-[100px] h-[100px]"
           />
-          <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 flex items-center gap-3 rounded-lg">
+          <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 flex items-center justify-center gap-3 rounded-lg">
             <div className="bg-green-500 size-2.5 rounded-full relative">
               <div className="bg-green-500 absolute inset-0 animate-ping rounded-full"></div>
             </div>
@@ -68,4 +73,4 @@ export const HeroSection = () => {
       </div>
     </section>
   );
-};
+});
