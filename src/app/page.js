@@ -39,7 +39,7 @@ export default function Home() {
       <main>
         <HeroSection ref={homeRef} />
         <ProjectsSection ref={projectsRef} />
-        <TapeSection />
+        <TapeSection ref={aboutRef} />
         <AboutSection ref={aboutRef} />
         <ContactSection ref={contactRef} />
       </main>

@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 
 export const ContactSection = forwardRef((props, ref) => {
   return (
-    <section ref={ref} id="contact" className="py-16 lg:py-60 relative ">
+    <section ref={ref} id="contact" className="py-16 relative ">
       {/* Add a sentinel element for IntersectionObserver */}
       <div className="absolute top-0 h-[50vh] w-full pointer-events-none"></div>
 

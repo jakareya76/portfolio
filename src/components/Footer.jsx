@@ -15,27 +15,27 @@ const Footer = () => {
           <div className="text-white/40">&copy; 2025. All rights reserved.</div>
           <nav className="flex flex-col items-center gap-8 md:flex-row">
             <a
-              href="/CV_JAKAREYA.pdf"
-              download="CV_JAKAREYA.pdf"
-              className="inline-flex items-center gap-1.5"
+              href="/jakareya-frontend-cv.pdf"
+              download
+              className="inline-flex items-center gap-1.5 text-white font-semibold hover:text-emerald-300 transition"
             >
-              <span className="font-semibold">Download CV</span>
+              <span>Download CV</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="feather feather-arrow-up-right size-4"
               >
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
             </a>
+
             <a
               href="https://github.com/jakareya76"
               target="_blank"

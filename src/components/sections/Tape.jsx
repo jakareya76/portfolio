@@ -16,9 +16,9 @@ const words = [
   "Readability",
 ];
 
-export const TapeSection = () => {
+export const TapeSection = ({ ref }) => {
   return (
-    <section className="py-16" id="projects">
+    <section ref={ref} className="py-16" id="about">
       <div className="bg-gradient-to-r from-emerald-300 to-sky-400 overflow-hidden -rotate-3 flex items-center justify-center">
         <Marquee gradient={false} speed={50} pauseOnHover>
           {words.map((word, index) => (

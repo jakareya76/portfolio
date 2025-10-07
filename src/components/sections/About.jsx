@@ -12,7 +12,7 @@ import { forwardRef } from "react";
 
 export const AboutSection = forwardRef((props, ref) => {
   return (
-    <section ref={ref} id="about" className="py-20 lg:py-28">
+    <section ref={ref} id="about" className="py-20">
       <div className="container mx-auto">
         <SectionHeader
           eyeBrow="About Me"
