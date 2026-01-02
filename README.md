@@ -2,6 +2,10 @@
 
 A personal portfolio website built with **Next.js**, **Tailwind CSS**, **GSAP**, and **Framer Motion**.
 
+## Live Demo
+
+[View live site](https://jakareya76-portfolio.vercel.app)
+
 ## Tech Stack
 
 - [Next.js](https://nextjs.org/) — React framework
