@@ -14,6 +14,13 @@ A personal portfolio website built with **Next.js**, **Tailwind CSS**, **GSAP**,
 - [Framer Motion](https://www.framer.com/motion/) — UI animations
 - [Lenis](https://lenis.darkroom.engineering/) — Smooth scrolling
 
+## Features
+
+- Smooth scrolling with Lenis
+- GSAP-powered animations
+- Fully responsive design
+- Optimized with Next.js App Router
+
 ## Getting Started
 
 ```bash
