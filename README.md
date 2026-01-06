@@ -37,6 +37,11 @@ npm run build
 npm start
 ```
 
+## Prerequisites
+
+- Node.js >= 24.0.0
+- npm
+
 ## License
 
 MIT
