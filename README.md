@@ -30,6 +30,15 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+## Project Structure
+
+```
+src/
+├── app/          # Next.js app router pages
+├── components/   # Reusable UI components
+└── styles/       # Global styles
+```
+
 ## Build
 
 ```bash
