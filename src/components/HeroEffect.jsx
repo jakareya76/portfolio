@@ -1,9 +1,40 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import HeroOrbit from "./HeroOrbit";
 import grainImage from "@/assets/images/grain.jpg";
+import gsap from "gsap";
 
 const HeroEffect = () => {
+  const containerRef = useRef(null);
+  const ringsRef = useRef([]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const ctx = gsap.context(() => {
+      // Animate rings appearing
+      gsap.fromTo(
+        ringsRef.current,
+        { scale: 0.5, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.5,
+          stagger: 0.2,
+          ease: "power4.out",
+          delay: 0.3,
+        }
+      );
+    }, container);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div
+      ref={containerRef}
       className="absolute inset-0"
       style={{
         maskImage:
@@ -13,99 +44,48 @@ const HeroEffect = () => {
       }}
     >
       <div
-        className="absolute inset-0 -z-30 opacity-5"
+        className="absolute inset-0 -z-30 opacity-[0.03]"
         style={{ backgroundImage: `url(${grainImage.src})` }}
-      ></div>
+      />
 
-      <div className="absolute inset-0 size-[620px] border-2 rounded-full top-1/2 left-1/2 -translate-1/2 -translate-y-1/2 border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"></div>
-      <div className="absolute inset-0 size-[850px] border-2 rounded-full top-1/2 left-1/2 -translate-1/2 -translate-y-1/2 border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"></div>
-      <div className="absolute inset-0 size-[1100px] border-2 rounded-full top-1/2 left-1/2 -translate-1/2 -translate-y-1/2 border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"></div>
-      <div className="absolute inset-0 size-[1350px] border-2 rounded-full top-1/2 left-1/2 -translate-1/2 -translate-y-1/2 border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5"></div>
+      {/* Animated rings with new colors */}
+      <div
+        ref={(el) => (ringsRef.current[0] = el)}
+        className="absolute inset-0 size-[620px] border rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-violet-500/10"
+      />
+      <div
+        ref={(el) => (ringsRef.current[1] = el)}
+        className="absolute inset-0 size-[850px] border rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-cyan-500/10"
+      />
+      <div
+        ref={(el) => (ringsRef.current[2] = el)}
+        className="absolute inset-0 size-[1100px] border rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-fuchsia-500/10"
+      />
+      <div
+        ref={(el) => (ringsRef.current[3] = el)}
+        className="absolute inset-0 size-[1350px] border rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-violet-500/10"
+      />
 
-      <HeroOrbit
-        size={430}
-        rotation={-14}
-        orbitDuration="30s"
-        shouldOrbit={true}
-      >
+      {/* Orbiting elements */}
+      <HeroOrbit size={430} rotation={-14} orbitDuration="30s" shouldOrbit={true}>
+        <div className="size-2 bg-violet-500 rounded-full shadow-lg shadow-violet-500/50" />
+      </HeroOrbit>
+
+      <HeroOrbit size={480} rotation={79} orbitDuration="35s" shouldOrbit={true}>
+        <div className="size-3 bg-cyan-500 rounded-full shadow-lg shadow-cyan-500/50" />
+      </HeroOrbit>
+
+      <HeroOrbit size={550} rotation={180} orbitDuration="40s" shouldOrbit={true}>
+        <div className="size-2 bg-fuchsia-500 rounded-full shadow-lg shadow-fuchsia-500/50" />
+      </HeroOrbit>
+
+      <HeroOrbit size={620} rotation={20} orbitDuration="45s" shouldOrbit={true}>
         <svg
           width="24"
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="size-8 text-emerald-400/20"
-        >
-          <path
-            d="M1 12L10.1667 10.1667L12 1L13.8333 10.1667L23 12L13.8333 13.8333L12 23L10.1667 13.8333L1 12Z"
-            fill="currentColor"
-          />
-        </svg>
-      </HeroOrbit>
-
-      <HeroOrbit
-        size={440}
-        rotation={79}
-        orbitDuration="32s"
-        shouldOrbit={true}
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="size-5 text-emerald-400/20"
-        >
-          <path
-            d="M1 12L10.1667 10.1667L12 1L13.8333 10.1667L23 12L13.8333 13.8333L12 23L10.1667 13.8333L1 12Z"
-            fill="currentColor"
-          />
-        </svg>
-      </HeroOrbit>
-
-      <HeroOrbit
-        size={520}
-        rotation={-41}
-        orbitDuration="34s"
-        shouldOrbit={true}
-      >
-        <div className="size-2 bg-emerald-300/20 rounded-full"></div>
-      </HeroOrbit>
-
-      <HeroOrbit
-        size={530}
-        rotation={180}
-        orbitDuration="36s"
-        shouldOrbit={true}
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="size-10 text-emerald-400/20"
-        >
-          <path
-            d="M1 12L10.1667 10.1667L12 1L13.8333 10.1667L23 12L13.8333 13.8333L12 23L10.1667 13.8333L1 12Z"
-            fill="currentColor"
-          />
-        </svg>
-      </HeroOrbit>
-
-      <HeroOrbit
-        size={550}
-        rotation={20}
-        orbitDuration="38s"
-        shouldOrbit={true}
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="size-12 text-emerald-400"
+          className="size-8 text-violet-400"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -115,18 +95,17 @@ const HeroEffect = () => {
         </svg>
       </HeroOrbit>
 
-      <HeroOrbit
-        size={590}
-        rotation={98}
-        orbitDuration="40s"
-        shouldOrbit={true}
-      >
+      <HeroOrbit size={700} rotation={98} orbitDuration="50s" shouldOrbit={true}>
+        <div className="size-4 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full shadow-lg shadow-violet-500/50" />
+      </HeroOrbit>
+
+      <HeroOrbit size={780} rotation={-45} orbitDuration="55s" shouldOrbit={true}>
         <svg
           width="24"
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          className="size-8 text-emerald-400"
+          className="size-10 text-cyan-400/60"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -136,77 +115,17 @@ const HeroEffect = () => {
         </svg>
       </HeroOrbit>
 
-      <HeroOrbit
-        size={650}
-        rotation={-5}
-        orbitDuration="42s"
-        shouldOrbit={true}
-      >
-        <div className="size-2 bg-emerald-300/20 rounded-full"></div>
+      <HeroOrbit size={850} rotation={145} orbitDuration="60s" shouldOrbit={true}>
+        <div className="size-2 bg-fuchsia-400 rounded-full shadow-lg shadow-fuchsia-400/50" />
       </HeroOrbit>
 
-      <HeroOrbit
-        size={710}
-        rotation={145}
-        orbitDuration="44s"
-        shouldOrbit={true}
-      >
+      <HeroOrbit size={920} rotation={-72} orbitDuration="65s" shouldOrbit={true}>
         <svg
           width="24"
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="size-14 text-emerald-400/20"
-        >
-          <path
-            d="M1 12L10.1667 10.1667L12 1L13.8333 10.1667L23 12L13.8333 13.8333L12 23L10.1667 13.8333L1 12Z"
-            fill="currentColor"
-          />
-        </svg>
-      </HeroOrbit>
-      <HeroOrbit
-        size={710}
-        rotation={145}
-        orbitDuration="46s"
-        shouldOrbit={true}
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="size-14 text-emerald-400/20"
-        >
-          <path
-            d="M1 12L10.1667 10.1667L12 1L13.8333 10.1667L23 12L13.8333 13.8333L12 23L10.1667 13.8333L1 12Z"
-            fill="currentColor"
-          />
-        </svg>
-      </HeroOrbit>
-
-      <HeroOrbit
-        size={720}
-        rotation={85}
-        orbitDuration="48s"
-        shouldOrbit={true}
-      >
-        <div className="size-3 bg-emerald-300/20 rounded-full"></div>
-      </HeroOrbit>
-
-      <HeroOrbit
-        size={800}
-        rotation={-72}
-        orbitDuration="50s"
-        shouldOrbit={true}
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          className="size-28 text-emerald-400"
+          className="size-16 text-violet-400/30"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

@@ -16,16 +16,18 @@ import typescriptIcon from "@/assets/skills/typescript.svg";
 import tailwindIcon from "@/assets/skills/tailwindcss.svg";
 import prismaIcon from "@/assets/skills/prisma.svg";
 import expressIcon from "@/assets/skills/express.svg";
+import azureIcon from "@/assets/skills/azure.svg";
+import cloudIcon from "@/assets/skills/cloud.svg";
 
 export const portfolioProjects = [
   {
     company: "SNAPBUY",
     year: "2025",
-    title: "Ecommerce Management System",
+    title: "Full Stack Ecommerce System",
     results: [
-      { title: "Admin dashboard for product management (add, edit, delete)" },
-      { title: "Secure payments via PayPal (sandbox) and Stripe" },
-      { title: "User authentication and authorization" },
+      { title: "Admin dashboard for product management" },
+      { title: "Secure payments via PayPal & Stripe" },
+      { title: "User authentication & authorization" },
     ],
     link: "https://snapbuy.vercel.app",
     image: projectOne,
@@ -33,13 +35,13 @@ export const portfolioProjects = [
   {
     company: "Other Opinion",
     year: "2024",
-    title: "A platform for users to share and discuss opinions",
+    title: "Opinion Sharing Platform",
     results: [
       {
-        title: "Various Topics With Voting",
+        title: "Real-time voting & discussions",
       },
-      { title: "Profile management" },
-      { title: "Comment moderation" },
+      { title: "Profile management & moderation" },
+      { title: "Full stack implementation" },
     ],
     link: "https://other-options.web.app",
     image: projectTwo,
@@ -47,11 +49,11 @@ export const portfolioProjects = [
   {
     company: "Headline Hub",
     year: "2024",
-    title: "A Web App For Real-Time News Aggregation",
+    title: "Real-Time News Aggregator",
     results: [
-      { title: "Real-Time news aggregation" },
-      { title: "Offering Categorized Updates" },
-      { title: "Search Functionality" },
+      { title: "Aggregates news from multiple sources" },
+      { title: "Categorized updates & search" },
+      { title: "Optimized performance" },
     ],
     link: "https://headline-hub-762d6.web.app",
     image: projectThree,
@@ -64,58 +66,67 @@ export const toolboxItem = [
     icon: javascriptIcon,
   },
   {
-    title: "HTML",
-    icon: htmlIcon,
-  },
-  {
-    title: "CSS",
-    icon: cssIcon,
+    title: "TypeScript",
+    icon: typescriptIcon,
   },
   {
     title: "React",
     icon: reactIcon,
   },
   {
-    title: "Github",
-    icon: githubIcon,
+    title: "Next.js",
+    icon: nextIcon,
+  },
+  {
+    title: "Tailwind CSS",
+    icon: tailwindIcon,
+  },
+  {
+    title: "HTML5",
+    icon: htmlIcon,
+  },
+  {
+    title: "CSS3",
+    icon: cssIcon,
+  },
+];
+
+export const toolboxItemTwo = [
+  {
+    title: "Node.js",
+    icon: nodeIcon,
+  },
+  {
+    title: "Express.js",
+    icon: expressIcon,
+  },
+  {
+    title: "PostgreSQL",
+    icon: postgresqlIcon,
+  },
+  {
+    title: "MongoDB",
+    icon: mongodbIcon,
+  },
+  {
+    title: "Prisma",
+    icon: prismaIcon,
+  },
+  {
+    title: "Azure",
+    icon: azureIcon,
+  },
+  {
+    title: "Cloud SSH",
+    icon: cloudIcon,
   },
   {
     title: "Git",
     icon: gitIcon,
   },
   {
-    title: "node js",
-    icon: nodeIcon,
-  },
-];
-export const toolboxItemTwo = [
-  {
-    title: "typescript",
-    icon: typescriptIcon,
-  },
-  {
-    title: "next js",
-    icon: nextIcon,
-  },
-  {
-    title: "mongodb",
-    icon: mongodbIcon,
-  },
-  {
-    title: "postgresql",
-    icon: postgresqlIcon,
-  },
-  {
-    title: "tailwindcss",
-    icon: tailwindIcon,
-  },
-  {
-    title: "prisma",
-    icon: prismaIcon,
-  },
-  {
-    title: "express",
-    icon: expressIcon,
+    title: "GitHub",
+    icon: githubIcon,
   },
 ];
 

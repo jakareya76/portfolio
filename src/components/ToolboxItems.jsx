@@ -1,5 +1,6 @@
+"use client";
+
 import { twMerge } from "tailwind-merge";
-import { TechIcon } from "./TechIcon";
 import { Fragment } from "react";
 import Image from "next/image";
 
@@ -10,34 +11,39 @@ export const ToolboxItems = ({
 }) => {
   return (
     <div
-      className={twMerge("flex", className)}
+      className={twMerge("flex overflow-hidden", className)}
       style={{
         maskImage:
           "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
         WebkitMaskImage:
-          "linear-gradient(to right, transparent, black 10%, black 70%, transparent)",
+          "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
       }}
     >
       <div
         className={twMerge(
-          "flex flex-none py-0.5 gap-6 pr-6",
+          "flex flex-none py-2 gap-3",
           itemsWrapperClassName
         )}
       >
-        {[...new Array(2)].fill(0).map((_, index) => (
-          <Fragment key={index}>
-            {toolboxItem.map((item, index) => (
+        {[...new Array(2)].fill(0).map((_, arrayIndex) => (
+          <Fragment key={arrayIndex}>
+            {toolboxItem.map((item, itemIndex) => (
               <div
-                key={index}
-                className="inline-flex items-center gap-4 p-1 outline-2 outline-white/10 rounded-lg"
+                key={`${arrayIndex}-${itemIndex}`}
+                className="group flex-shrink-0 inline-flex items-center gap-2 px-3 py-2 bg-zinc-800/60 border border-zinc-700/50 rounded-lg hover:border-violet-500/50 hover:bg-zinc-800 transition-all duration-300"
               >
-                <Image
-                  src={item.icon}
-                  alt={item.title}
-                  width={100}
-                  height={20}
-                  className="w-[120px] h-[40px] object-fill rounded"
-                />
+                <div className="size-5 flex items-center justify-center flex-shrink-0">
+                  <Image
+                    src={item.icon}
+                    alt={item.title}
+                    width={20}
+                    height={20}
+                    className="w-5 h-5 object-contain"
+                  />
+                </div>
+                <span className="text-xs font-medium text-zinc-400 group-hover:text-white transition-colors duration-300 whitespace-nowrap">
+                  {item.title}
+                </span>
               </div>
             ))}
           </Fragment>
