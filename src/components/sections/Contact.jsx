@@ -61,7 +61,7 @@ export const ContactSection = forwardRef((props, ref) => {
             trigger: section,
             start: "top 80%",
           },
-        }
+        },
       );
     }, section);
 
@@ -117,7 +117,7 @@ export const ContactSection = forwardRef((props, ref) => {
               >
                 {/* Animated background */}
                 <span className="absolute inset-0 bg-gradient-to-r from-violet-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 {/* Shine effect */}
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
 
@@ -143,7 +143,7 @@ export const ContactSection = forwardRef((props, ref) => {
             <p className="text-zinc-500 text-sm mt-4">
               Or download my{" "}
               <a
-                href="/jakareya-frontend-cv.pdf"
+                href="/jakareya-cv.pdf"
                 download
                 className="text-violet-400 hover:text-violet-300 underline underline-offset-4 transition-colors"
               >
