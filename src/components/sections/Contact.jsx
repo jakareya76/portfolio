@@ -39,7 +39,7 @@ export const ContactSection = forwardRef((props, ref) => {
         else if (ref) ref.current = el;
       }}
       id="contact"
-      className="py-24 lg:py-32 relative z-10"
+      className="pt-24 lg:pt-32 pb-32 lg:pb-40 relative z-10"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Section label */}

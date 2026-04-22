@@ -3,6 +3,7 @@
 import { toolboxItem, toolboxItemTwo } from "@/constants";
 import { forwardRef, useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { ExperienceLog } from "@/components/ExperienceLog";
 
 const allSkills = [...toolboxItem, ...toolboxItemTwo]
   .filter(
@@ -202,42 +203,9 @@ export const AboutSection = forwardRef((props, ref) => {
             </div>
           </div>
 
-          {/* Approach card — full width */}
-          <div className="about-card md:col-span-12 bg-surface border border-ghost p-8 md:p-10 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-signal/20 via-signal/40 to-signal/20" />
-            <div className="flex items-start justify-between mb-8">
-              <span className="font-[family-name:var(--font-mono)] text-signal text-[11px] uppercase tracking-[0.12em]">
-                Approach
-              </span>
-              <span className="font-[family-name:var(--font-mono)] text-ghost text-[11px]">
-                03
-              </span>
-            </div>
-            <div className="grid md:grid-cols-3 gap-10">
-              {[
-                {
-                  title: "Systems Thinking",
-                  desc: "I see the full picture — from database schemas to deployment pipelines. Every decision is made with the whole system in mind.",
-                },
-                {
-                  title: "Clean Architecture",
-                  desc: "Code should be readable, maintainable, and scalable. I write software that future developers will thank me for.",
-                },
-                {
-                  title: "Ship & Iterate",
-                  desc: "Perfect is the enemy of shipped. I build fast, measure impact, and iterate based on real-world feedback.",
-                },
-              ].map((item, i) => (
-                <div key={i}>
-                  <h4 className="font-[family-name:var(--font-display)] font-bold text-paper text-base mb-3">
-                    {item.title}
-                  </h4>
-                  <p className="text-muted text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
+          {/* Experience — git log */}
+          <div className="about-card md:col-span-12">
+            <ExperienceLog />
           </div>
         </div>
 

@@ -23,6 +23,9 @@ const CursorFill = dynamic(() => import("@/components/CursorFill"), {
   ssr: false,
 });
 const WebGL = dynamic(() => import("@/components/WebGL"), { ssr: false });
+const SystemBar = dynamic(() => import("@/components/SystemBar"), {
+  ssr: false,
+});
 
 export default function Home() {
   const { homeRef, projectsRef, aboutRef, contactRef, activeSection } =
@@ -96,6 +99,8 @@ export default function Home() {
         <AboutSection ref={aboutRef} />
         <ContactSection ref={contactRef} />
       </main>
+
+      <SystemBar activeSection={activeSection} />
     </>
   );
 }

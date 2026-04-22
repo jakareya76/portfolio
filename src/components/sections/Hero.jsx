@@ -50,10 +50,26 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
         ease: "power3.out",
         delay: 0.6,
       });
+
+      // Trace bars grow in
+      gsap.from(".trace-bar-fill", {
+        scaleX: 0,
+        transformOrigin: "left center",
+        duration: 0.9,
+        stagger: 0.12,
+        ease: "power3.out",
+        delay: 0.9,
+      });
     }, containerRef);
 
     return () => ctx.revert();
   }, [bootDone]);
+
+  const trace = [
+    { label: "next.js", ms: 24, pct: 50 },
+    { label: "node", ms: 18, pct: 38 },
+    { label: "postgres", ms: 6, pct: 12 },
+  ];
 
   const splitChars = (text) =>
     text.split("").map((char, i) => (
@@ -133,15 +149,44 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
             </p>
           </div>
 
-          {/* Right — number + CTAs */}
-          <div className="hero-fade flex flex-col items-end">
-            <span
-              className="font-[family-name:var(--font-display)] font-bold text-outline select-none"
-              style={{ fontSize: "clamp(60px, 8vw, 120px)", lineHeight: 1 }}
-            >
-              01
-            </span>
-            <div className="flex flex-col items-end gap-2 mt-6">
+          {/* Right — request trace + CTAs */}
+          <div className="hero-fade flex flex-col items-stretch md:items-end">
+            {/* Request trace widget */}
+            <div className="w-full md:w-[340px] border border-ghost bg-surface/60 backdrop-blur-sm">
+              <div className="flex items-center justify-between px-4 py-2 border-b border-ghost">
+                <div className="flex items-center gap-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.12em]">
+                  <span className="text-signal">GET</span>
+                  <span className="text-paper">/</span>
+                  <span className="text-muted">→</span>
+                  <span className="text-signal">200</span>
+                </div>
+                <span className="font-[family-name:var(--font-mono)] text-paper text-[10px] tabular-nums">
+                  48ms
+                </span>
+              </div>
+              <div className="px-4 py-4 space-y-2.5 font-[family-name:var(--font-mono)] text-[11px]">
+                {trace.map((t) => (
+                  <div key={t.label} className="flex items-center gap-3">
+                    <span className="text-muted w-16 shrink-0">{t.label}</span>
+                    <div className="flex-1 h-1 bg-ghost relative overflow-hidden">
+                      <div
+                        className="trace-bar-fill absolute inset-y-0 left-0 bg-signal"
+                        style={{ width: `${t.pct}%` }}
+                      />
+                    </div>
+                    <span className="text-paper tabular-nums w-10 text-right">
+                      {t.ms}ms
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="px-4 py-2 border-t border-ghost font-[family-name:var(--font-mono)] text-[10px] text-ghost flex justify-between">
+                <span>trace id · 7b4a91</span>
+                <span>edge · dac1</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-stretch md:items-end gap-2 mt-6">
               <a
                 href="#projects"
                 data-fill
