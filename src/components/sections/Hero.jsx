@@ -25,40 +25,80 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
     return () => clearInterval(id);
   }, []);
 
+  // Hide entrance targets immediately on mount so they can't flash
+  // before the boot sequence finishes.
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    gsap.set(el.querySelectorAll(".hero-char"), { yPercent: 120 });
+    gsap.set(el.querySelectorAll(".hero-fade"), { autoAlpha: 0, y: 20 });
+    gsap.set(el.querySelectorAll(".trace-bar-fill"), {
+      scaleX: 0,
+      transformOrigin: "left center",
+    });
+  }, []);
+
   // GSAP entrance after boot
   useEffect(() => {
     if (!bootDone) return;
     const ctx = gsap.context(() => {
-      // Animate headline lines
-      gsap.utils.toArray(".hero-char-line").forEach((line) => {
+      const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+
+      // Headline lines — staggered char reveal
+      gsap.utils.toArray(".hero-char-line").forEach((line, i) => {
         const chars = line.querySelectorAll(".hero-char");
-        gsap.from(chars, {
-          yPercent: 120,
-          duration: 0.8,
-          stagger: 0.02,
-          ease: "expo.out",
-          delay: 0.1,
-        });
+        tl.to(
+          chars,
+          {
+            yPercent: 0,
+            duration: 0.75,
+            stagger: 0.018,
+            ease: "expo.out",
+          },
+          i === 0 ? 0.05 : "-=0.55"
+        );
       });
 
-      // Fade in secondary content
-      gsap.from(".hero-fade", {
-        opacity: 0,
-        y: 20,
-        duration: 0.7,
-        stagger: 0.1,
-        ease: "power3.out",
-        delay: 0.6,
-      });
+      // Secondary content fades in as headline is wrapping up
+      tl.to(
+        ".hero-fade",
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.08,
+          ease: "power3.out",
+        },
+        "-=0.35"
+      );
 
-      // Trace bars grow in
-      gsap.from(".trace-bar-fill", {
-        scaleX: 0,
-        transformOrigin: "left center",
-        duration: 0.9,
-        stagger: 0.12,
-        ease: "power3.out",
-        delay: 0.9,
+      // Trace bars grow in AFTER the trace card is visible
+      tl.to(
+        ".trace-bar-fill",
+        {
+          scaleX: 1,
+          duration: 0.85,
+          stagger: 0.09,
+          ease: "power3.out",
+        },
+        "-=0.3"
+      );
+
+      // Subtle ambient re-trace every 8s — a short shimmer on the bars
+      tl.call(() => {
+        const retrace = gsap.timeline({ repeat: -1, repeatDelay: 7 });
+        retrace.fromTo(
+          ".trace-bar-fill",
+          { opacity: 1 },
+          {
+            opacity: 0.45,
+            duration: 0.25,
+            stagger: 0.08,
+            ease: "power1.inOut",
+            yoyo: true,
+            repeat: 1,
+          }
+        );
       });
     }, containerRef);
 

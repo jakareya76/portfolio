@@ -23,38 +23,48 @@ export const portfolioProjects = [
   {
     company: "SNAPBUY",
     year: "2025",
+    role: "Full Stack",
     title: "Full Stack Ecommerce System",
+    summary:
+      "End-to-end ecommerce platform with admin tooling and multi-gateway checkout.",
     results: [
       { title: "Admin dashboard for product management" },
       { title: "Secure payments via PayPal & Stripe" },
       { title: "User authentication & authorization" },
     ],
+    tech: ["Next.js", "Node.js", "PostgreSQL", "Stripe", "TypeScript"],
     link: "https://snapbuy.vercel.app",
     image: projectOne,
   },
   {
     company: "Other Opinion",
     year: "2024",
+    role: "Full Stack",
     title: "Opinion Sharing Platform",
+    summary:
+      "Real-time discussion platform with voting, profiles, and content moderation.",
     results: [
-      {
-        title: "Real-time voting & discussions",
-      },
+      { title: "Real-time voting & discussions" },
       { title: "Profile management & moderation" },
       { title: "Full stack implementation" },
     ],
+    tech: ["React", "Firebase", "Realtime DB", "Tailwind"],
     link: "https://other-options.web.app",
     image: projectTwo,
   },
   {
     company: "Headline Hub",
     year: "2024",
+    role: "Frontend",
     title: "Real-Time News Aggregator",
+    summary:
+      "Aggregates news across sources with categorization and fast search.",
     results: [
       { title: "Aggregates news from multiple sources" },
       { title: "Categorized updates & search" },
       { title: "Optimized performance" },
     ],
+    tech: ["React", "News API", "Firebase", "Tailwind"],
     link: "https://headline-hub-762d6.web.app",
     image: projectThree,
   },

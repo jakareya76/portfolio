@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { gsap } from "@/lib/gsap";
 
 const SECTIONS = ["home", "projects", "about", "contact"];
 
@@ -38,12 +39,28 @@ function fmtUptime(ms) {
 
 export default function SystemBar({ activeSection }) {
   const mountedAt = useRef(Date.now());
+  const rootRef = useRef(null);
   const [uptime, setUptime] = useState("00:00:00");
   const [mem, setMem] = useState(42);
   const [latency, setLatency] = useState(24);
   const [expanded, setExpanded] = useState(false);
   const [logs, setLogs] = useState([]);
   const logIdRef = useRef(0);
+
+  // Mount entrance — slide up and fade in after boot sequence
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    gsap.set(el, { autoAlpha: 0, y: 12 });
+    const t = gsap.to(el, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.6,
+      delay: 1.6,
+      ease: "power3.out",
+    });
+    return () => t.kill();
+  }, []);
 
   // Uptime tick
   useEffect(() => {
@@ -96,7 +113,10 @@ export default function SystemBar({ activeSection }) {
   const routeLabel = `/${activeSection === "home" ? "" : activeSection || ""}`;
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-40 pointer-events-none">
+    <div
+      ref={rootRef}
+      className="fixed bottom-0 inset-x-0 z-40 pointer-events-none"
+    >
       {/* Expanded log panel */}
       <div
         className={`pointer-events-auto overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
@@ -124,7 +144,7 @@ export default function SystemBar({ activeSection }) {
                   ? "text-ghost"
                   : "text-muted";
                 return (
-                  <div key={l.id} className={tone}>
+                  <div key={l.id} className={`log-entry ${tone}`}>
                     <span className="text-ghost">{l.ts}</span>{" "}
                     <span>{l.text}</span>
                   </div>

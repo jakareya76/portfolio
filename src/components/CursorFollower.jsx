@@ -92,11 +92,24 @@ export default function CursorFollower() {
     window.addEventListener("cursor-hide", onCursorHide);
     window.addEventListener("cursor-show", onCursorShow);
 
-    const interactives = document.querySelectorAll("a, button, [data-cursor-hover], [data-cursor-view]");
-    interactives.forEach((el) => {
-      el.addEventListener("mouseenter", onEnterInteractive);
-      el.addEventListener("mouseleave", onLeaveInteractive);
-    });
+    // Track which elements we've bound so MutationObserver can re-bind
+    // for dynamically added nodes without duplicating listeners.
+    const bound = new WeakSet();
+    const selector = "a, button, [data-cursor-hover], [data-cursor-view]";
+
+    const bindAll = () => {
+      document.querySelectorAll(selector).forEach((el) => {
+        if (bound.has(el)) return;
+        el.addEventListener("mouseenter", onEnterInteractive);
+        el.addEventListener("mouseleave", onLeaveInteractive);
+        bound.add(el);
+      });
+    };
+
+    bindAll();
+
+    const observer = new MutationObserver(() => bindAll());
+    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       document.documentElement.classList.remove("cursor-none-custom");
@@ -105,7 +118,8 @@ export default function CursorFollower() {
       window.removeEventListener("mouseup", onMouseUp);
       window.removeEventListener("cursor-hide", onCursorHide);
       window.removeEventListener("cursor-show", onCursorShow);
-      interactives.forEach((el) => {
+      observer.disconnect();
+      document.querySelectorAll(selector).forEach((el) => {
         el.removeEventListener("mouseenter", onEnterInteractive);
         el.removeEventListener("mouseleave", onLeaveInteractive);
       });

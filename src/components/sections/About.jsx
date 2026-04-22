@@ -40,7 +40,7 @@ export const AboutSection = forwardRef((props, ref) => {
         });
       }
 
-      // Cards stagger in
+      // Cards stagger in (profile + location; ExperienceLog has its own reveal)
       gsap.from(".about-card", {
         opacity: 0,
         y: 60,
@@ -50,23 +50,32 @@ export const AboutSection = forwardRef((props, ref) => {
         scrollTrigger: { trigger: ".about-grid", start: "top 75%" },
       });
 
-      // Skill marquees — opposite directions
-      if (marquee1Ref.current) {
-        const w1 = marquee1Ref.current.scrollWidth / 2;
-        gsap.to(marquee1Ref.current, {
-          x: -w1,
-          duration: 30,
-          ease: "none",
-          repeat: -1,
-        });
-      }
-      if (marquee2Ref.current) {
-        const w2 = marquee2Ref.current.scrollWidth / 2;
-        gsap.fromTo(
-          marquee2Ref.current,
-          { x: -w2 },
-          { x: 0, duration: 30, ease: "none", repeat: -1 }
-        );
+      // Skill marquees — opposite directions. Wait for fonts so measurements
+      // are correct, otherwise the loop seam is visible.
+      const startMarquees = () => {
+        if (marquee1Ref.current) {
+          const w1 = marquee1Ref.current.scrollWidth / 2;
+          gsap.to(marquee1Ref.current, {
+            x: -w1,
+            duration: 30,
+            ease: "none",
+            repeat: -1,
+          });
+        }
+        if (marquee2Ref.current) {
+          const w2 = marquee2Ref.current.scrollWidth / 2;
+          gsap.fromTo(
+            marquee2Ref.current,
+            { x: -w2 },
+            { x: 0, duration: 30, ease: "none", repeat: -1 }
+          );
+        }
+      };
+
+      if (typeof document !== "undefined" && document.fonts?.ready) {
+        document.fonts.ready.then(startMarquees);
+      } else {
+        startMarquees();
       }
 
       // Skill section reveal
@@ -203,8 +212,8 @@ export const AboutSection = forwardRef((props, ref) => {
             </div>
           </div>
 
-          {/* Experience — git log */}
-          <div className="about-card md:col-span-12">
+          {/* Experience — git log (owns its own entrance animation) */}
+          <div className="md:col-span-12">
             <ExperienceLog />
           </div>
         </div>
