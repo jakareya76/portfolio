@@ -1,75 +1,89 @@
 "use client";
 
-import Image from "next/image";
-import SectionHeader from "../shared/SectionHeader";
-import bookImage from "@/assets/images/book-cover.png";
 import { toolboxItem, toolboxItemTwo } from "@/constants";
-import mapImage from "@/assets/images/map.png";
-import smileMemoji from "@/assets/images/memoji-smile.png";
 import { forwardRef, useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 
-gsap.registerPlugin(ScrollTrigger);
+const allSkills = [...toolboxItem, ...toolboxItemTwo]
+  .filter(
+    (skill, index, self) =>
+      index ===
+      self.findIndex((s) => s.title.toLowerCase() === skill.title.toLowerCase())
+  )
+  .map((s) => s.title);
 
-// Combine and deduplicate skills
-const allSkills = [
-  ...toolboxItem,
-  ...toolboxItemTwo,
-].filter((skill, index, self) => 
-  index === self.findIndex((s) => s.title.toLowerCase() === skill.title.toLowerCase())
-);
+// Split into two rows for the marquee
+const skillsRow1 = allSkills.slice(0, Math.ceil(allSkills.length / 2));
+const skillsRow2 = allSkills.slice(Math.ceil(allSkills.length / 2));
 
 export const AboutSection = forwardRef((props, ref) => {
   const sectionRef = useRef(null);
-  const headerRef = useRef(null);
-  const cardsRef = useRef([]);
+  const quoteRef = useRef(null);
+  const marquee1Ref = useRef(null);
+  const marquee2Ref = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      if (headerRef.current) {
+      // Quote word reveal
+      const words = quoteRef.current?.querySelectorAll(".quote-word");
+      if (words?.length) {
+        gsap.from(words, {
+          clipPath: "inset(0 100% 0 0)",
+          duration: 0.6,
+          stagger: 0.04,
+          ease: "expo.out",
+          scrollTrigger: { trigger: quoteRef.current, start: "top 70%" },
+        });
+      }
+
+      // Cards stagger in
+      gsap.from(".about-card", {
+        opacity: 0,
+        y: 60,
+        duration: 0.9,
+        stagger: 0.12,
+        ease: "expo.out",
+        scrollTrigger: { trigger: ".about-grid", start: "top 75%" },
+      });
+
+      // Skill marquees — opposite directions
+      if (marquee1Ref.current) {
+        const w1 = marquee1Ref.current.scrollWidth / 2;
+        gsap.to(marquee1Ref.current, {
+          x: -w1,
+          duration: 30,
+          ease: "none",
+          repeat: -1,
+        });
+      }
+      if (marquee2Ref.current) {
+        const w2 = marquee2Ref.current.scrollWidth / 2;
         gsap.fromTo(
-          headerRef.current.querySelectorAll(".animate-item"),
-          { y: 80, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            stagger: 0.15,
-            ease: "power4.out",
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: "top 85%",
-            },
-          }
+          marquee2Ref.current,
+          { x: -w2 },
+          { x: 0, duration: 30, ease: "none", repeat: -1 }
         );
       }
 
-      cardsRef.current.forEach((card, index) => {
-        if (!card) return;
-        gsap.fromTo(
-          card,
-          { y: 60, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            delay: index * 0.08,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 92%",
-            },
-          }
-        );
+      // Skill section reveal
+      gsap.from(".skills-block", {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".skills-block", start: "top 80%" },
       });
     }, section);
 
     return () => ctx.revert();
   }, []);
+
+  const quoteText =
+    "I specialize in architecting modern web systems that are both beautiful and blazing fast";
+  const highlightWords = ["architecting", "beautiful", "fast"];
 
   return (
     <section
@@ -79,218 +93,195 @@ export const AboutSection = forwardRef((props, ref) => {
         else if (ref) ref.current = el;
       }}
       id="about"
-      className="py-24 lg:py-32 relative"
+      className="py-24 lg:py-40 relative z-10"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-950/5 to-transparent pointer-events-none" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div ref={headerRef}>
-          <SectionHeader
-            eyeBrow="Get to know me"
-            title="About Me"
-            description="A passionate Full Stack Developer crafting digital experiences that make a difference."
-          />
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        {/* Section label */}
+        <div className="border-t border-ghost pt-4 mb-20">
+          <span className="font-[family-name:var(--font-mono)] text-muted text-[11px] uppercase tracking-[0.12em]">
+            003 / About
+          </span>
         </div>
 
-        <div className="mt-16 space-y-6">
-          {/* Top Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Intro Card */}
-            <div
-              ref={(el) => (cardsRef.current[0] = el)}
-              className="lg:col-span-2 bg-gradient-to-br from-zinc-900 to-zinc-900/50 rounded-3xl border border-zinc-800/80 p-8 relative overflow-hidden group"
-            >
-              <div className="absolute -top-24 -right-24 w-48 h-48 bg-violet-500/20 rounded-full blur-3xl group-hover:bg-violet-500/30 transition-all duration-700" />
-              <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl" />
+        {/* ACT 1 — The Statement */}
+        <div ref={quoteRef} className="mb-24 md:mb-32">
+          <p
+            className="font-[family-name:var(--font-display)] font-light text-paper leading-[1.1] max-w-5xl"
+            style={{ fontSize: "clamp(28px, 5vw, 72px)" }}
+          >
+            {quoteText.split(" ").map((word, i) => (
+              <span
+                key={i}
+                className={`quote-word inline-block mr-[0.3em] ${
+                  highlightWords.includes(word.replace(/[^a-zA-Z]/g, ""))
+                    ? "text-signal"
+                    : ""
+                }`}
+                style={{ clipPath: "inset(0 0% 0 0)" }}
+              >
+                {word}
+              </span>
+            ))}
+          </p>
+        </div>
 
-              <div className="relative z-10">
-                <div className="flex items-start gap-5">
-                  <div className="relative flex-shrink-0">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-2xl blur opacity-40" />
-                    <Image
-                      src={smileMemoji}
-                      alt="Jakareya"
-                      width={72}
-                      height={72}
-                      className="relative rounded-2xl bg-zinc-800"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold text-white">
-                      Jakareya Ahmed
-                    </h3>
-                    <p className="text-violet-400 font-medium mt-1">
-                      Full Stack Developer
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-zinc-400 leading-relaxed mt-6 text-[15px]">
-                  I specialize in building modern web applications using the latest technologies. 
-                  With a strong foundation in both frontend and backend development, I create 
-                  seamless digital experiences that are both beautiful and performant.
-                </p>
-
-                <div className="flex flex-wrap gap-3 mt-6">
-                  {[
-                    { label: "2+ Years Experience", color: "violet" },
-                    { label: "15+ Projects", color: "cyan" },
-                    { label: "Available for Work", color: "green" },
-                  ].map((badge, i) => (
-                    <span
-                      key={i}
-                      className={`px-4 py-2 rounded-full text-sm font-medium bg-${badge.color}-500/10 text-${badge.color}-400 border border-${badge.color}-500/20`}
-                      style={{
-                        backgroundColor: badge.color === 'violet' ? 'rgba(139, 92, 246, 0.1)' : 
-                                         badge.color === 'cyan' ? 'rgba(6, 182, 212, 0.1)' : 
-                                         'rgba(34, 197, 94, 0.1)',
-                        color: badge.color === 'violet' ? '#a78bfa' : 
-                               badge.color === 'cyan' ? '#22d3ee' : 
-                               '#4ade80',
-                        borderColor: badge.color === 'violet' ? 'rgba(139, 92, 246, 0.2)' : 
-                                     badge.color === 'cyan' ? 'rgba(6, 182, 212, 0.2)' : 
-                                     'rgba(34, 197, 94, 0.2)',
-                      }}
-                    >
-                      {badge.label}
-                    </span>
-                  ))}
-                </div>
-              </div>
+        {/* ACT 2 — Info cards in asymmetric grid */}
+        <div className="about-grid grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5 mb-24 md:mb-32">
+          {/* Profile card — spans 7 cols */}
+          <div className="about-card md:col-span-7 bg-surface border border-ghost p-8 md:p-10 relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-signal/40 to-transparent" />
+            <div className="flex items-start justify-between mb-8">
+              <span className="font-[family-name:var(--font-mono)] text-signal text-[11px] uppercase tracking-[0.12em]">
+                Profile
+              </span>
+              <span className="font-[family-name:var(--font-mono)] text-ghost text-[11px]">
+                01
+              </span>
             </div>
-
-            {/* Location Card */}
-            <div
-              ref={(el) => (cardsRef.current[1] = el)}
-              className="bg-gradient-to-br from-zinc-900 to-zinc-900/50 rounded-3xl border border-zinc-800/80 overflow-hidden relative group h-[280px] lg:h-auto"
+            <h3
+              className="font-[family-name:var(--font-display)] font-bold text-paper mb-3"
+              style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
-              <Image
-                src={mapImage}
-                alt="Location"
-                fill
-                className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/20" />
-
-              <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="relative">
-                  <div className="absolute inset-0 size-12 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full animate-ping opacity-25" />
-                  <div className="relative size-12 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg shadow-violet-500/30">
-                    <Image src={smileMemoji} alt="Me" width={32} height={32} />
-                  </div>
+              Jakareya Ahmed
+            </h3>
+            <p className="text-muted leading-relaxed max-w-lg">
+              I specialize in architecting modern web systems using cutting-edge
+              tech. With deep expertise in both frontend and backend, I engineer
+              seamless digital experiences that are both beautiful and blazing fast.
+            </p>
+            <div className="flex gap-6 mt-8">
+              {[
+                { label: "Experience", value: "2+ yrs" },
+                { label: "Projects", value: "15+" },
+                { label: "Status", value: "Available" },
+              ].map((item, i) => (
+                <div key={i}>
+                  <p className="font-[family-name:var(--font-display)] font-bold text-paper text-lg">
+                    {item.value}
+                  </p>
+                  <p className="font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.1em] mt-0.5">
+                    {item.label}
+                  </p>
                 </div>
-              </div>
-
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">
-                  Based in
-                </span>
-                <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-white mt-1">
-                  Bangladesh 🇧🇩
-                </h3>
-                <p className="text-zinc-500 text-sm mt-1">
-                  Remote worldwide
-                </p>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Skills Section */}
-          <div
-            ref={(el) => (cardsRef.current[2] = el)}
-            className="bg-gradient-to-br from-zinc-900 to-zinc-900/50 rounded-3xl border border-zinc-800/80 p-8"
-          >
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <span className="text-fuchsia-400 text-xs font-bold uppercase tracking-widest">
-                  My Arsenal
-                </span>
-                <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-white mt-1">
-                  Technologies & Tools
-                </h3>
-              </div>
+          {/* Location card — spans 5 cols */}
+          <div className="about-card md:col-span-5 bg-surface border border-ghost p-8 md:p-10 flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent to-signal/30" />
+            <div className="flex items-start justify-between mb-8">
+              <span className="font-[family-name:var(--font-mono)] text-signal text-[11px] uppercase tracking-[0.12em]">
+                Location
+              </span>
+              <span className="font-[family-name:var(--font-mono)] text-ghost text-[11px]">
+                02
+              </span>
             </div>
+            <div>
+              <h3
+                className="font-[family-name:var(--font-display)] font-bold text-paper"
+                style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
+              >
+                Bangladesh
+              </h3>
+              <p className="text-muted mt-2">
+                Available for remote work worldwide.
+                <br />
+                Open to relocation.
+              </p>
+            </div>
+            <div className="flex items-center gap-3 mt-8">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-signal opacity-60 animate-ping" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-signal" />
+              </span>
+              <span className="font-[family-name:var(--font-mono)] text-signal text-[11px] uppercase tracking-[0.12em]">
+                Online now
+              </span>
+            </div>
+          </div>
 
-            <div className="flex flex-wrap gap-3">
-              {allSkills.map((skill, index) => (
+          {/* Approach card — full width */}
+          <div className="about-card md:col-span-12 bg-surface border border-ghost p-8 md:p-10 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-signal/20 via-signal/40 to-signal/20" />
+            <div className="flex items-start justify-between mb-8">
+              <span className="font-[family-name:var(--font-mono)] text-signal text-[11px] uppercase tracking-[0.12em]">
+                Approach
+              </span>
+              <span className="font-[family-name:var(--font-mono)] text-ghost text-[11px]">
+                03
+              </span>
+            </div>
+            <div className="grid md:grid-cols-3 gap-10">
+              {[
+                {
+                  title: "Systems Thinking",
+                  desc: "I see the full picture — from database schemas to deployment pipelines. Every decision is made with the whole system in mind.",
+                },
+                {
+                  title: "Clean Architecture",
+                  desc: "Code should be readable, maintainable, and scalable. I write software that future developers will thank me for.",
+                },
+                {
+                  title: "Ship & Iterate",
+                  desc: "Perfect is the enemy of shipped. I build fast, measure impact, and iterate based on real-world feedback.",
+                },
+              ].map((item, i) => (
+                <div key={i}>
+                  <h4 className="font-[family-name:var(--font-display)] font-bold text-paper text-base mb-3">
+                    {item.title}
+                  </h4>
+                  <p className="text-muted text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ACT 3 — Skills marquee */}
+        <div className="skills-block">
+          <div className="flex items-center justify-between mb-8">
+            <span className="font-[family-name:var(--font-mono)] text-muted text-[11px] uppercase tracking-[0.12em]">
+              Technologies & Tools
+            </span>
+            <span className="font-[family-name:var(--font-mono)] text-ghost text-[11px]">
+              {allSkills.length} skills
+            </span>
+          </div>
+
+          {/* Marquee row 1 — left */}
+          <div className="overflow-hidden border-t border-ghost pt-6 pb-4">
+            <div ref={marquee1Ref} className="flex whitespace-nowrap">
+              {[...skillsRow1, ...skillsRow1].map((skill, i) => (
                 <span
-                  key={index}
-                  className="group inline-flex items-center px-4 py-2.5 bg-zinc-800/60 hover:bg-zinc-800 border border-zinc-700/50 hover:border-violet-500/50 rounded-xl text-sm font-medium text-zinc-300 hover:text-white transition-all duration-300 cursor-default"
+                  key={i}
+                  className="flex-shrink-0 font-[family-name:var(--font-mono)] text-paper text-sm md:text-base mr-8 md:mr-12 hover:text-signal transition-colors duration-200 cursor-default"
                 >
-                  {skill.title}
+                  {skill}
+                  <span className="text-ghost ml-8 md:ml-12">/</span>
                 </span>
               ))}
             </div>
           </div>
 
-          {/* Bottom Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Reading Card */}
-            <div
-              ref={(el) => (cardsRef.current[3] = el)}
-              className="bg-gradient-to-br from-zinc-900 to-zinc-900/50 rounded-3xl border border-zinc-800/80 p-6 relative overflow-hidden group"
-            >
-              <div className="absolute -bottom-16 -right-16 w-32 h-32 bg-rose-500/15 rounded-full blur-3xl group-hover:bg-rose-500/25 transition-all duration-700" />
-
-              <span className="text-rose-400 text-xs font-bold uppercase tracking-widest">
-                Currently Reading
-              </span>
-              <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-white mt-1">
-                My Reads
-              </h3>
-
-              <div className="flex justify-center mt-6">
-                <div className="relative group-hover:scale-105 group-hover:-rotate-2 transition-transform duration-500">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-rose-500/20 to-violet-500/20 blur-xl rounded-lg" />
-                  <Image
-                    src={bookImage}
-                    alt="Book"
-                    width={100}
-                    height={140}
-                    className="relative drop-shadow-2xl rounded"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Hobbies Card */}
-            <div
-              ref={(el) => (cardsRef.current[4] = el)}
-              className="lg:col-span-2 bg-gradient-to-br from-zinc-900 to-zinc-900/50 rounded-3xl border border-zinc-800/80 p-6"
-            >
-              <span className="text-fuchsia-400 text-xs font-bold uppercase tracking-widest">
-                Beyond Code
-              </span>
-              <h3 className="font-[family-name:var(--font-display)] text-lg font-bold text-white mt-1 mb-5">
-                When I'm not coding
-              </h3>
-
-              <div className="grid grid-cols-4 sm:grid-cols-8 gap-3">
-                {[
-                  { emoji: "🎮", label: "Gaming" },
-                  { emoji: "📚", label: "Reading" },
-                  { emoji: "📷", label: "Photo" },
-                  { emoji: "✈️", label: "Travel" },
-                  { emoji: "💪", label: "Fitness" },
-                  { emoji: "🎵", label: "Music" },
-                  { emoji: "🎬", label: "Movies" },
-                  { emoji: "☕", label: "Coffee" },
-                ].map((hobby, i) => (
-                  <div
-                    key={i}
-                    className="flex flex-col items-center gap-2 p-3 bg-zinc-800/40 hover:bg-zinc-800/80 border border-zinc-700/30 hover:border-fuchsia-500/40 rounded-xl transition-all duration-300 cursor-default group"
-                  >
-                    <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
-                      {hobby.emoji}
-                    </span>
-                    <span className="text-[10px] font-medium text-zinc-500 group-hover:text-zinc-300 transition-colors">
-                      {hobby.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+          {/* Marquee row 2 — right */}
+          <div className="overflow-hidden border-t border-ghost pt-4 pb-6">
+            <div ref={marquee2Ref} className="flex whitespace-nowrap">
+              {[...skillsRow2, ...skillsRow2].map((skill, i) => (
+                <span
+                  key={i}
+                  className="flex-shrink-0 font-[family-name:var(--font-mono)] text-muted text-sm md:text-base mr-8 md:mr-12 hover:text-signal transition-colors duration-200 cursor-default"
+                >
+                  {skill}
+                  <span className="text-ghost ml-8 md:ml-12">/</span>
+                </span>
+              ))}
             </div>
           </div>
+          <div className="border-t border-ghost" />
         </div>
       </div>
     </section>

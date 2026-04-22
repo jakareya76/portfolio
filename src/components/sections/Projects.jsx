@@ -1,85 +1,53 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import Image from "next/image";
 import { portfolioProjects } from "@/constants";
-import SectionHeader from "../shared/SectionHeader";
-import { forwardRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 export const ProjectsSection = forwardRef((props, ref) => {
   const sectionRef = useRef(null);
-  const headerRef = useRef(null);
-  const [activeProject, setActiveProject] = useState(0);
-  const projectRefs = useRef([]);
+  const trackRef = useRef(null);
+  const labelRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
-    if (!section) return;
+    const track = trackRef.current;
+    if (!section || !track) return;
 
-    const ctx = gsap.context(() => {
-      // Animate section header
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current.querySelectorAll(".animate-item"),
-          { y: 80, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            stagger: 0.15,
-            ease: "power4.out",
-            scrollTrigger: {
-              trigger: headerRef.current,
-              start: "top 85%",
-            },
-          }
-        );
-      }
+    // Only horizontal scroll on desktop
+    const mm = gsap.matchMedia();
 
-      // Animate project items
-      gsap.fromTo(
-        ".project-item",
-        { x: -50, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".project-list",
-            start: "top 85%",
-          },
-        }
-      );
+    mm.add("(min-width: 768px)", () => {
+      const totalScroll = track.scrollWidth - window.innerWidth;
 
-      // Animate preview
-      gsap.fromTo(
-        ".project-preview",
-        { scale: 0.9, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".project-preview",
-            start: "top 85%",
-          },
-        }
-      );
-    }, section);
+      const st = ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: () => `+=${totalScroll}`,
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true,
+        animation: gsap.to(track, {
+          x: () => -totalScroll,
+          ease: "none",
+        }),
+      });
 
-    return () => ctx.revert();
+      return () => st.kill();
+    });
+
+    // Fade in label
+    gsap.from(labelRef.current, {
+      opacity: 0,
+      y: 20,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: { trigger: section, start: "top 80%" },
+    });
+
+    return () => mm.revert();
   }, []);
-
-  const handleProjectHover = (index) => {
-    setActiveProject(index);
-  };
 
   return (
     <section
@@ -89,192 +57,93 @@ export const ProjectsSection = forwardRef((props, ref) => {
         else if (ref) ref.current = el;
       }}
       id="projects"
-      className="py-24 lg:py-32 relative overflow-hidden"
+      className="relative z-10 md:h-screen md:overflow-hidden"
     >
-      {/* Background elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-violet-600/5 to-transparent pointer-events-none" />
+      {/* Fixed label */}
+      <div
+        ref={labelRef}
+        className="md:absolute md:top-10 md:left-10 px-6 pt-20 md:pt-0 md:px-0 z-20"
+      >
+        <span className="font-[family-name:var(--font-mono)] text-muted text-[11px] uppercase tracking-[0.12em]">
+          002 / Selected Work
+        </span>
+      </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div ref={headerRef}>
-          <SectionHeader
-            eyeBrow="Selected Work"
-            title="Featured Projects"
-            description="A showcase of applications I've built from the ground up."
-          />
-        </div>
+      {/* Track — horizontal on desktop, vertical on mobile */}
+      <div
+        ref={trackRef}
+        className="flex flex-col md:flex-row md:items-center md:h-full gap-8 md:gap-0 px-6 md:px-0 py-10 md:py-0"
+        style={{ willChange: "transform" }}
+      >
+        {/* Left spacer for desktop label */}
+        <div className="hidden md:block flex-shrink-0 w-[10vw]" />
 
-        <div className="mt-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
-          {/* Project list */}
-          <div className="project-list space-y-4">
-            {portfolioProjects.map((project, index) => (
-              <div
-                key={index}
-                ref={(el) => (projectRefs.current[index] = el)}
-                className={`project-item group cursor-pointer p-6 rounded-2xl border transition-all duration-500 ${
-                  activeProject === index
-                    ? "bg-zinc-900/80 border-violet-500/50 shadow-lg shadow-violet-500/10"
-                    : "bg-zinc-900/30 border-zinc-800/50 hover:bg-zinc-900/50 hover:border-zinc-700"
-                }`}
-                onMouseEnter={() => handleProjectHover(index)}
-                onClick={() => handleProjectHover(index)}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span
-                        className={`text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
-                          activeProject === index
-                            ? "text-violet-400"
-                            : "text-zinc-500"
-                        }`}
-                      >
-                        {project.company}
-                      </span>
-                      <span className="text-zinc-600">•</span>
-                      <span className="text-xs text-zinc-500">{project.year}</span>
-                    </div>
+        {portfolioProjects.map((project, i) => (
+          <div
+            key={i}
+            className="flex-shrink-0 md:w-[85vw] md:h-[80vh] md:mr-[5vw] bg-surface relative group"
+          >
+            {/* Yellow left accent */}
+            <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-signal" />
 
-                    <h3
-                      className={`font-[family-name:var(--font-display)] text-xl font-bold transition-colors duration-300 ${
-                        activeProject === index ? "text-white" : "text-zinc-300"
-                      }`}
-                    >
-                      {project.title}
-                    </h3>
-
-                    {activeProject === index && (
-                      <div className="mt-4 space-y-2 animate-in fade-in slide-in-from-top-2 duration-300">
-                        {project.results.map((result, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center gap-2 text-sm text-zinc-400"
-                          >
-                            <div className="size-1 rounded-full bg-violet-400" />
-                            <span>{result.title}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Arrow indicator */}
-                  <div
-                    className={`mt-1 transition-all duration-300 ${
-                      activeProject === index
-                        ? "translate-x-0 opacity-100"
-                        : "-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-50"
-                    }`}
-                  >
-                    <svg
-                      className="size-6 text-violet-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Project preview */}
-          <div className="project-preview lg:sticky lg:top-32 h-fit">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800">
-              {/* Browser chrome */}
-              <div className="absolute top-0 left-0 right-0 h-10 bg-zinc-900 border-b border-zinc-800 flex items-center px-4 gap-2 z-10">
-                <div className="flex gap-1.5">
-                  <div className="size-3 rounded-full bg-red-500/80" />
-                  <div className="size-3 rounded-full bg-yellow-500/80" />
-                  <div className="size-3 rounded-full bg-green-500/80" />
-                </div>
-                <div className="flex-1 flex justify-center">
-                  <div className="bg-zinc-800 rounded-md px-4 py-1 text-xs text-zinc-400 max-w-xs truncate">
-                    {portfolioProjects[activeProject]?.link}
-                  </div>
-                </div>
-              </div>
-
-              {/* Image */}
-              <div className="relative h-full pt-10">
-                {portfolioProjects.map((project, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 pt-10 transition-all duration-500 ${
-                      activeProject === index
-                        ? "opacity-100 scale-100"
-                        : "opacity-0 scale-105"
-                    }`}
-                  >
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover object-top"
-                    />
-                  </div>
-                ))}
-
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent pointer-events-none" />
-              </div>
-
-              {/* CTA overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center justify-between">
+            <div className="flex flex-col md:flex-row h-full">
+              {/* Info column */}
+              <div className="md:w-[35%] p-8 md:p-12 flex flex-col justify-between">
                 <div>
-                  <div className="text-xs text-violet-400 font-semibold uppercase tracking-wider mb-1">
-                    {portfolioProjects[activeProject]?.company}
-                  </div>
-                  <div className="font-[family-name:var(--font-display)] text-lg font-bold text-white">
-                    {portfolioProjects[activeProject]?.title}
+                  <span className="font-[family-name:var(--font-mono)] text-muted text-[11px] uppercase tracking-[0.12em]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3
+                    className="font-[family-name:var(--font-display)] font-bold text-paper mt-4 leading-tight"
+                    style={{ fontSize: "clamp(28px, 3vw, 48px)" }}
+                  >
+                    {project.title}
+                  </h3>
+                  <p className="font-[family-name:var(--font-mono)] text-muted text-xs mt-2">
+                    {project.company} — {project.year}
+                  </p>
+
+                  <div className="mt-6 space-y-2">
+                    {project.results.map((result, idx) => (
+                      <p key={idx} className="text-muted text-sm">
+                        {result.title}
+                      </p>
+                    ))}
                   </div>
                 </div>
+
                 <a
-                  href={portfolioProjects[activeProject]?.link}
+                  href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-2 bg-white text-zinc-900 px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-zinc-100 transition-colors duration-300"
+                  data-fill
+                  className="relative overflow-hidden inline-flex items-center gap-2 text-paper mt-8 font-[family-name:var(--font-display)] text-sm px-4 py-2 -mx-4"
                 >
-                  <span>Visit</span>
-                  <svg
-                    className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M7 17L17 7M17 7H7M17 7v10"
-                    />
-                  </svg>
+                  <span className="relative z-10">View Project</span>
+                  <span className="relative z-10">↗</span>
                 </a>
               </div>
-            </div>
 
-            {/* Project indicators */}
-            <div className="flex justify-center gap-2 mt-6">
-              {portfolioProjects.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveProject(index)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    activeProject === index
-                      ? "w-8 bg-gradient-to-r from-violet-500 to-cyan-500"
-                      : "w-1.5 bg-zinc-700 hover:bg-zinc-600"
-                  }`}
+              {/* Image column */}
+              <div
+                className="md:w-[65%] relative aspect-[4/3] md:aspect-auto overflow-hidden"
+                data-cursor-view
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
                 />
-              ))}
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-void/20 group-hover:bg-void/10 transition-colors duration-500" />
+              </div>
             </div>
           </div>
-        </div>
+        ))}
+
+        {/* Right spacer */}
+        <div className="hidden md:block flex-shrink-0 w-[10vw]" />
       </div>
     </section>
   );

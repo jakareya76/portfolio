@@ -1,73 +1,74 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 const Header = ({ activeSection }) => {
   const headerRef = useRef(null);
-  const navRef = useRef(null);
+  const bgRef = useRef(null);
+  const borderRef = useRef(null);
 
   useEffect(() => {
     const header = headerRef.current;
-    const nav = navRef.current;
+    const bg = bgRef.current;
+    const border = borderRef.current;
+    if (!header || !bg || !border) return;
 
-    if (!header || !nav) return;
-
-    // Initial animation
-    gsap.fromTo(
-      nav,
-      { y: -100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        delay: 0.5,
-        ease: "power4.out",
-      }
-    );
-
-    // Stagger nav items
-    const navItems = nav.querySelectorAll("a");
-    gsap.fromTo(
-      navItems,
-      { y: -20, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        stagger: 0.1,
-        delay: 0.8,
-        ease: "power3.out",
-      }
-    );
+    ScrollTrigger.create({
+      start: "80px top",
+      onEnter: () => {
+        gsap.to(bg, { opacity: 1, duration: 0.3 });
+        gsap.to(border, { opacity: 1, duration: 0.3 });
+      },
+      onLeaveBack: () => {
+        gsap.to(bg, { opacity: 0, duration: 0.3 });
+        gsap.to(border, { opacity: 0, duration: 0.3 });
+      },
+    });
   }, []);
 
   return (
     <header
       ref={headerRef}
-      className="flex justify-center items-center fixed inset-x-0 top-6 z-50"
+      className="fixed inset-x-0 top-0 z-50 px-6 md:px-10 py-5"
     >
-      <nav
-        ref={navRef}
-        className="flex gap-1 p-1.5 border border-zinc-800/50 bg-zinc-950/80 backdrop-blur-md rounded-full shadow-xl shadow-black/20"
-      >
-        {["home", "projects", "about", "contact"].map((section) => (
-          <a
-            key={section}
-            href={`#${section}`}
-            className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-              activeSection === section
-                ? "text-white"
-                : "text-zinc-400 hover:text-white"
-            }`}
-          >
-            {/* Active background */}
-            {activeSection === section && (
-              <span className="absolute inset-0 bg-gradient-to-r from-violet-600 to-cyan-600 rounded-full -z-10" />
-            )}
-            {section.charAt(0).toUpperCase() + section.slice(1)}
-          </a>
-        ))}
+      {/* Background — appears on scroll */}
+      <div
+        ref={bgRef}
+        className="absolute inset-0 bg-void/95 backdrop-blur-sm opacity-0"
+      />
+      {/* Border — appears on scroll */}
+      <div
+        ref={borderRef}
+        className="absolute bottom-0 left-0 right-0 h-px bg-ghost opacity-0"
+      />
+
+      <nav className="relative flex items-center justify-between max-w-7xl mx-auto">
+        {/* Name */}
+        <a
+          href="#home"
+          className="font-[family-name:var(--font-display)] font-medium text-paper text-base tracking-tight"
+        >
+          Jakareya Ahmed
+        </a>
+
+        {/* Nav links */}
+        <div className="flex items-center gap-6 md:gap-8">
+          {["home", "projects", "about", "contact"].map((section) => (
+            <a
+              key={section}
+              href={`#${section}`}
+              data-fill
+              className={`relative overflow-hidden px-3 py-1.5 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.12em] transition-colors duration-200 ${
+                activeSection === section
+                  ? "text-ink bg-signal"
+                  : "text-muted"
+              }`}
+            >
+              <span className="relative z-10">{section}</span>
+            </a>
+          ))}
+        </div>
       </nav>
     </header>
   );

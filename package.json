@@ -12,6 +12,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
     "framer-motion": "^12.6.2",
     "gsap": "^3.14.2",
     "lenis": "^1.3.4",
@@ -20,7 +23,9 @@
     "react-dom": "^19.2.4",
     "react-fast-marquee": "^1.6.5",
     "react-intersection-observer": "^9.16.0",
-    "tailwind-merge": "^3.0.2"
+    "split-type": "^0.3.4",
+    "tailwind-merge": "^3.0.2",
+    "three": "^0.183.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
