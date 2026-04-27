@@ -138,103 +138,100 @@ export const StatsStrip = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-signal py-10 md:py-14 relative z-10"
+      className="border-t border-ghost py-16 md:py-24 relative z-10"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6 md:mb-8">
-          <span className="font-[family-name:var(--font-mono)] text-ink/70 text-[10px] uppercase tracking-[0.12em]">
-            // signals
+        <div className="flex items-center justify-between mb-8 md:mb-10">
+          <span className="font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.1em]">
+            Signals
           </span>
-          <span className="font-[family-name:var(--font-mono)] text-ink/50 text-[10px] uppercase tracking-[0.12em]">
-            live
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-signal opacity-50 animate-ping" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-signal" />
+            </span>
+            <span className="font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.1em]">
+              live
+            </span>
+          </div>
         </div>
 
         {/* Bento grid */}
         <div className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-4">
           {/* Tile 1 — Currently (wide) */}
-          <div className="bento-tile col-span-2 md:col-span-7 border border-ink/15 p-6 md:p-8 flex flex-col justify-between min-h-[150px]">
+          <div className="bento-tile col-span-2 md:col-span-7 border border-ghost p-6 md:p-8 flex flex-col justify-between min-h-[160px]">
             <div className="flex items-start justify-between">
-              <span className="font-[family-name:var(--font-mono)] text-ink/60 text-[10px] uppercase tracking-[0.12em]">
+              <span className="font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.1em]">
                 Currently
               </span>
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-ink opacity-40 animate-ping" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-ink" />
-                </span>
-                <span className="font-[family-name:var(--font-mono)] text-ink/70 text-[10px] uppercase tracking-[0.12em]">
-                  shipping
-                </span>
-              </div>
             </div>
             <div>
               <p
-                className="font-[family-name:var(--font-display)] font-bold text-ink leading-tight"
-                style={{ fontSize: "clamp(22px, 2.6vw, 36px)" }}
+                className="font-[family-name:var(--font-display)] font-semibold text-paper leading-tight"
+                style={{ fontSize: "clamp(20px, 2.4vw, 32px)" }}
               >
                 Full Stack Developer
                 <br />
-                <span className="text-ink/60">@ Intrepide</span>
+                <span className="text-muted font-normal">@ Intrepide</span>
               </p>
-              <p className="font-[family-name:var(--font-mono)] text-ink/60 text-[11px] mt-3">
+              <p className="font-[family-name:var(--font-mono)] text-muted text-[11px] mt-3">
                 Atlanta, GA — remote from Dhaka
               </p>
             </div>
           </div>
 
           {/* Tile 2 — Dhaka clock */}
-          <div className="bento-tile col-span-2 md:col-span-5 border border-ink/15 p-6 md:p-8 flex flex-col justify-between min-h-[150px]">
-            <span className="font-[family-name:var(--font-mono)] text-ink/60 text-[10px] uppercase tracking-[0.12em]">
-              localtime · DAC
+          <div className="bento-tile col-span-2 md:col-span-5 border border-ghost p-6 md:p-8 flex flex-col justify-between min-h-[160px]">
+            <span className="font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.1em]">
+              DAC — UTC+6
             </span>
             <div>
               <p
-                className="font-[family-name:var(--font-mono)] font-bold text-ink tabular-nums leading-none"
-                style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
+                className="font-[family-name:var(--font-mono)] font-bold text-paper tabular-nums leading-none"
+                style={{ fontSize: "clamp(32px, 4.5vw, 58px)" }}
               >
                 {time}
               </p>
-              <p className="font-[family-name:var(--font-mono)] text-ink/60 text-[11px] mt-2">
-                {date} · UTC+6
+              <p className="font-[family-name:var(--font-mono)] text-muted text-[11px] mt-2">
+                {date}
               </p>
             </div>
           </div>
 
           {/* Tile 3 — Latest commit */}
-          <div className="bento-tile col-span-2 md:col-span-7 border border-ink/15 p-6 md:p-8 flex flex-col justify-between min-h-[130px]">
+          <div className="bento-tile col-span-2 md:col-span-7 border border-ghost p-6 md:p-8 flex flex-col justify-between min-h-[140px]">
             <div className="flex items-center justify-between">
-              <span className="font-[family-name:var(--font-mono)] text-ink/60 text-[10px] uppercase tracking-[0.12em]">
-                last push
+              <span className="font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.1em]">
+                Last push
               </span>
-              <span className="font-[family-name:var(--font-mono)] text-ink/50 text-[10px]">
+              <span className="font-[family-name:var(--font-mono)] text-muted text-[10px]">
                 {gh.when}
               </span>
             </div>
             <div>
-              <p className="font-[family-name:var(--font-mono)] text-ink text-sm md:text-base leading-snug">
-                <span className="text-ink/60">{gh.sha}</span>{" "}
+              <p className="font-[family-name:var(--font-mono)] text-paper text-sm leading-snug">
+                <span className="text-muted">{gh.sha}</span>{" "}
                 <span className="break-words">{gh.message}</span>
               </p>
-              <p className="font-[family-name:var(--font-mono)] text-ink/60 text-[11px] mt-2">
+              <p className="font-[family-name:var(--font-mono)] text-muted text-[11px] mt-2">
                 {GITHUB_USER}/{gh.repo}
               </p>
             </div>
           </div>
 
           {/* Tile 4 — Counters */}
-          <div className="bento-tile col-span-2 md:col-span-5 border border-ink/15 p-6 md:p-8 flex items-center gap-8 md:gap-10 min-h-[130px]">
+          <div className="bento-tile col-span-2 md:col-span-5 border border-ghost p-6 md:p-8 flex items-center gap-8 md:gap-10 min-h-[140px]">
             {counters.map((c, i) => (
               <div key={i} className="flex-1">
                 <p
                   ref={(el) => (counterRefs.current[i] = el)}
-                  className="font-[family-name:var(--font-display)] font-bold text-ink leading-none tabular-nums"
-                  style={{ fontSize: "clamp(32px, 4vw, 52px)" }}
+                  className="font-[family-name:var(--font-display)] font-bold text-paper leading-none tabular-nums"
+                  style={{ fontSize: "clamp(30px, 3.8vw, 48px)" }}
                 >
                   00{c.suffix}
                 </p>
-                <p className="font-[family-name:var(--font-mono)] text-ink/60 text-[10px] uppercase tracking-[0.1em] mt-2">
+                <p className="font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.08em] mt-2">
                   {c.label}
                 </p>
               </div>
