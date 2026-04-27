@@ -32,10 +32,6 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
     if (!el) return;
     gsap.set(el.querySelectorAll(".hero-char"), { yPercent: 120 });
     gsap.set(el.querySelectorAll(".hero-fade"), { autoAlpha: 0, y: 20 });
-    gsap.set(el.querySelectorAll(".trace-bar-fill"), {
-      scaleX: 0,
-      transformOrigin: "left center",
-    });
   }, []);
 
   // GSAP entrance after boot
@@ -71,50 +67,15 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
         },
         "-=0.35"
       );
-
-      // Trace bars grow in AFTER the trace card is visible
-      tl.to(
-        ".trace-bar-fill",
-        {
-          scaleX: 1,
-          duration: 0.85,
-          stagger: 0.09,
-          ease: "power3.out",
-        },
-        "-=0.3"
-      );
-
-      // Subtle ambient re-trace every 8s — a short shimmer on the bars
-      tl.call(() => {
-        const retrace = gsap.timeline({ repeat: -1, repeatDelay: 7 });
-        retrace.fromTo(
-          ".trace-bar-fill",
-          { opacity: 1 },
-          {
-            opacity: 0.45,
-            duration: 0.25,
-            stagger: 0.08,
-            ease: "power1.inOut",
-            yoyo: true,
-            repeat: 1,
-          }
-        );
-      });
     }, containerRef);
 
     return () => ctx.revert();
   }, [bootDone]);
 
-  const trace = [
-    { label: "next.js", ms: 24, pct: 50 },
-    { label: "node", ms: 18, pct: 38 },
-    { label: "postgres", ms: 6, pct: 12 },
-  ];
-
   const splitChars = (text) =>
     text.split("").map((char, i) => (
       <span key={i} className="hero-char inline-block">
-        {char === " " ? "\u00A0" : char}
+        {char === " " ? " " : char}
       </span>
     ));
 
@@ -130,11 +91,11 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
     >
       {/* Top bar */}
       <div className="flex items-center justify-between px-6 md:px-10 pt-24 md:pt-28 max-w-7xl mx-auto w-full">
-        <span className="font-[family-name:var(--font-mono)] text-[10px] text-muted uppercase tracking-[0.12em] hero-fade">
-          Jakareya Portfolio — 2026
+        <span className="font-[family-name:var(--font-mono)] text-[10px] text-muted uppercase tracking-[0.1em] hero-fade">
+          Portfolio — 2026
         </span>
-        <span className="font-[family-name:var(--font-mono)] text-[10px] text-muted uppercase tracking-[0.12em] hero-fade">
-          Dhaka {time}
+        <span className="font-[family-name:var(--font-mono)] text-[10px] text-muted uppercase tracking-[0.1em] hero-fade">
+          DAC {time}
         </span>
       </div>
 
@@ -142,7 +103,7 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
       <div className="flex-1 flex items-center px-6 md:px-10 max-w-7xl mx-auto w-full">
         <div className="w-full">
           {/* Eyebrow */}
-          <p className="font-[family-name:var(--font-mono)] text-[11px] text-signal uppercase tracking-[0.12em] mb-6 hero-fade">
+          <p className="font-[family-name:var(--font-mono)] text-[11px] text-signal uppercase tracking-[0.1em] mb-7 hero-fade">
             Full Stack Developer
           </p>
 
@@ -150,7 +111,7 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
           <div
             style={{
               fontSize: "clamp(52px, 11vw, 150px)",
-              lineHeight: 0.9,
+              lineHeight: 0.88,
               letterSpacing: "-0.04em",
             }}
             className="font-[family-name:var(--font-display)] font-bold"
@@ -175,7 +136,7 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
       </div>
 
       {/* Bottom section */}
-      <div className="px-6 md:px-10 pb-10 max-w-7xl mx-auto w-full">
+      <div className="px-6 md:px-10 pb-12 max-w-7xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20">
           {/* Left — description */}
           <div className="hero-fade">
@@ -184,53 +145,30 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
               backend, databases to cloud infrastructure — building the digital
               future, one commit at a time.
             </p>
-            <p className="font-[family-name:var(--font-mono)] text-ghost text-xs mt-6">
-              Next.js, Node.js, PostgreSQL, Azure, TypeScript
+            <p className="font-[family-name:var(--font-mono)] text-ghost text-[11px] mt-5 tracking-[0.04em]">
+              Next.js · Node.js · PostgreSQL · Azure · TypeScript
             </p>
           </div>
 
-          {/* Right — request trace + CTAs */}
-          <div className="hero-fade flex flex-col items-stretch md:items-end">
-            {/* Request trace widget */}
-            <div className="w-full md:w-[340px] border border-ghost bg-surface/60 backdrop-blur-sm">
-              <div className="flex items-center justify-between px-4 py-2 border-b border-ghost">
-                <div className="flex items-center gap-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.12em]">
-                  <span className="text-signal">GET</span>
-                  <span className="text-paper">/</span>
-                  <span className="text-muted">→</span>
-                  <span className="text-signal">200</span>
-                </div>
-                <span className="font-[family-name:var(--font-mono)] text-paper text-[10px] tabular-nums">
-                  48ms
-                </span>
-              </div>
-              <div className="px-4 py-4 space-y-2.5 font-[family-name:var(--font-mono)] text-[11px]">
-                {trace.map((t) => (
-                  <div key={t.label} className="flex items-center gap-3">
-                    <span className="text-muted w-16 shrink-0">{t.label}</span>
-                    <div className="flex-1 h-1 bg-ghost relative overflow-hidden">
-                      <div
-                        className="trace-bar-fill absolute inset-y-0 left-0 bg-signal"
-                        style={{ width: `${t.pct}%` }}
-                      />
-                    </div>
-                    <span className="text-paper tabular-nums w-10 text-right">
-                      {t.ms}ms
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <div className="px-4 py-2 border-t border-ghost font-[family-name:var(--font-mono)] text-[10px] text-ghost flex justify-between">
-                <span>trace id · 7b4a91</span>
-                <span>edge · dac1</span>
-              </div>
+          {/* Right — availability + CTAs */}
+          <div className="hero-fade flex flex-col items-stretch md:items-end gap-8">
+            {/* Availability status */}
+            <div className="flex items-center gap-3 md:justify-end">
+              <span className="relative flex h-1.5 w-1.5 shrink-0">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-signal opacity-50 animate-ping" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-signal" />
+              </span>
+              <span className="font-[family-name:var(--font-mono)] text-signal text-[11px] uppercase tracking-[0.08em]">
+                Available — open to new projects
+              </span>
             </div>
 
-            <div className="flex flex-col items-stretch md:items-end gap-2 mt-6">
+            {/* CTAs */}
+            <div className="flex flex-col items-stretch md:items-end gap-2">
               <a
                 href="#projects"
                 data-fill
-                className="relative overflow-hidden font-[family-name:var(--font-display)] text-paper text-base px-4 py-2"
+                className="relative overflow-hidden font-[family-name:var(--font-display)] text-paper text-base px-4 py-2.5 border border-ghost hover:border-paper/30 transition-colors duration-300"
               >
                 <span className="relative z-10">View Projects →</span>
               </a>
@@ -238,7 +176,7 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
                 href="/jakareya-cv.pdf"
                 download
                 data-fill
-                className="relative overflow-hidden font-[family-name:var(--font-display)] text-muted text-base px-4 py-2"
+                className="relative overflow-hidden font-[family-name:var(--font-display)] text-muted text-base px-4 py-2 hover:text-paper transition-colors duration-300"
               >
                 <span className="relative z-10">Download CV →</span>
               </a>
@@ -247,8 +185,8 @@ export const HeroSection = forwardRef(({ bootDone }, ref) => {
         </div>
 
         {/* Bottom border with section number */}
-        <div className="border-t border-ghost mt-10 pt-4 flex justify-end">
-          <span className="font-[family-name:var(--font-mono)] text-ghost text-[10px] tracking-[0.12em]">
+        <div className="border-t border-ghost mt-12 pt-4 flex justify-end">
+          <span className="font-[family-name:var(--font-mono)] text-ghost text-[10px] tracking-[0.1em]">
             001 / 004
           </span>
         </div>

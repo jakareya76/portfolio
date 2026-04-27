@@ -139,12 +139,11 @@ export const AboutSection = forwardRef((props, ref) => {
         <div className="about-grid grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5 mb-24 md:mb-32">
           {/* Profile card — spans 7 cols */}
           <div className="about-card md:col-span-7 bg-surface border border-ghost p-8 md:p-10 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-signal/40 to-transparent" />
             <div className="flex items-start justify-between mb-8">
-              <span className="font-[family-name:var(--font-mono)] text-signal text-[11px] uppercase tracking-[0.12em]">
+              <span className="font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.1em]">
                 Profile
               </span>
-              <span className="font-[family-name:var(--font-mono)] text-ghost text-[11px]">
+              <span className="font-[family-name:var(--font-mono)] text-ghost text-[10px]">
                 01
               </span>
             </div>
@@ -179,12 +178,11 @@ export const AboutSection = forwardRef((props, ref) => {
 
           {/* Location card — spans 5 cols */}
           <div className="about-card md:col-span-5 bg-surface border border-ghost p-8 md:p-10 flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent to-signal/30" />
             <div className="flex items-start justify-between mb-8">
-              <span className="font-[family-name:var(--font-mono)] text-signal text-[11px] uppercase tracking-[0.12em]">
+              <span className="font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.1em]">
                 Location
               </span>
-              <span className="font-[family-name:var(--font-mono)] text-ghost text-[11px]">
+              <span className="font-[family-name:var(--font-mono)] text-ghost text-[10px]">
                 02
               </span>
             </div>
@@ -202,11 +200,11 @@ export const AboutSection = forwardRef((props, ref) => {
               </p>
             </div>
             <div className="flex items-center gap-3 mt-8">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-signal opacity-60 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-signal" />
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-signal opacity-50 animate-ping" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-signal" />
               </span>
-              <span className="font-[family-name:var(--font-mono)] text-signal text-[11px] uppercase tracking-[0.12em]">
+              <span className="font-[family-name:var(--font-mono)] text-signal text-[11px] uppercase tracking-[0.08em]">
                 Online now
               </span>
             </div>
@@ -221,10 +219,10 @@ export const AboutSection = forwardRef((props, ref) => {
         {/* ACT 3 — Skills marquee */}
         <div className="skills-block">
           <div className="flex items-center justify-between mb-8">
-            <span className="font-[family-name:var(--font-mono)] text-muted text-[11px] uppercase tracking-[0.12em]">
+            <span className="font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.1em]">
               Technologies & Tools
             </span>
-            <span className="font-[family-name:var(--font-mono)] text-ghost text-[11px]">
+            <span className="font-[family-name:var(--font-mono)] text-ghost text-[10px]">
               {allSkills.length} skills
             </span>
           </div>

@@ -213,23 +213,20 @@ export const ProjectsSection = forwardRef((props, ref) => {
             key={i}
             className={`prj-card prj-card-${i} flex-shrink-0 md:w-[85vw] md:h-[80vh] md:mr-[5vw] bg-surface relative group`}
           >
-            {/* Yellow left accent */}
-            <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-signal z-20" />
-
             <div className="flex flex-col md:flex-row h-full">
               {/* Info column */}
               <div className="md:w-[38%] p-8 md:p-12 flex flex-col justify-between min-w-0">
                 <div className="space-y-6">
                   {/* Meta row */}
                   <div className="prj-meta flex items-center justify-between">
-                    <span className="font-[family-name:var(--font-mono)] text-muted text-[11px] uppercase tracking-[0.12em]">
-                      PRJ.{String(i + 1).padStart(2, "0")}
+                    <span className="font-[family-name:var(--font-mono)] text-muted text-[11px] uppercase tracking-[0.1em]">
+                      {String(i + 1).padStart(2, "0")}
                       <span className="text-ghost"> · </span>
                       {project.company}
                       <span className="text-ghost"> · </span>
                       {project.year}
                     </span>
-                    <span className="font-[family-name:var(--font-mono)] text-signal text-[10px] uppercase tracking-[0.12em] border border-signal/40 px-2 py-0.5">
+                    <span className="font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.08em]">
                       {project.role}
                     </span>
                   </div>
@@ -252,7 +249,7 @@ export const ProjectsSection = forwardRef((props, ref) => {
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="prj-chip font-[family-name:var(--font-mono)] text-paper text-[10px] uppercase tracking-[0.08em] border border-ghost px-2 py-1 hover:border-signal hover:text-signal transition-colors duration-200"
+                        className="prj-chip font-[family-name:var(--font-mono)] text-muted text-[10px] uppercase tracking-[0.06em] border border-ghost px-2 py-1 hover:border-paper/30 hover:text-paper transition-colors duration-200"
                       >
                         {t}
                       </span>
@@ -282,18 +279,14 @@ export const ProjectsSection = forwardRef((props, ref) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-fill
-                    className="relative overflow-hidden inline-flex items-center gap-2 text-paper font-[family-name:var(--font-display)] text-sm px-4 py-2.5 -mx-4 border border-signal"
+                    className="relative overflow-hidden inline-flex items-center gap-2 text-paper font-[family-name:var(--font-display)] text-sm px-4 py-2.5 -mx-4 border border-ghost hover:border-paper/30 transition-colors duration-300"
                   >
                     <span className="relative z-10 flex items-center gap-2">
-                      <span
-                        className="w-1.5 h-1.5 rounded-full bg-signal"
-                        style={{ animation: "shimmer 2s ease-in-out infinite" }}
-                      />
                       Live site
                       <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">↗</span>
                     </span>
                   </a>
-                  <span className="font-[family-name:var(--font-mono)] text-ghost text-[10px] uppercase tracking-[0.12em]">
+                  <span className="font-[family-name:var(--font-mono)] text-muted text-[10px]">
                     {new URL(project.link).hostname.replace(/^www\./, "")}
                   </span>
                 </div>

@@ -95,12 +95,12 @@ export const ContactSection = forwardRef((props, ref) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-fill
-                  className="relative overflow-hidden flex items-center justify-between py-3 px-4 -mx-4 border-b border-ghost contact-reveal"
+                  className="relative overflow-hidden flex items-center justify-between py-3 px-4 -mx-4 border-b border-ghost contact-reveal group/link"
                 >
-                  <span className="relative z-10 font-[family-name:var(--font-mono)] text-muted text-sm">
+                  <span className="relative z-10 font-[family-name:var(--font-mono)] text-muted text-sm group-hover/link:text-paper transition-colors duration-200">
                     {social.name}
                   </span>
-                  <span className="relative z-10 text-muted">
+                  <span className="relative z-10 text-muted group-hover/link:text-paper transition-colors duration-200">
                     ↗
                   </span>
                 </a>
