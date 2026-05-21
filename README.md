@@ -1,6 +1,6 @@
 # Portfolio
 
-A personal portfolio website built with **Next.js**, **Tailwind CSS**, **GSAP**, and **Framer Motion**.
+A personal portfolio website built with **Astro** and **Tailwind CSS**.
 
 ## Live Demo
 
@@ -8,18 +8,8 @@ A personal portfolio website built with **Next.js**, **Tailwind CSS**, **GSAP**,
 
 ## Tech Stack
 
-- [Next.js](https://nextjs.org/) — React framework
+- [Astro](https://astro.build/) — Static site framework
 - [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS
-- [GSAP](https://gsap.com/) — Animations
-- [Framer Motion](https://www.framer.com/motion/) — UI animations
-- [Lenis](https://lenis.darkroom.engineering/) — Smooth scrolling
-
-## Features
-
-- Smooth scrolling with Lenis
-- GSAP-powered animations
-- Fully responsive design
-- Optimized with Next.js App Router
 
 ## Getting Started
 
@@ -28,27 +18,30 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:4321](http://localhost:4321) to view it in the browser.
 
 ## Project Structure
 
 ```
 src/
-├── app/          # Next.js app router pages
-├── components/   # Reusable UI components
-└── styles/       # Global styles
+├── assets/      # Images and SVG icons
+├── components/  # .astro section components
+├── data/        # Project, experience, and skills data
+├── layouts/     # Page layouts
+├── pages/       # Routes (index.astro)
+└── styles/      # Global CSS
 ```
 
 ## Build
 
 ```bash
 npm run build
-npm start
+npm run preview
 ```
 
 ## Prerequisites
 
-- Node.js >= 24.0.0
+- Node.js >= 20.0.0
 - npm
 
 ## License

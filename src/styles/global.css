@@ -21,14 +21,6 @@ html {
   background: #080808;
 }
 
-html.lenis {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
-}
-
 body {
   font-family: 'Space Grotesk', sans-serif;
   background: #080808;
@@ -47,12 +39,6 @@ body {
 ::-webkit-scrollbar-thumb { background: #222222; }
 ::-webkit-scrollbar-thumb:hover { background: #EDB507; }
 
-/* Hide cursor when custom is active */
-.cursor-none-custom,
-.cursor-none-custom * {
-  cursor: none !important;
-}
-
 /* ===== GRAIN OVERLAY ===== */
 .grain {
   position: relative;
@@ -60,51 +46,11 @@ body {
 
 .grain::before {
   content: '';
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 1;
-}
-
-/* ===== SIGNAL GLOW ===== */
-.signal-glow {
-  box-shadow: 0 0 60px -10px #EDB50730;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-@keyframes count-line {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-/* GSAP-revealed elements. Hidden until GSAP explicitly tweens them in.
-   Using visibility so the layout space is preserved and measurements stay
-   accurate (important for horizontal-scroll Projects track). */
-.gsap-hidden { visibility: hidden; opacity: 0; }
-
-@keyframes log-in {
-  from { opacity: 0; transform: translateX(-6px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-.log-entry {
-  animation: log-in 260ms cubic-bezier(.22,.61,.36,1) both;
-}
-
-@keyframes shimmer {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
 }
 
 /* ===== TEXT OUTLINED ===== */
@@ -113,16 +59,32 @@ body {
   color: transparent;
 }
 
-/* ===== MAGNETIC ===== */
-.magnetic {
-  display: inline-block;
-  transition: none;
+/* ===== CSS-ONLY AMBIENT EFFECTS ===== */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
-/* ===== CURSOR FILL ===== */
-/* When the radial fill is active, flip text to ink */
-.fill-active,
-.fill-active * {
-  color: #080808 !important;
-  transition: color 0.15s ease;
+.terminal-cursor {
+  animation: blink 1.1s steps(1, end) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.live-ping {
+  animation: ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Details summary marker removal */
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
 }
