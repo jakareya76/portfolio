@@ -28,13 +28,13 @@ const scopeColor = {
     <span class="text-signal">jakareya@portfolio</span>
     <span class="text-muted"> $ </span>
     <span class="text-paper">git log --oneline --author=jakareya</span>
-    <span class="inline-block w-[7px] h-[12px] bg-paper ml-1 align-[-1px] terminal-cursor"></span>
+    <span class="inline-block w-[7px] h-[12px] bg-paper ml-1 align-[-1px]"></span>
   </div>
 
   <ul class="px-5 md:px-6 pb-6 font-[family-name:var(--font-mono)] text-[12px] md:text-[13px] leading-relaxed">
     {
       experience.map((c, i) => (
-        <li class="border-l-2 border-transparent hover:border-signal/40 transition-colors duration-200 pl-2 -ml-2">
+        <li class="border-l-2 border-transparent hover:border-signal/40 pl-2 -ml-2">
           <details open={i === 0}>
             <summary class="py-2 flex flex-wrap items-baseline gap-x-2 gap-y-1">
               <span class="text-signal">{c.sha}</span>
@@ -64,7 +64,7 @@ const scopeColor = {
     <li class="pt-2 flex items-center">
       <span class="text-signal">jakareya@portfolio</span>
       <span class="text-muted"> $ </span>
-      <span class="inline-block w-[7px] h-[14px] bg-paper ml-1 terminal-cursor"></span>
+      <span class="inline-block w-[7px] h-[14px] bg-paper ml-1"></span>
     </li>
   </ul>
 </div>

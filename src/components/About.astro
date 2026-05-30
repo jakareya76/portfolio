@@ -97,10 +97,7 @@ const profileStats = [
           </p>
         </div>
         <div class="flex items-center gap-3 mt-8">
-          <span class="relative flex h-2 w-2">
-            <span class="absolute inline-flex h-full w-full rounded-full bg-signal opacity-60 live-ping"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-signal"></span>
-          </span>
+          <span class="inline-block rounded-full h-2 w-2 bg-signal"></span>
           <span class="font-[family-name:var(--font-mono)] text-signal text-[11px] uppercase tracking-[0.12em]">
             Open to opportunities
           </span>
@@ -126,7 +123,7 @@ const profileStats = [
         <div class="flex flex-wrap gap-x-8 md:gap-x-12 gap-y-3">
           {
             skills.map((skill) => (
-              <span class="font-[family-name:var(--font-mono)] text-paper text-sm md:text-base hover:text-signal transition-colors duration-200">
+              <span class="font-[family-name:var(--font-mono)] text-paper text-sm md:text-base hover:text-signal">
                 {skill}
               </span>
             ))
