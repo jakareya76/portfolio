@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "JAKAREYA AHMED — Full Stack Developer",
-  description = "Portfolio of Jakareya Ahmed — Full Stack Developer. Next.js, Node.js, Cloud.",
+  title = "Jakareya Ahmed — Full-Stack Developer",
+  description = "Jakareya Ahmed — full-stack developer building fast, reliable web systems with Next.js, Node.js, and PostgreSQL.",
 } = Astro.props;
 ---
 
@@ -16,15 +16,17 @@ const {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-void text-paper antialiased">
-    <div class="grain min-h-screen">
-      <slot />
-    </div>
+  <body class="bg-bg text-muted antialiased">
+    <slot />
   </body>
 </html>

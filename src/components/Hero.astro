@@ -1,110 +1,31 @@
 ---
-const trace = [
-  { label: "next.js", ms: 24, pct: 50 },
-  { label: "node", ms: 18, pct: 38 },
-  { label: "postgres", ms: 6, pct: 12 },
-];
+import { email } from "@/data/projects.js";
 ---
 
-<section id="home" class="min-h-screen relative z-10 flex flex-col">
-  <div class="flex items-center justify-between px-6 md:px-10 pt-24 md:pt-28 max-w-7xl mx-auto w-full">
-    <span class="font-[family-name:var(--font-mono)] text-[10px] text-muted uppercase tracking-[0.12em]">
-      Jakareya Portfolio — 2026
-    </span>
-    <span class="font-[family-name:var(--font-mono)] text-[10px] text-muted uppercase tracking-[0.12em]">
-      Dhaka · UTC+6
-    </span>
-  </div>
+<section id="top" class="max-w-3xl mx-auto px-6 pt-40 pb-24 md:pt-48 md:pb-32">
+  <p class="eyebrow mb-6">Full-stack developer · Dhaka, Bangladesh</p>
 
-  <div class="flex-1 flex items-center px-6 md:px-10 max-w-7xl mx-auto w-full py-16">
-    <div class="w-full">
-      <p class="font-[family-name:var(--font-mono)] text-[11px] text-signal uppercase tracking-[0.12em] mb-6">
-        Full Stack Developer
-      </p>
+  <h1
+    class="text-fg font-semibold"
+    style="font-size: clamp(40px, 8vw, 76px); line-height: 1.05; letter-spacing: -0.03em;"
+  >
+    Jakareya Ahmed
+  </h1>
 
-      <div
-        class="font-[family-name:var(--font-display)] font-bold"
-        style="font-size: clamp(52px, 11vw, 150px); line-height: 0.9; letter-spacing: -0.04em;"
-      >
-        <div class="text-paper">JAKAREYA</div>
-        <div class="text-signal">FULL STACK</div>
-        <div class="text-outline">DEVELOPER</div>
-      </div>
-    </div>
-  </div>
+  <p class="mt-8 max-w-xl text-muted text-lg md:text-xl leading-relaxed">
+    I design and build fast, reliable web systems — from frontend interfaces to
+    backend services and the cloud infrastructure behind them.
+  </p>
 
-  <div class="px-6 md:px-10 pb-10 max-w-7xl mx-auto w-full">
-    <div class="grid md:grid-cols-2 gap-12 md:gap-20">
-      <div>
-        <p class="text-muted text-base leading-relaxed max-w-sm">
-          I architect high-performance web systems that scale. Frontend to
-          backend, databases to cloud infrastructure — building the digital
-          future, one commit at a time.
-        </p>
-        <p class="font-[family-name:var(--font-mono)] text-ghost text-xs mt-6">
-          Next.js, Node.js, PostgreSQL, Azure, TypeScript
-        </p>
-      </div>
-
-      <div class="flex flex-col items-stretch md:items-end">
-        <div class="w-full md:w-[340px] border border-ghost bg-surface/60">
-          <div class="flex items-center justify-between px-4 py-2 border-b border-ghost">
-            <div class="flex items-center gap-2 font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.12em]">
-              <span class="text-signal">GET</span>
-              <span class="text-paper">/</span>
-              <span class="text-muted">→</span>
-              <span class="text-signal">200</span>
-            </div>
-            <span class="font-[family-name:var(--font-mono)] text-paper text-[10px] tabular-nums">
-              48ms
-            </span>
-          </div>
-          <div class="px-4 py-4 space-y-2.5 font-[family-name:var(--font-mono)] text-[11px]">
-            {
-              trace.map((t) => (
-                <div class="flex items-center gap-3">
-                  <span class="text-muted w-16 shrink-0">{t.label}</span>
-                  <div class="flex-1 h-1 bg-ghost relative overflow-hidden">
-                    <div
-                      class="absolute inset-y-0 left-0 bg-signal"
-                      style={`width: ${t.pct}%`}
-                    />
-                  </div>
-                  <span class="text-paper tabular-nums w-10 text-right">
-                    {t.ms}ms
-                  </span>
-                </div>
-              ))
-            }
-          </div>
-          <div class="px-4 py-2 border-t border-ghost font-[family-name:var(--font-mono)] text-[10px] text-ghost flex justify-between">
-            <span>trace id · 7b4a91</span>
-            <span>edge · dac1</span>
-          </div>
-        </div>
-
-        <div class="flex flex-col items-stretch md:items-end gap-2 mt-6">
-          <a
-            href="#projects"
-            class="font-[family-name:var(--font-display)] text-paper hover:text-signal text-base px-4 py-2"
-          >
-            View Projects →
-          </a>
-          <a
-            href="/jakareya-cv.pdf"
-            download
-            class="font-[family-name:var(--font-display)] text-muted hover:text-paper text-base px-4 py-2"
-          >
-            Download CV →
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="border-t border-ghost mt-10 pt-4 flex justify-end">
-      <span class="font-[family-name:var(--font-mono)] text-ghost text-[10px] tracking-[0.12em]">
-        001 / 004
-      </span>
-    </div>
+  <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm">
+    <a href="#work" class="text-fg hover:underline underline-offset-4">
+      View work →
+    </a>
+    <a href="/jakareya-cv.pdf" download class="text-muted hover:text-fg">
+      Download CV →
+    </a>
+    <a href={`mailto:${email}`} class="text-muted hover:text-fg">
+      Email →
+    </a>
   </div>
 </section>

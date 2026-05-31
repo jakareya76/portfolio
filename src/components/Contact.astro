@@ -1,84 +1,53 @@
 ---
-import { socialLinks } from "@/data/projects.js";
+import { socialLinks, email } from "@/data/projects.js";
 
 const year = new Date().getFullYear();
 ---
 
-<section id="contact" class="pt-24 lg:pt-32 pb-32 lg:pb-40 relative z-10">
-  <div class="max-w-7xl mx-auto px-6 md:px-10">
-    <div class="border-t border-ghost pt-4 mb-20">
-      <span class="font-[family-name:var(--font-mono)] text-muted text-[11px] uppercase tracking-[0.12em]">
-        004 / Let's Work
-      </span>
-    </div>
+<section id="contact" class="max-w-3xl mx-auto px-6 py-20 md:py-28 border-t border-line">
+  <h2 class="eyebrow mb-12 md:mb-16">Contact</h2>
 
-    <div class="grid md:grid-cols-2 gap-16 md:gap-20">
-      <div>
-        <h2
-          class="font-[family-name:var(--font-display)] font-bold text-paper leading-none"
-          style="font-size: clamp(44px, 7vw, 100px);"
-        >
-          Start a<br /><span class="text-signal">project</span>
-        </h2>
+  <h3
+    class="text-fg font-semibold"
+    style="font-size: clamp(30px, 6vw, 52px); line-height: 1.1; letter-spacing: -0.02em;"
+  >
+    Let's build something.
+  </h3>
 
+  <p class="mt-5 max-w-md text-muted leading-relaxed">
+    I'm open to new opportunities and collaborations. The fastest way to reach me
+    is by email.
+  </p>
+
+  <a
+    href={`mailto:${email}`}
+    class="inline-block mt-8 text-fg text-lg hover:underline underline-offset-4"
+  >
+    {email}
+  </a>
+
+  <div class="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+    {
+      socialLinks.map((social) => (
         <a
-          href="mailto:jakareya1306@gmail.com"
-          class="inline-block mt-10 px-4 py-3 -mx-4 hover:text-signal"
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted hover:text-fg"
         >
-          <span class="font-[family-name:var(--font-display)] text-paper hover:text-signal text-lg md:text-xl">
-            jakareya1306@gmail.com
-          </span>
+          {social.name} ↗
         </a>
+      ))
+    }
+    <a href="/jakareya-cv.pdf" download class="text-muted hover:text-fg">
+      CV ↓
+    </a>
+  </div>
 
-        <p class="font-[family-name:var(--font-mono)] text-muted text-xs mt-4">
-          Or
-          <a
-            href="/jakareya-cv.pdf"
-            download
-            class="text-paper underline underline-offset-4 hover:text-signal"
-          >
-            download my CV
-          </a>
-        </p>
-      </div>
-
-      <div class="flex flex-col justify-between">
-        <div class="space-y-4">
-          {
-            socialLinks.map((social) => (
-              <a
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center justify-between py-3 px-4 -mx-4 border-b border-ghost hover:border-signal/40 group"
-              >
-                <span class="font-[family-name:var(--font-mono)] text-muted group-hover:text-paper text-sm">
-                  {social.name}
-                </span>
-                <span class="text-muted group-hover:text-signal">↗</span>
-              </a>
-            ))
-          }
-        </div>
-
-        <div class="mt-12">
-          <p class="font-[family-name:var(--font-mono)] text-ghost text-xs">
-            Bangladesh — Remote
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="border-t border-ghost mt-24 pt-6 flex items-center justify-between">
-      <span class="font-[family-name:var(--font-mono)] text-ghost text-[10px]">
-        &copy; {year} Jakareya Ahmed
-      </span>
-      <a
-        href="#home"
-        class="font-[family-name:var(--font-mono)] text-ghost hover:text-signal text-[10px] px-3 py-1.5"
-      >
-        Back to top ↑
-      </a>
-    </div>
+  <div
+    class="mt-20 pt-6 border-t border-line flex items-center justify-between text-faint text-xs"
+  >
+    <span>© {year} Jakareya Ahmed</span>
+    <a href="#top" class="hover:text-fg">Back to top ↑</a>
   </div>
 </section>
