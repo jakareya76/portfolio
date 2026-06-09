@@ -22,7 +22,7 @@ export const portfolioProjects = [
     image: myops,
   },
   {
-    year: "2025",
+    year: "2026",
     title: "HelpPages",
     summary:
       "Full-stack AI documentation platform that generates docs from uploads, URLs, or web scraping, paired with a CMS, custom subdomains, and one-click publishing. Built end to end.",
