@@ -1,34 +1,34 @@
-import projectOne from "@/assets/images/project_one.webp";
-import projectTwo from "@/assets/images/project_two.webp";
-import projectThree from "@/assets/images/project_three.webp";
+import vehrbal from "@/assets/images/vehrbal.webp";
+import myops from "@/assets/images/myops.webp";
+import helppages from "@/assets/images/helppages.webp";
 
 export const portfolioProjects = [
   {
+    year: "2026",
+    title: "Vehrbal",
+    summary:
+      "AI scribe that turns patient conversations into HIPAA-compliant SOAP notes in seconds, with customizable templates and multi-format EHR-ready exports. Built the frontend and integrated the documentation APIs.",
+    tech: ["React", "Tailwind", "REST API"],
+    link: "https://app.vehrbal.ai",
+    image: vehrbal,
+  },
+  {
     year: "2025",
-    title: "Snapbuy",
+    title: "MyOps",
     summary:
-      "End-to-end ecommerce platform with an admin dashboard, secure multi-gateway checkout, and full user authentication.",
-    tech: ["Next.js", "Node.js", "PostgreSQL", "Stripe", "TypeScript"],
-    link: "https://snapbuy.vercel.app",
-    image: projectOne,
+      "AI-powered command center for real estate operations — workflow automation, real-time financial analytics, and an on-demand CFO assistant. Built the frontend and wired up the API integration.",
+    tech: ["React", "Tailwind", "REST API"],
+    link: "https://myops.ai",
+    image: myops,
   },
   {
-    year: "2024",
-    title: "Other Opinion",
+    year: "2025",
+    title: "HelpPages",
     summary:
-      "Real-time opinion-sharing platform with voting, profiles, and content moderation built on a realtime database.",
-    tech: ["React", "Firebase", "Realtime DB", "Tailwind"],
-    link: "https://other-options.web.app",
-    image: projectTwo,
-  },
-  {
-    year: "2024",
-    title: "Headline Hub",
-    summary:
-      "News aggregator pulling from multiple sources with categorized feeds and fast search, tuned for performance.",
-    tech: ["React", "News API", "Firebase", "Tailwind"],
-    link: "https://headline-hub-762d6.web.app",
-    image: projectThree,
+      "Full-stack AI documentation platform that generates docs from uploads, URLs, or web scraping, paired with a CMS, custom subdomains, and one-click publishing. Built end to end.",
+    tech: ["Next.js", "PostgreSQL", "Prisma", "Tailwind"],
+    link: "https://helppages.ai",
+    image: helppages,
   },
 ];
 
